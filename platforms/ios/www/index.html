@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+		<meta charset="UTF-8">
+        <link type="text/css" rel="stylesheet" href="css/main.css" />
+        <title>Ubicentrex</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery/jquery-2.0.2.min.js"></script>
+		<script type="text/javascript" language="javascript" src="js/config.js"></script>
+		<script type="text/javascript" language="javascript" src="js/soap.js"></script>
+		<script type="text/javascript" language="javascript" src="js/db.js"></script>
+		<script type="text/javascript" language="javascript" src="js/general.js"></script>
+		<script type="text/javascript" language="javascript" src="js/ui.js"></script>
+		<script type="text/javascript" language="javascript" src="js/console.js"></script>
+		<script type="text/javascript" language="javascript" src="js/group.js"></script>
+		<script type="text/javascript" language="javascript" src="js/agenda.js"></script>
+		<script type="text/javascript" language="javascript" src="js/message.js"></script>
+		<script type="text/javascript" language="javascript" src="js/contact.js"></script>
+		<script type="text/javascript" language="javascript" src="js/nonlu.js"></script>
+		<script type="text/javascript" language="javascript" src="js/search.js"></script>
+		<script type="text/javascript" language="javascript" src="js/sv.js"></script>
+		<script type="text/javascript" language="javascript" src="js/notification.js"></script>
+        <script type="text/javascript">
+        $(function(){
+        	document.addEventListener("deviceready", onDeviceReady, false);
+        	function onDeviceReady() {
+        		oconsole=new cconsole('oconsole','console');
+        		oconsole.fauto_login();
+        		document.addEventListener("menubutton", function(){
+        			oconsole.fnav();
+        		}, true);
+        		document.addEventListener("backbutton", function(){
+        			fback_history();
+        		}, true);
+				document.addEventListener("online", function(){
+					oconsole.fonline();
+        		}, false);
+        		document.addEventListener("offline", function(){
+        			oconsole.foffline();
+        		}, false);
+        		    		
+        		//push notification
+        		try 
+				{
+                	pushNotification = window.plugins.pushNotification;
+                	switch(device){
+	                	case "iPad":
+	                	case "iPhone":
+                        	pushNotification.register(
+             				function (token) {
+             	                // Your iOS push server needs to know the token before it can push to this device
+             	                // here is where you might want to send it the token for later use.
+             					mobile_push_id="ios"+token;
+             	            }, 
+	                		function (error) {
+             	            	ftoast('push notif error:'+ error);
+	                        }, 
+	                        {"badge":"true","sound":"true","alert":"true","ecb":"oconsole.onNotificationAPN"});
+	                	break;
+	                	case "Android":
+	                		pushNotification.register(
+	                		function(result) {
+	                        	console.log('push notif success:'+ result);
+	                        }, 
+	                        function (error) {
+	                        	console.log('push notif error:'+ error);
+	                        },
+	                        {"senderID":"153262826782","ecb":"oconsole.onNotification"});
+	                	break;
+                	}				
+                }catch(err) 
+				{ 
+					txt="There was an error on this page.\n"; 
+					txt+="Error description: " + err.message; 
+					ftoast(txt); 
+				}       		
+        	}       
+       
+       });			
+	   </script>
+    </body>
+</html>
