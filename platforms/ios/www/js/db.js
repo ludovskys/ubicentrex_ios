@@ -33,7 +33,6 @@ function cdb_sqlite(db_name,db_version,db_displayname,db_size){
 	this.db_version=db_version;
 	this.db_displayname=db_displayname;
 	this.db_size=db_size;
-    alert("window : "+window);
 	this.db = window.openDatabase(db_name, db_version, db_displayname, db_size);
 }
 
