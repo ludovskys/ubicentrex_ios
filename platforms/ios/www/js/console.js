@@ -329,7 +329,7 @@ cconsole.prototype.fset_grp=function(r){
 		}
 	}	
 	//supprimer l'histoire de rdvs
-	qry.push("delete from ncb_crm_actions where (sous_tp>2 and ddeb<'"+d2my()+" 00:00:00') or ddeb<'"+d2my(new Date(new Date().getTime()-90*24*60*60*1000))+" 00:00:00'");
+	qry.push("delete from ncb_crm_actions where (sous_tp>2 and ddeb<'"+d2my(new Date(new Date().getTime()-7*24*60*60*1000))+" 00:00:00') or ddeb<'"+d2my(new Date(new Date().getTime()-90*24*60*60*1000))+" 00:00:00'");
 	odb.query(qry,this);
 }
 
