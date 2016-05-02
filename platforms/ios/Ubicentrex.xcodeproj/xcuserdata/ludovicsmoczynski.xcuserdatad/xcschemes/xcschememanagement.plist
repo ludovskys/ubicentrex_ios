@@ -4,15 +4,65 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Gedo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Ubicentrex copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Ubicentrex.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>gedo.app.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1D6058900D05DD3D006BFB54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD55C39B1CD75D710020F503</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD55C3B01CD75D710020F503</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD55C3BB1CD75D710020F503</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD55C3CF1CD75DF80020F503</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD55C3E41CD75DF80020F503</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD55C3EF1CD75DF80020F503</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD55C4001CD75F8E0020F503</key>
 		<dict>
 			<key>primary</key>
 			<true/>
