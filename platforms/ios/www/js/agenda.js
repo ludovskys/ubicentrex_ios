@@ -1440,7 +1440,7 @@ cweek.prototype.fafficher_un_rdv=function(ardv,tbw){
 		wrdv.style.height=(nbrl*this.lheight+nbrl-1)+"px";
 		wrdv.style.top=top+"px";
 		
-		var nbrdv=+w.getAttribute("nbrdv");
+		var nbrdv=+arrayW[0].getAttribute("nbrdv");
 		var rl=(wwin-21)/this.ag_nbjours;
 		if(top==0 && this.ag_duree_rdv_std==this.oparent.ag_duree_rdv_std){
 			wrdv.style.left=4+nbrdv*rl/(nbrdv+2)+"px";
@@ -1456,10 +1456,8 @@ cweek.prototype.fafficher_un_rdv=function(ardv,tbw){
 		else if(this.oparent.rdvcolor)wrdv.style.backgroundColor=this.oparent.rdvcolor;
         
         
-        for (var w in arrayW) {
-            w.appendChild(wrdv);
-            w.setAttribute("nbrdv",nbrdv+1);
-        }
+        arrayW[0].appendChild(wrdv);
+        arrayW[0].setAttribute("nbrdv",nbrdv+1);
 		
 	} else {
         
