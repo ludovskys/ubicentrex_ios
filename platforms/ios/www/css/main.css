@@ -760,6 +760,23 @@ width:100%;
 border-radius: 2px 2px 0px 0px;
 }
 
+.mensuel_ajouter_rdv {
+    height:17px;
+    line-height:17px;
+    background:#fff;
+    color:#000;
+    font-size:16px;
+    width:100%;
+    -webkit-border-radius: 2px 2px 0px 0px;
+    border-radius: 2px 2px 0px 0px;
+    display: inline-flex;
+}
+
+.mensuel_ajouter_rdv img {
+    width: 17px;
+    height: 17px;
+}
+
 .mensuel_jour{
 overflow-y:scroll;
 -webkit-overflow-scrolling: touch;
@@ -767,7 +784,7 @@ font-size:16px;
 background:#F8F8F8;
 }
 
-.mensuel_jour p{
+.mensuel_jour p, .mensuel_ajouter_rdv p {
 margin:0;
 height:20px;
 line-height:20px;

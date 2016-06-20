@@ -467,6 +467,7 @@ cagenda.prototype.fshow_detail_rdv=function(ddeb,n_action_orig){
 
 cagenda.prototype.fopen_rdv=function(ddeb,n_action_orig,duree){
 	if(window.event)window.event.stopPropagation();
+    if(opopup) opopup.fdelete();
 	this.act_rdv=null;
 	var a=new Array();
 	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";	
@@ -1842,6 +1843,20 @@ cmensuel.prototype.fshow_rdvs_jour=function(obj){
 	}
 		
 	tx+="</div>";
+    
+    // Date cellule
+    var jdte = my2jd(dte);
+    // Date courante
+    var jdateToday = new Date().setHours(0,0,0,0);
+    
+    // Si la date de la cellule est postérieur ou égale à la date courante
+    if (jdte >= jdateToday) {
+        // Heure par défaut : 9h
+        dte = dte + " 09:00:00";
+        // On affiche un ligne pour pouvoir ajouter un rendez vous
+        tx+="<div class='mensuel_ajouter_rdv' onClick=\""+this.ref+".oparent.fopen_rdv('"+dte+"')\"><img src='img/icon_plus.png'><p style='font-weight: bold;'>Nouveau rendez-vous</p></div>";
+    }
+    
 	fcontext_menu(obj,tx,wwin*0.7);
 }
 
