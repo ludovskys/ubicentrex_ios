@@ -1461,7 +1461,7 @@ cweek.prototype.fafficher_un_rdv=function(ardv,tbw){
         
         var wid=this.pref+adt[0]+"_"+adt[1]+"_"+adt[2]+"_"+adt[3]+"_"+adt[4];
         if(!tbw)var wTemp=document.getElementById(wid);
-        else var d=tbw.querySelector('#'+wid);
+        else var wTemp=tbw.querySelector('#'+wid);
         var top=0;
         
         if(!wTemp){
