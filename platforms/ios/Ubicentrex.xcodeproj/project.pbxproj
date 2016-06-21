@@ -87,6 +87,47 @@
 		DDA1E5481D17EDD400E5F07C /* Ubicentrex.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA1E5471D17EDD400E5F07C /* Ubicentrex.xcassets */; };
 		DDA1E54A1D17EE4100E5F07C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA1E5491D17EE4100E5F07C /* Images.xcassets */; };
 		DDA1E54B1D17EF5800E5F07C /* Gedo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD55C3A71CD75D710020F503 /* Gedo.xcassets */; };
+		DDA1E5541D19896E00E5F07C /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DA1810823500FA85AD /* icon-76.png */; };
+		DDA1E5551D19896E00E5F07C /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
+		DDA1E5561D19896E00E5F07C /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D052E1370CCF300D202BF /* icon-72.png */; };
+		DDA1E5571D19896E00E5F07C /* Default-736h.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B4F2FE19D5E07200D9F7D8 /* Default-736h.png */; };
+		DDA1E5581D19896E00E5F07C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D052F1370CCF300D202BF /* icon.png */; };
+		DDA1E5591D19896E00E5F07C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
+		DDA1E55A1D19896E00E5F07C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
+		DDA1E55B1D19896E00E5F07C /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D61810823500FA85AD /* icon-50.png */; };
+		DDA1E55C1D19896E00E5F07C /* icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D91810823500FA85AD /* icon-60@2x.png */; };
+		DDA1E55D1D19896E00E5F07C /* Ubicentrex.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA1E5471D17EDD400E5F07C /* Ubicentrex.xcassets */; };
+		DDA1E55E1D19896E00E5F07C /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
+		DDA1E55F1D19896E00E5F07C /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088BBB7154F3926009F9C59 /* Default-Landscape@2x~ipad.png */; };
+		DDA1E5601D19896E00E5F07C /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088BBB8154F3926009F9C59 /* Default-Landscape~ipad.png */; };
+		DDA1E5611D19896E00E5F07C /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088BBB9154F3926009F9C59 /* Default-Portrait@2x~ipad.png */; };
+		DDA1E5621D19896E00E5F07C /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
+		DDA1E5631D19896E00E5F07C /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088BBBA154F3926009F9C59 /* Default-Portrait~ipad.png */; };
+		DDA1E5641D19896E00E5F07C /* Default-667h.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B4F2FD19D5E07200D9F7D8 /* Default-667h.png */; };
+		DDA1E5651D19896E00E5F07C /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
+		DDA1E5661D19896E00E5F07C /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088BBBB154F3926009F9C59 /* Default@2x~iphone.png */; };
+		DDA1E5671D19896E00E5F07C /* icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D81810823500FA85AD /* icon-60.png */; };
+		DDA1E5681D19896E00E5F07C /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088BBBC154F3926009F9C59 /* Default~iphone.png */; };
+		DDA1E5691D19896E00E5F07C /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		DDA1E56A1D19896E00E5F07C /* Default-Landscape-736h.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B4F2FF19D5E07200D9F7D8 /* Default-Landscape-736h.png */; };
+		DDA1E56B1D19896E00E5F07C /* icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C1856519D5FC0A00212699 /* icon-60@3x.png */; };
+		DDA1E56C1D19896E00E5F07C /* icon-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D71810823500FA85AD /* icon-50@2x.png */; };
+		DDA1E56D1D19896E00E5F07C /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
+		DDA1E56E1D19896E00E5F07C /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
+		DDA1E5701D19896E00E5F07C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		DDA1E5711D19896E00E5F07C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
+		DDA1E5721D19896E00E5F07C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
+		DDA1E5731D19896E00E5F07C /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 683E0E7984BB4AC5A1D33121 /* CDVConnection.m */; };
+		DDA1E5741D19896E00E5F07C /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCDEE68EE114BFDAD5C0B10 /* CDVReachability.m */; };
+		DDA1E5751D19896E00E5F07C /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E17906D5F62465AB4543092 /* CDVInAppBrowser.m */; };
+		DDA1E5761D19896E00E5F07C /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F649D833B34AE49283FA7C /* AppDelegate+notification.m */; };
+		DDA1E5771D19896E00E5F07C /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4840346808DB468B8C38389C /* PushPlugin.m */; };
+		DDA1E5791D19896E00E5F07C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		DDA1E57A1D19896E00E5F07C /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
+		DDA1E57B1D19896E00E5F07C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		DDA1E57C1D19896E00E5F07C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */; };
+		DDA1E57D1D19896E00E5F07C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A29A2CDC91D40E0A52247D6 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DDA1E5841D198A9700E5F07C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA1E5831D198A9700E5F07C /* Images.xcassets */; };
 		FA528A4A572E4FFFBF6CE92C /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F649D833B34AE49283FA7C /* AppDelegate+notification.m */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +147,13 @@
 			remoteInfo = CordovaLib;
 		};
 		DD55C4021CD75F8E0020F503 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = CordovaLib;
+		};
+		DDA1E5511D19896E00E5F07C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
 			proxyType = 1;
@@ -162,18 +210,7 @@
 		8D9933A308A046908204C516 /* CDVReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVReachability.h; path = "cordova-plugin-network-information/CDVReachability.h"; sourceTree = "<group>"; };
 		9FCDEE68EE114BFDAD5C0B10 /* CDVReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVReachability.m; path = "cordova-plugin-network-information/CDVReachability.m"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		DD55C39E1CD75D710020F503 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		DD55C39F1CD75D710020F503 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DD55C3A21CD75D710020F503 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DD55C3A41CD75D710020F503 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DD55C3A51CD75D710020F503 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DD55C3A71CD75D710020F503 /* Gedo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Gedo.xcassets; sourceTree = "<group>"; };
-		DD55C3AA1CD75D710020F503 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DD55C3AC1CD75D710020F503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD55C3B51CD75D710020F503 /* gedo_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gedo_appTests.m; sourceTree = "<group>"; };
-		DD55C3B71CD75D710020F503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD55C3C01CD75D710020F503 /* gedo_appUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gedo_appUITests.m; sourceTree = "<group>"; };
-		DD55C3C21CD75D710020F503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD55C3A71CD75D710020F503 /* Gedo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Gedo.xcassets; path = ../../gedo.app/Gedo.xcassets; sourceTree = "<group>"; };
 		DD55C3D21CD75DF80020F503 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD55C3D31CD75DF80020F503 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DD55C3D61CD75DF80020F503 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -182,15 +219,13 @@
 		DD55C3DB1CD75DF80020F503 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD55C3DE1CD75DF80020F503 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD55C3E01CD75DF80020F503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD55C3E91CD75DF80020F503 /* GedoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GedoTests.m; sourceTree = "<group>"; };
-		DD55C3EB1CD75DF80020F503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD55C3F41CD75DF80020F503 /* GedoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GedoUITests.m; sourceTree = "<group>"; };
-		DD55C3F61CD75DF80020F503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD55C4311CD75F8E0020F503 /* Gedo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gedo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD55C4321CD75F8E0020F503 /* Ubicentrex copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Ubicentrex copy-Info.plist"; path = "/Users/ludovicsmoczynski/Documents/ubicentrex_app/ubicentrex ios/platforms/ios/Ubicentrex copy-Info.plist"; sourceTree = "<absolute>"; };
 		DDA1E5471D17EDD400E5F07C /* Ubicentrex.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Ubicentrex.xcassets; path = Ubicentrex/Ubicentrex.xcassets; sourceTree = SOURCE_ROOT; };
 		DDA1E5491D17EE4100E5F07C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
+		DDA1E5811D19896E00E5F07C /* Ubicentrex copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ubicentrex copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDA1E5821D19896E00E5F07C /* Ubicentrex copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Ubicentrex copy2-Info.plist"; path = "/Users/ludovicsmoczynski/Documents/ubicentrex_app/ubicentrex ios/platforms/ios/Ubicentrex copy2-Info.plist"; sourceTree = "<absolute>"; };
+		DDA1E5831D198A9700E5F07C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Ubicentrex copy/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F3F649D833B34AE49283FA7C /* AppDelegate+notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; };
@@ -224,6 +259,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDA1E5781D19896E00E5F07C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDA1E5791D19896E00E5F07C /* AssetsLibrary.framework in Frameworks */,
+				DDA1E57A1D19896E00E5F07C /* libCordova.a in Frameworks */,
+				DDA1E57B1D19896E00E5F07C /* CoreGraphics.framework in Frameworks */,
+				DDA1E57C1D19896E00E5F07C /* MobileCoreServices.framework in Frameworks */,
+				DDA1E57D1D19896E00E5F07C /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -245,6 +292,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* Ubicentrex.app */,
 				DD55C4311CD75F8E0020F503 /* Gedo.app */,
+				DDA1E5811D19896E00E5F07C /* Ubicentrex copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,22 +302,17 @@
 			children = (
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
-				EB87FDF21871DA7A0020F90C /* merges */,
 				EB87FDF11871DA420020F90C /* Staging */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				307C750510C5A3420062BCA9 /* Plugins */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				DD55C39D1CD75D710020F503 /* gedo.app */,
-				DD55C3B41CD75D710020F503 /* gedo.appTests */,
-				DD55C3BF1CD75D710020F503 /* gedo.appUITests */,
 				DD55C3D11CD75DF80020F503 /* Gedo */,
-				DD55C3E81CD75DF80020F503 /* GedoTests */,
-				DD55C3F31CD75DF80020F503 /* GedoUITests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				DD55C4321CD75F8E0020F503 /* Ubicentrex copy-Info.plist */,
+				DDA1E5821D19896E00E5F07C /* Ubicentrex copy2-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -287,6 +330,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DD55C3A71CD75D710020F503 /* Gedo.xcassets */,
+				DDA1E5831D198A9700E5F07C /* Images.xcassets */,
 				DDA1E5471D17EDD400E5F07C /* Ubicentrex.xcassets */,
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
@@ -372,47 +417,6 @@
 			path = splash;
 			sourceTree = "<group>";
 		};
-		DD55C39D1CD75D710020F503 /* gedo.app */ = {
-			isa = PBXGroup;
-			children = (
-				DD55C39E1CD75D710020F503 /* AppDelegate.h */,
-				DD55C39F1CD75D710020F503 /* AppDelegate.m */,
-				DD55C3A41CD75D710020F503 /* ViewController.h */,
-				DD55C3A51CD75D710020F503 /* ViewController.m */,
-				DD55C3A71CD75D710020F503 /* Gedo.xcassets */,
-				DD55C3A91CD75D710020F503 /* Main.storyboard */,
-				DD55C3AC1CD75D710020F503 /* Info.plist */,
-				DD55C3A11CD75D710020F503 /* Supporting Files */,
-			);
-			path = gedo.app;
-			sourceTree = "<group>";
-		};
-		DD55C3A11CD75D710020F503 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DD55C3A21CD75D710020F503 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DD55C3B41CD75D710020F503 /* gedo.appTests */ = {
-			isa = PBXGroup;
-			children = (
-				DD55C3B51CD75D710020F503 /* gedo_appTests.m */,
-				DD55C3B71CD75D710020F503 /* Info.plist */,
-			);
-			path = gedo.appTests;
-			sourceTree = "<group>";
-		};
-		DD55C3BF1CD75D710020F503 /* gedo.appUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DD55C3C01CD75D710020F503 /* gedo_appUITests.m */,
-				DD55C3C21CD75D710020F503 /* Info.plist */,
-			);
-			path = gedo.appUITests;
-			sourceTree = "<group>";
-		};
 		DD55C3D11CD75DF80020F503 /* Gedo */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,24 +439,6 @@
 				DD55C3D61CD75DF80020F503 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DD55C3E81CD75DF80020F503 /* GedoTests */ = {
-			isa = PBXGroup;
-			children = (
-				DD55C3E91CD75DF80020F503 /* GedoTests.m */,
-				DD55C3EB1CD75DF80020F503 /* Info.plist */,
-			);
-			path = GedoTests;
-			sourceTree = "<group>";
-		};
-		DD55C3F31CD75DF80020F503 /* GedoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DD55C3F41CD75DF80020F503 /* GedoUITests.m */,
-				DD55C3F61CD75DF80020F503 /* Info.plist */,
-			);
-			path = GedoUITests;
 			sourceTree = "<group>";
 		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
@@ -505,6 +491,25 @@
 			productReference = DD55C4311CD75F8E0020F503 /* Gedo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DDA1E54F1D19896E00E5F07C /* Ubicentrex copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDA1E57E1D19896E00E5F07C /* Build configuration list for PBXNativeTarget "Ubicentrex copy" */;
+			buildPhases = (
+				DDA1E5521D19896E00E5F07C /* Copy www directory */,
+				DDA1E5531D19896E00E5F07C /* Resources */,
+				DDA1E56F1D19896E00E5F07C /* Sources */,
+				DDA1E5781D19896E00E5F07C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDA1E5501D19896E00E5F07C /* PBXTargetDependency */,
+			);
+			name = "Ubicentrex copy";
+			productName = Ubicentrex;
+			productReference = DDA1E5811D19896E00E5F07C /* Ubicentrex copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -548,6 +553,7 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Ubicentrex */,
 				DD55C4001CD75F8E0020F503 /* Gedo */,
+				DDA1E54F1D19896E00E5F07C /* Ubicentrex copy */,
 			);
 		};
 /* End PBXProject section */
@@ -632,6 +638,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDA1E5531D19896E00E5F07C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDA1E5541D19896E00E5F07C /* icon-76.png in Resources */,
+				DDA1E5551D19896E00E5F07C /* icon-40@2x.png in Resources */,
+				DDA1E5561D19896E00E5F07C /* icon-72.png in Resources */,
+				DDA1E5571D19896E00E5F07C /* Default-736h.png in Resources */,
+				DDA1E5581D19896E00E5F07C /* icon.png in Resources */,
+				DDA1E5591D19896E00E5F07C /* icon@2x.png in Resources */,
+				DDA1E55A1D19896E00E5F07C /* MainViewController.xib in Resources */,
+				DDA1E55B1D19896E00E5F07C /* icon-50.png in Resources */,
+				DDA1E55C1D19896E00E5F07C /* icon-60@2x.png in Resources */,
+				DDA1E5841D198A9700E5F07C /* Images.xcassets in Resources */,
+				DDA1E55D1D19896E00E5F07C /* Ubicentrex.xcassets in Resources */,
+				DDA1E55E1D19896E00E5F07C /* icon-small.png in Resources */,
+				DDA1E55F1D19896E00E5F07C /* Default-Landscape@2x~ipad.png in Resources */,
+				DDA1E5601D19896E00E5F07C /* Default-Landscape~ipad.png in Resources */,
+				DDA1E5611D19896E00E5F07C /* Default-Portrait@2x~ipad.png in Resources */,
+				DDA1E5621D19896E00E5F07C /* icon-small@2x.png in Resources */,
+				DDA1E5631D19896E00E5F07C /* Default-Portrait~ipad.png in Resources */,
+				DDA1E5641D19896E00E5F07C /* Default-667h.png in Resources */,
+				DDA1E5651D19896E00E5F07C /* icon-40.png in Resources */,
+				DDA1E5661D19896E00E5F07C /* Default@2x~iphone.png in Resources */,
+				DDA1E5671D19896E00E5F07C /* icon-60.png in Resources */,
+				DDA1E5681D19896E00E5F07C /* Default~iphone.png in Resources */,
+				DDA1E5691D19896E00E5F07C /* Default-568h@2x~iphone.png in Resources */,
+				DDA1E56A1D19896E00E5F07C /* Default-Landscape-736h.png in Resources */,
+				DDA1E56B1D19896E00E5F07C /* icon-60@3x.png in Resources */,
+				DDA1E56C1D19896E00E5F07C /* icon-50@2x.png in Resources */,
+				DDA1E56D1D19896E00E5F07C /* icon-76@2x.png in Resources */,
+				DDA1E56E1D19896E00E5F07C /* icon-72@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -651,6 +692,21 @@
 			showEnvVarsInLog = 0;
 		};
 		DD55C4031CD75F8E0020F503 /* Copy www directory */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy www directory";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cordova/lib/copy-www-build-step.sh";
+			showEnvVarsInLog = 0;
+		};
+		DDA1E5521D19896E00E5F07C /* Copy www directory */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -698,6 +754,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDA1E56F1D19896E00E5F07C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDA1E5701D19896E00E5F07C /* main.m in Sources */,
+				DDA1E5711D19896E00E5F07C /* AppDelegate.m in Sources */,
+				DDA1E5721D19896E00E5F07C /* MainViewController.m in Sources */,
+				DDA1E5731D19896E00E5F07C /* CDVConnection.m in Sources */,
+				DDA1E5741D19896E00E5F07C /* CDVReachability.m in Sources */,
+				DDA1E5751D19896E00E5F07C /* CDVInAppBrowser.m in Sources */,
+				DDA1E5761D19896E00E5F07C /* AppDelegate+notification.m in Sources */,
+				DDA1E5771D19896E00E5F07C /* PushPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -711,17 +782,14 @@
 			name = CordovaLib;
 			targetProxy = DD55C4021CD75F8E0020F503 /* PBXContainerItemProxy */;
 		};
+		DDA1E5501D19896E00E5F07C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CordovaLib;
+			targetProxy = DDA1E5511D19896E00E5F07C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DD55C3A91CD75D710020F503 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DD55C3AA1CD75D710020F503 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DD55C3DD1CD75DF80020F503 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -988,6 +1056,88 @@
 			};
 			name = Release;
 		};
+		DDA1E57F1D19896E00E5F07C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: UBICENTREX (7Y7S43Z66M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: UBICENTREX (7Y7S43Z66M)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ubicentrex/Ubicentrex-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
+					"\"$(OBJROOT)/UninstalledProducts/include\"",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
+				);
+				INFOPLIST_FILE = "Ubicentrex copy2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					CoreFoundation,
+					"-weak_framework",
+					UIKit,
+					"-weak_framework",
+					AVFoundation,
+					"-weak_framework",
+					CoreMedia,
+					"-weak-lSystem",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "52633cc8-c86f-4b4f-891d-0b3d62a209b8";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DDA1E5801D19896E00E5F07C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: UBICENTREX (7Y7S43Z66M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: UBICENTREX (7Y7S43Z66M)";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ubicentrex/Ubicentrex-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
+					"\"$(OBJROOT)/UninstalledProducts/include\"",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
+				);
+				INFOPLIST_FILE = "Ubicentrex copy2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					CoreFoundation,
+					"-weak_framework",
+					UIKit,
+					"-weak_framework",
+					AVFoundation,
+					"-weak_framework",
+					CoreMedia,
+					"-weak-lSystem",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "52633cc8-c86f-4b4f-891d-0b3d62a209b8";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1014,6 +1164,15 @@
 			buildConfigurations = (
 				DD55C42F1CD75F8E0020F503 /* Debug */,
 				DD55C4301CD75F8E0020F503 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDA1E57E1D19896E00E5F07C /* Build configuration list for PBXNativeTarget "Ubicentrex copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDA1E57F1D19896E00E5F07C /* Debug */,
+				DDA1E5801D19896E00E5F07C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
