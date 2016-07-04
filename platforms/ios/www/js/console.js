@@ -142,7 +142,7 @@ cconsole.prototype.flogin_clb=function(r,rt,myobj,p){
 			document.getElementById(myobj.pref+'username').value=p.ncb_ident;
 			document.getElementById(myobj.pref+'pwd').value=p.ncb_mdp;
 		}		
-		ftoast("Votre indentifiant ou mot de passe n'est pas valide, veuillez les vérifier et vous reconnecter.");
+		ftoast("Votre identifiant ou mot de passe n'est pas valide, veuillez les vérifier et vous reconnecter.");
 		return false;
 	}else{
 		user=xmltag2array(res);
