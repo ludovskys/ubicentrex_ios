@@ -233,6 +233,47 @@ ccontact.prototype.fsave=function(n){
 	req.param4=document.getElementById(this.pref+"rmq4").innerHTML;
 	req.param5=document.getElementById(this.pref+"rmq5").innerHTML;
 	req.nfam_nom_usuel=document.getElementById(this.pref+"famille").value;
+    
+    // Téléphones (v2)
+    req.atel = {};
+    
+    var nbTel = 1;
+    
+    if (req.tel_mobile) {
+        var atelMobile = {};
+        atelMobile.bdef = nbTel;
+        atelMobile.des = "T. Mobile";
+        atelMobile.ordre = nbTel;
+        atelMobile.val = req.tel_mobile;
+        
+        req.atel[nbTel] = atelMobile;
+        
+        nbTel++;
+    }
+    
+    if (req.tel_pro) {
+        var atelPro = {};
+        atelPro.bdef = nbTel;
+        atelPro.des = "T. Prof";
+        atelPro.ordre = nbTel;
+        atelPro.val = req.tel_pro;
+        
+        req.atel[nbTel] = atelPro;
+        
+        nbTel++;
+    }
+    
+    if (req.tel_pri) {
+        var atelPri = {};
+        atelPri.bdef = nbTel;
+        atelPri.des = "T. Privé";
+        atelPri.ordre = nbTel;
+        atelPri.val = req.tel_pri;
+        
+        req.atel[nbTel] = atelPri;
+        
+        nbTel++;
+    }
 	
 	//adresses
 	req.adresses={};
