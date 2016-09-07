@@ -28,12 +28,131 @@ function update_qry(db_name,_params,where){
 	return qry;
 }
 
+
+
+function ncb_sys_contacts_table() {
+    return "CREATE TABLE IF NOT EXISTS ncb_sys_contacts (" +
+    "n INTEGER PRIMARY KEY," +
+    "ncb_ident TEXT,ncb_mdp TEXT," +
+    "nsoc0 INTEGER,nsoc INTEGER," +
+    "civilite TEXT,nom_usuel TEXT,nom TEXT,prenom TEXT," +
+    "tel_mobile TEXT,tel_pri TEXT,tel_pro TEXT,fax_pro TEXT,mail1 TEXT," +
+    "clic_action INTEGER," +
+    "n_sys_contact_pere INTEGER," +
+    "rdvcolor TEXT,ag_duree_rdv_std INTEGER,ag_debut_agenda INTEGER,ag_fin_agenda INTEGER,ag_nbjours INTEGER," +
+    "ldroits TEXT)";
+}
+
+function ind_contact_ident_index() {
+    return "CREATE UNIQUE INDEX IF NOT EXISTS ind_contact_ident on ncb_sys_contacts(n_sys_contact_pere,ncb_ident,ncb_mdp)";
+}
+
+function ind_contact_nom_index() {
+    return "CREATE INDEX IF NOT EXISTS ind_contact_nom on ncb_sys_contacts(nom_usuel,nom,prenom)";
+}
+
+function ncb_crm_actions_table() {
+    return "CREATE TABLE IF NOT EXISTS ncb_crm_actions (" +
+    "n_societe INTEGER," +
+    "n INTEGER ," +
+    "n_tp_action INTEGER," +
+    "n_action_orig INTEGER,sous_tp INTEGER," +
+    "sous_tp2 INTEGER," +
+    "date_creation TIMESTAMP," +
+    "dmod TIMESTAMP," +
+    "n_crm_clients INTEGER," +
+    "n_utilisateurs INTEGER," +
+    "txt TEXT,lpj TEXT,lpj_name TEXT,resultat TEXT," +
+    "perio_orig INTEGER," +
+    "lco INTEGER,objet TEXT,emplacement TEXT," +
+    "ddeb TIMESTAMP,dfin TIMESTAMP," +
+    "jentier INTEGER,cout INTEGER," +
+    "archive TEXT," +
+    "catcouleur TEXT,nmotif INTEGER," +
+    "ndossier INTEGER,nom_usuel_ut TEXT," +
+    "rappel INTEGER,nv_client INTEGER,pasvenu INTEGER,dispo INTEGER," +
+    "vis INTEGER,old INTEGER,prive INTEGER,lu INTEGER,trait INTEGER,depl INTEGER," +
+    "imp INTEGER,nonfact INTEGER,webag INTEGER," +
+    "lmedia TEXT,historique TEXT,copied INTEGER," +
+    "PRIMARY KEY (n_action_orig, sous_tp))";
+}
+
+function ind_action_dte_index() {
+    return "CREATE INDEX IF NOT EXISTS ind_action_dte on ncb_crm_actions(ddeb,dfin,n_tp_action)";
+}
+
+function ind_action_ncli_index() {
+    return "CREATE INDEX IF NOT EXISTS ind_action_ncli on ncb_crm_actions(n_crm_clients)";
+}
+
+function ncb_crm_messages_table() {
+    return "CREATE TABLE IF NOT EXISTS ncb_crm_messages (" +
+    "n INTEGER PRIMARY KEY,n_crm_clients INTEGER,date_creation TIMESTAMP," +
+    "lco INTEGER,objet TEXT,txt TEXT,n_utilisateurs INTEGER," +
+    "catcouleur TEXT,id_externe INTEGER,sous_tp2 INTEGER,sous_tp INTEGER," +
+    "lu INTEGER,old INTEGER,trait INTEGER,n_action_orig INTEGER," +
+    "lpj TEXT,lpj_name TEXT,emplacement TEXT,prive INTEGER,msg_cat TEXT,important INTEGER," +
+    "cli_societe INTEGER,cli_nom TEXT,cli_prenom TEXT,cli_nom_usuel TEXT,cli_fax_pro TEXT,cli_tel_mobile TEXT," +
+    "cli_mail TEXT,cli_media TEXT,ut_societe INTEGER,ldroitsut TEXT,ut_nom TEXT,ut_prenom TEXT,ut_nom_usuel TEXT," +
+    "co_tel_pri TEXT,co_tel_pro TEXT,co_tel_mobile TEXT,co_dte_naissance TEXT," +
+    "co_mail1 TEXT,co_tel_adsl TEXT,co_tel_autre TEXT,co_tel_autre_des TEXT," +
+    "ndossier INTEGER,dossier_nom TEXT,dossier_mail TEXT,dossier_fax_pro TEXT,dossier_tel_mobile TEXT," +
+    "dossier_media TEXT,dossier_societe INTEGER)";
+}
+
+function ind_msg_ndossier_index() {
+    return "CREATE INDEX IF NOT EXISTS ind_msg_ndossier on ncb_crm_messages(ndossier,date_creation)";
+}
+
+function ncb_tp_creneaux_table() {
+    return "CREATE TABLE IF NOT EXISTS ncb_tp_creneaux(" +
+    "n INTEGER PRIMARY KEY,rang INTEGER," +
+    "ncli INTEGER,nsoc INTEGER,nsoc0 INTEGER,ngroup INTEGER," +
+    "des TEXT,couleur TEXT," +
+    "dispo INTEGER,duree INTEGER," +
+    "txt TEXT,web TEXT,lmotif TEXT,lmotif_des TEXT," +
+    "nmotifdef INTEGER,nbrdv INTEGER,ordre INTEGER," +
+    "instruction TEXT,txt_rdv TEXT)";
+}
+
+function ind_creneaux_ncli_table() {
+    return "CREATE INDEX IF NOT EXISTS ind_creneaux_ncli on ncb_tp_creneaux(ncli,nsoc)";
+}
+
+function ncb_tp_motifs_table() {
+    return "CREATE TABLE IF NOT EXISTS ncb_tp_motifs(" +
+    "n INTEGER PRIMARY KEY,rang INTEGER," +
+    "ncli INTEGER,nsoc INTEGER,nsoc0 INTEGER,ngroup INTEGER," +
+    "des TEXT,txt TEXT,couleur TEXT,gcalid TEXT," +
+    "duree INTEGER,rappel INTEGER,ordre INTEGER," +
+    "instruction TEXT,web INTEGER,rappel_msg TEXT)";
+}
+
+function ind_motifs_ncli_table() {
+    return "CREATE INDEX IF NOT EXISTS ind_motifs_ncli on ncb_tp_motifs(ncli,nsoc)";
+}
+
+function ncb_local_config_table() {
+    return "CREATE TABLE IF NOT EXISTS ncb_local_config(" +
+    "ncli INTEGER PRIMARY KEY," +
+    "ag_last_sync TIMESTAMP,msg_last_sync TIMESTAMP,con_last_sync TIMESTAMP," +
+    "ag_aff TEXT,interval_ag INTEGER,interval_msg INTEGER,interval_con INTEGER)";
+}
+
+
+
+
 function cdb_sqlite(db_name,db_version,db_displayname,db_size){
+    
 	this.db_name=db_name;
 	this.db_version=db_version;
 	this.db_displayname=db_displayname;
 	this.db_size=db_size;
 	this.db = window.openDatabase(db_name, db_version, db_displayname, db_size);
+}
+
+cdb_sqlite.prototype.transaction=function(populateDB, errorCB, successCB){
+    this.db.transaction(populateDB, errorCB, successCB);
 }
 
 cdb_sqlite.prototype.query=function(qry,myobj,fsuccess_clb,ferror_clb,data_tp){
@@ -114,7 +233,7 @@ cdb_sqlite.prototype.fsuccess_request=function(tx, results){
 	odb.fsuccess_clb(odb.myobj,p);
 }
 
-var odb=new cdb_sqlite("ubicentrex_db", "1.0", "ubicentrex_db", 1024*1024*40);
+var odb;
 
 var ncb_sys_contacts_field=new Array('n','ncb_ident','ncb_mdp','nsoc0','nsoc','civilite','nom_usuel','nom','prenom',
 		'tel_mobile','tel_pri','tel_pro','fax_pro','clic_action','mail1','n_sys_contact_pere',
@@ -138,3 +257,6 @@ var ncb_tp_motifs_field=new Array('n','rang','ncli','nsoc','nsoc0','ngroup','des
 		'duree','rappel','ordre','instruction','web','rappel_msg');
 
 var ncb_local_config_field=new Array('ncli','ag_last_sync','msg_last_sync','con_last_sync','ag_aff','interval_ag','interval_msg','interval_con');
+
+
+
