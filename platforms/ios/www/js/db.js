@@ -310,11 +310,14 @@ var odb=new cdb_sqlite("ubicentrex_db", "", "ubicentrex_db", 1024*1024*40);
 // Création des tables et index
 odb.transaction(populateDB, errorCB, successCB);
 
-alert("version : "+odb.db.version);
+alert("Db version : "+odb.db.version);
 
 if (odb.db_version == "1.0") {
 	
 	try {
+		
+		alert("Update db 1.0 from 2.0");
+		
 		odb.changeVersion("1.0", "2.0",
 						 
 						 function(trans) {
@@ -325,11 +328,13 @@ if (odb.db_version == "1.0") {
 						 //used for error
 						 function(e) {
 							log(JSON.stringify(e));
+							alert("Update db version 2.0 error :"+e);
 						 },
 						 
 						 //used for success
 						 function() {
 							log(db.version);
+							alert("Update db version 2.0 success!");
 		 				 });
 		
 	} catch(e) {
