@@ -29,6 +29,7 @@ function update_qry(db_name,_params,where){
 }
 
 
+/* Requêtes créations tanbles */
 
 function ncb_sys_contacts_table() {
     return "CREATE TABLE IF NOT EXISTS ncb_sys_contacts (" +
@@ -139,8 +140,21 @@ function ncb_local_config_table() {
     "ag_aff TEXT,interval_ag INTEGER,interval_msg INTEGER,interval_con INTEGER)";
 }
 
-
-
+function ncb_sys_contacts_tel_table() {
+	return "CREATE TABLE IF NOT EXISTS ncb_sys_contacts_tel (" +
+	"nsoc INTEGER," +
+	"nsoc0 INTEGER," +
+	"nco INTEGER," +
+	"des TEXT," +
+	"val TEXT," +
+	"rq TEXT," +
+	"tp TEXT," +
+	"msq INTEGER," +
+	"dcre TIMESTAMP," +
+	"suppr TIMESTAMP," +
+	"ordre INTEGER," +
+	"bdef INTEGER)";
+}
 
 function cdb_sqlite(db_name,db_version,db_displayname,db_size){
     
@@ -233,8 +247,6 @@ cdb_sqlite.prototype.fsuccess_request=function(tx, results){
 	odb.fsuccess_clb(odb.myobj,p);
 }
 
-var odb;
-
 var ncb_sys_contacts_field=new Array('n','ncb_ident','ncb_mdp','nsoc0','nsoc','civilite','nom_usuel','nom','prenom',
 		'tel_mobile','tel_pri','tel_pro','fax_pro','clic_action','mail1','n_sys_contact_pere',
 		'rdvcolor','ag_duree_rdv_std','ag_debut_agenda','ag_fin_agenda','ag_nbjours','ldroits');
@@ -257,6 +269,74 @@ var ncb_tp_motifs_field=new Array('n','rang','ncli','nsoc','nsoc0','ngroup','des
 		'duree','rappel','ordre','instruction','web','rappel_msg');
 
 var ncb_local_config_field=new Array('ncli','ag_last_sync','msg_last_sync','con_last_sync','ag_aff','interval_ag','interval_msg','interval_con');
+
+
+
+
+// Populate the database
+function populateDB(tx) {
+    tx.executeSql(ncb_sys_contacts_table());
+    tx.executeSql(ind_contact_ident_index());
+    tx.executeSql(ind_contact_nom_index());
+    
+    tx.executeSql(ncb_crm_actions_table());
+    tx.executeSql(ind_action_dte_index());
+    tx.executeSql(ind_action_ncli_index());
+    
+    tx.executeSql(ncb_crm_messages_table());
+    tx.executeSql(ind_msg_ndossier_index());
+    
+    tx.executeSql(ncb_tp_creneaux_table());
+    tx.executeSql(ind_creneaux_ncli_table());
+    
+    tx.executeSql(ncb_tp_motifs_table());
+    tx.executeSql(ind_motifs_ncli_table());
+    
+    tx.executeSql(ncb_local_config_table());
+}
+
+// Transaction error callback
+function errorCB(tx, err) {
+    alert("Populate db version 1.0 error : "+err);
+}
+
+// Transaction success callback
+function successCB() {
+    alert("Populate db version 1.0 success!");
+}
+
+// Crée la bdd
+var odb=new cdb_sqlite("ubicentrex_db", "", "ubicentrex_db", 1024*1024*40);
+// Création des tables et index
+odb.transaction(populateDB, errorCB, successCB);
+
+alert("version : "+odb.db.version);
+
+if (odb.db_version == "1.0") {
+	
+	try {
+		odb.changeVersion("1.0", "2.0",
+						 
+						 function(trans) {
+							//do initial setup
+							tx.executeSql(ncb_sys_contacts_tel_table());
+						 },
+						 
+						 //used for error
+						 function(e) {
+							log(JSON.stringify(e));
+						 },
+						 
+						 //used for success
+						 function() {
+							log(db.version);
+		 				 });
+		
+	} catch(e) {
+		alert("Une erreur est survenue lors de la mise à jour de la base de donnée locale : "+e);
+	}
+	
+}
 
 
 
