@@ -312,17 +312,19 @@ odb.transaction(populateDB, errorCB, successCB);
 
 alert("Db version : "+odb.db.version);
 
-if (odb.db_version == "1.0") {
+if (odb.db.version == "1.0") {
+	
+	alert("Update db 1.0 from 2.0");
 	
 	try {
 		
-		alert("Update db 1.0 from 2.0");
-		
-		odb.changeVersion("1.0", "2.0",
+		odb.db.changeVersion("1.0", "2.0",
 						 
 						 function(trans) {
 							//do initial setup
-							tx.executeSql(ncb_sys_contacts_tel_table());
+							 //alert("c1");
+							trans.executeSql(ncb_sys_contacts_tel_table());
+							 //alert("c2");
 						 },
 						 
 						 //used for error
