@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>Ubicentrex copy 2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Ubicentrex copy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -63,6 +68,11 @@
 			<true/>
 		</dict>
 		<key>DD55C4001CD75F8E0020F503</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DDA1E54F1D19896E00E5F07C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

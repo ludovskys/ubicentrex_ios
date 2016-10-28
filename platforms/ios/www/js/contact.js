@@ -4,9 +4,12 @@ function ccontact(_ref,_pref,_oparent){
 	this.oparent=_oparent;
 	this.ncli=this.oparent.n;
 	this.nsoc=this.oparent.nsoc;
+	this.nsoc0=this.oparent.nsoc0;
 	
 	this.acontacts_sync=new Array();
 	this.acontacts=new Array();
+	
+	this.otelnum = new telnum(this.ref, this.pref, this.oparent);
 }
 
 ccontact.prototype.finitial=function(){
@@ -24,23 +27,71 @@ ccontact.prototype.finitial=function(){
 		ftoast("La première synchronisation de contacts peut prendre quelques minutes, veuillez patienter...",5000);
 		this.fsync_contacts();
 	}
+	
+	
+	this.otelnum.finitial();
 }
 
 ccontact.prototype.fget_local_contacts=function(ch){
-	var qry="select * from ncb_sys_contacts where n_sys_contact_pere="+this.ncli;
+	var qry="select tel.des, tel.val, con.n, con.ncb_ident, con.ncb_mdp, con.nsoc0, con.nsoc, con.civilite, con.nom_usuel, con.nom, con.prenom, con.mail1, con.clic_action, con.n_sys_contact_pere, con.rdvcolor, con.ag_duree_rdv_std, con.ag_debut_agenda, con.ag_fin_agenda, con.ag_nbjours, con.ldroits from ncb_sys_contacts con left join ncb_sys_contacts_tel tel on con.n=tel.nco where con.n_sys_contact_pere="+this.ncli;
 	if(ch)qry+=" and nom_usuel like \""+ch+"%\"";
 	qry+=" order by nom_usuel limit 0, 5000";
 	odb.query(qry,this,this.fsuccess_get_contacts_clb,null,"array");
 }
 
 ccontact.prototype.fsuccess_get_contacts_clb=function(myobj,p){
-	for(var i in p){
-		var acontact=p[i];
-		myobj.fafficher_un_contact(acontact);
-		myobj.acontacts[acontact.n]=acontact;
+	
+	if (p) {
+		// On parcourt les données
+		for (var i = 0; i < p.length; i++) {
+			
+			myobj.fget_tel_type_clb(p[i], p[i]);
+			
+			var j = 1;
+			
+			if (p[i+j]) {
+				
+				while (p[i].n == p[i+j].n) {
+					
+					myobj.fget_tel_type_clb(p[i], p[i+j]);
+					j++;
+				}
+			}
+			
+			myobj.fafficher_un_contact(p[i]);
+			myobj.acontacts[p[i].n]=p[i];
+			
+			i = i + j - 1;
+			
+		}
 	}
+	
+	
+
 	if(!myobj.fsync_timer)myobj.fsync_contacts();
 	else fcancel_loading();
+}
+
+ccontact.prototype.fget_tel_type_clb=function(contact, contact2) {
+
+	switch(contact2.des) {
+			case "T. Privé":
+				contact.tpri = contact2.val;
+				break;
+			case "T. Mobile":
+				contact.tmobile = contact2.val;
+				break;
+			case "T. Prof":
+				contact.tprof = contact2.val;
+				break;
+			case "T. ADSL":
+				contact.tadsl = contact2.val;
+				break;
+			default:
+				break;
+
+	}
+
 }
 
 ccontact.prototype.fsync_contacts=function(){
@@ -122,9 +173,9 @@ ccontact.prototype.fafficher_un_contact=function(acontact){
 	if(acontact.civilite=='Mlle' || acontact.civilite=='Mme')imbcg="img/user_woman.png";
 	var tx="<tr><td rowspan='2' onClick=\""+this.ref+".fshow_detail_contact("+acontact.n+");\" style=\"width:45px;min-width:45px;height:45px;background:url('"+imbcg+"') no-repeat center center;background-size:100% 100%;background-color:#e5e5e5;\"></td>";
 	tx+="<td style='font-weight:bold;overflow:hidden;max-width:"+(wwin-100)+"px;'>"+acontact.nom_usuel+"</td></tr>";
-	var tel=acontact.tel_mobile;
-	if(!tel)tel=acontact.tel_pro;
-	if(!tel)tel=acontact.tel_pri;
+	var tel=acontact.tmobile;
+	if(!tel)tel=acontact.tprof;
+	if(!tel)tel=acontact.tpri;
 	tx+="<tr><td style='font-size:14px;'>"+tel_url(tel)+"</td></tr>";
 	dc.innerHTML=tx;
 	var c=acontact.nom_usuel.charAt(0).toUpperCase();
@@ -170,9 +221,9 @@ ccontact.prototype.fopen_contact=function(n){
 	tx1+="<tr><td colspan='3'>"+text(this.pref+"societe",'',"placeholder='Societe'",(acon && acon.societe) ? acon.societe : "")+"</td></tr>";
 	tx1+="<tr><td colspan='3'>"+text(this.pref+"nss",'',"placeholder='No. secu'",(acon && acon.nss) ? acon.nss : "")+"</td></tr>";
 	tx1+="<tr><td colspan='3'>"+text(this.pref+"mail1",'',"placeholder='Emails'",(acon && acon.mail1) ? acon.mail1 : "")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_mobile",'',"placeholder='Tel. mobile'",(acon && acon.tel_mobile) ? ftel_lisible(acon.tel_mobile) : "")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_pro",'',"placeholder='Tel. pro'",(acon && acon.tel_pro) ? ftel_lisible(acon.tel_pro) : "")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_pri",'',"placeholder='Tel. pri'",(acon && acon.tel_pri) ? ftel_lisible(acon.tel_pri) : "")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_mobile",'',"placeholder='Tel. mobile'",(acon && acon.tmobile) ? ftel_lisible(acon.tmobile) : "")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_pro",'',"placeholder='Tel. pro'",(acon && acon.tprof) ? ftel_lisible(acon.tprof) : "")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_pri",'',"placeholder='Tel. pri'",(acon && acon.tpri) ? ftel_lisible(acon.tpri) : "")+"</td></tr>";
 	tx1+="<tr><td colspan='3'>"+textarea(this.pref+"note",'',"placeholder='note'",(acon && acon.remarque) ? acon.remarque : "")+"</td></tr>";
 	tx1+="</table>"
 	
@@ -385,9 +436,9 @@ ccontact.prototype.fshow_detail_contact2=function(acontact){
 	tx+="<div style='font-size:20px;font-weight:bold;'>"+acontact.nom_usuel+"</div>";
 	if(acontact.dte_naissance)tx+="<div>Né(e) le : "+mytodfr(acontact.dte_naissance)+"</div>";
 	if(acontact.nss)tx+="<div>No. secu : "+acontact.nss+"</div>";
-	if(acontact.tel_mobile)tx+="<div>Tel M. : "+tel_url(acontact.tel_mobile)+"</div>";
-	if(acontact.tel_pro)tx+="<div>Tel pro. : "+tel_url(acontact.tel_pro)+"</div>";
-	if(acontact.tel_pri)tx+="<div>Tel pri. : "+tel_url(acontact.tel_pri)+"</div>";
+	if(acontact.tmobile)tx+="<div>Tel M. : "+tel_url(acontact.tmobile)+"</div>";
+	if(acontact.tprof)tx+="<div>Tel pro. : "+tel_url(acontact.tprof)+"</div>";
+	if(acontact.tpri)tx+="<div>Tel pri. : "+tel_url(acontact.tpri)+"</div>";
 	if(acontact.mail1)tx+="<div>Email(s) : "+mail_url(acontact.mail1)+"</div>";
 	if(acontact.catdes)tx+="<div>Catégories : "+acontact.catdes+"</div>";
 	

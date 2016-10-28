@@ -664,7 +664,7 @@ cagenda.prototype.fonchange_ddeb=function(tp){
 cagenda.prototype.fsave_rdv=function(){
 	var hnwk=soap.has_network();
 	if(!hnwk){
-		ftoast("Vous n'êtes pas connecté à l'internet.");
+		ftoast("Vous n'êtes pas connecté à Internet.");
 		return;
 	}
 	var req={

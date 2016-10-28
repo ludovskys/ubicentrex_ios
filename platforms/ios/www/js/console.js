@@ -92,6 +92,7 @@ cconsole.prototype.flogin_clb=function(r,rt,myobj,p){
 		//nbr des messages non lu pour l'utilisateur ou la group
 		anbrmsg=xmltag2array(res.selectSingleNode("./messages"));
 		
+		/*
 		//register id for push notification
 		if(mobile_push_id){
 			var req={
@@ -103,13 +104,14 @@ cconsole.prototype.flogin_clb=function(r,rt,myobj,p){
 			}
 			soap.call(req);
 		}
+		 */
 		return true;
 	}
 }
 
 //offline login=============================
 cconsole.prototype.foffline_login=function(myobj){
-	ftoast("Vous n'êtes pas connecté à l'internet.");
+	ftoast("Vous n'êtes pas connecté à Internet.");
 	var qry="select * from ncb_sys_contacts where n_sys_contact_pere=0";
 	odb.query(qry,myobj,myobj.fsuccess_offline_login_clb,myobj.ferror_offline_login_clb,"array");
 }

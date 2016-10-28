@@ -162,6 +162,7 @@ cgroup.prototype.fonline=function(){
 			fshow_loading();
 			this.ononlu.fremplir_nonlu();			
 		break;
+			
 	}
 }
 
