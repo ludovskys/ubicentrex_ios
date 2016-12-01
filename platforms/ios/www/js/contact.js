@@ -128,12 +128,6 @@ ccontact.prototype.fsync_contacts=function(){
 	soap.call(req,this.fsync_contacts_clb,this);
 }
 
-ccontact.prototype.fafficher_contacts = function() {
-	
-	
-	
-}
-
 ccontact.prototype.fsync_contacts_clb=function(r,rt,myobj){
 	if(!r)return false;
 	var xcontact=r.selectNodes("./rows/row");
