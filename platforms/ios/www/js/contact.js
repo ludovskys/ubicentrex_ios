@@ -27,13 +27,12 @@ ccontact.prototype.finitial=function(){
 		ftoast("La première synchronisation de contacts peut prendre quelques minutes, veuillez patienter...",5000);
 		this.fsync_contacts();
 	}
-	
-	
-	this.otelnum.finitial();
 }
 
 ccontact.prototype.fget_local_contacts=function(ch){
-	var qry="select tel.des, tel.val, con.n, con.ncb_ident, con.ncb_mdp, con.nsoc0, con.nsoc, con.civilite, con.nom_usuel, con.nom, con.prenom, con.mail1, con.clic_action, con.n_sys_contact_pere, con.rdvcolor, con.ag_duree_rdv_std, con.ag_debut_agenda, con.ag_fin_agenda, con.ag_nbjours, con.ldroits from ncb_sys_contacts con left join ncb_sys_contacts_tel tel on con.n=tel.nco where con.n_sys_contact_pere="+this.ncli;
+	
+	var qry="select * from ncb_sys_contacts where n_sys_contact_pere="+this.ncli;
+	
 	if(ch)qry+=" and nom_usuel like \""+ch+"%\"";
 	qry+=" order by nom_usuel limit 0, 5000";
 	odb.query(qry,this,this.fsuccess_get_contacts_clb,null,"array");
@@ -42,57 +41,77 @@ ccontact.prototype.fget_local_contacts=function(ch){
 ccontact.prototype.fsuccess_get_contacts_clb=function(myobj,p){
 	
 	if (p) {
-		// On parcourt les données
-		for (var i = 0; i < p.length; i++) {
+		
+		for(var i in p){
 			
-			myobj.fget_tel_type_clb(p[i], p[i]);
+			var acontact=p[i];
 			
-			var j = 1;
+			myobj.acontacts[acontact.n]=acontact;
+		}
+		
+		myobj.fget_contacts_tel();
+		
+	} else {
+		
+		if (!myobj.fsync_timer) myobj.fsync_contacts();
+		else fcancel_loading();
+
+	}
+}
+
+ccontact.prototype.fget_contacts_tel=function() {
+	
+	// Requête pour récupérer les numéros de téléphones
+	var qry = "select * from ncb_sys_contacts_tel where nsoc="+this.nsoc;
+	odb.query(qry,this,this.fsuccess_get_contacts_tel_clb,null,"array");
+	
+}
+
+ccontact.prototype.fsuccess_get_contacts_tel_clb=function(myobj,p){
+	
+	// Boucle numéro de téléphones
+	for (var i in p) {
+		
+		var telnum = p[i];
+		
+		var acontactTemp = myobj.acontacts[telnum.nco];
+		
+		if (acontactTemp) {
 			
-			if (p[i+j]) {
+			if (telnum.des == "T. Privé") {
 				
-				while (p[i].n == p[i+j].n) {
-					
-					myobj.fget_tel_type_clb(p[i], p[i+j]);
-					j++;
-				}
+				acontactTemp.tpri = telnum.val;
+				
+			} else if (telnum.des == "T. Mobile") {
+				
+				acontactTemp.tmobile = telnum.val;
+				
+			} else if (telnum.des == "T. Prof") {
+				
+				acontactTemp.tprof = telnum.val;
+				
+			} else if (telnum.des == "T. ADSL") {
+				
+				acontactTemp.tadsl = telnum.val;
+				
 			}
 			
-			myobj.fafficher_un_contact(p[i]);
-			myobj.acontacts[p[i].n]=p[i];
-			
-			i = i + j - 1;
-			
+			myobj.acontacts[telnum.nco] = acontactTemp;
 		}
 	}
 	
+	for(var i in myobj.acontacts){
+		
+		var acontact=myobj.acontacts[i];
+		
+		myobj.fafficher_un_contact(acontact);
+		
+	}
 	
-
 	if(!myobj.fsync_timer)myobj.fsync_contacts();
 	else fcancel_loading();
 }
 
-ccontact.prototype.fget_tel_type_clb=function(contact, contact2) {
-
-	switch(contact2.des) {
-			case "T. Privé":
-				contact.tpri = contact2.val;
-				break;
-			case "T. Mobile":
-				contact.tmobile = contact2.val;
-				break;
-			case "T. Prof":
-				contact.tprof = contact2.val;
-				break;
-			case "T. ADSL":
-				contact.tadsl = contact2.val;
-				break;
-			default:
-				break;
-
-	}
-
-}
 
 ccontact.prototype.fsync_contacts=function(){
 	console.log("!=============contact sync");
@@ -109,13 +128,19 @@ ccontact.prototype.fsync_contacts=function(){
 	soap.call(req,this.fsync_contacts_clb,this);
 }
 
+ccontact.prototype.fafficher_contacts = function() {
+	
+	
+	
+}
+
 ccontact.prototype.fsync_contacts_clb=function(r,rt,myobj){
 	if(!r)return false;
 	var xcontact=r.selectNodes("./rows/row");
 	for(var i in xcontact){
 		var acontact=xmltag2array(xcontact[i]);
 		if(acontact.n_sys_contact_pere!=myobj.ncli)continue;//si partager contacts d'un autre personne on va les ignorer
-		myobj.fafficher_un_contact(acontact);
+		//myobj.fafficher_un_contact(acontact);
 		myobj.acontacts_sync.push(acontact);
 		myobj.acontacts[acontact.n]=acontact;
 	}
@@ -145,12 +170,14 @@ ccontact.prototype.fsync_contacts_clb=function(r,rt,myobj){
 		//vider les tableaux et reinisaliser les params pour la prochaine sync
 		myobj.initial=0;
 		myobj.from=0;
-		myobj.acontacts_sync=new Array();		
+		myobj.acontacts_sync=new Array();
 		setTimeout("fcancel_loading()",2000);
 	}else{
 		myobj.from=myobj.from + xcontact.length;
 		myobj.fsync_timer=setTimeout(myobj.ref+".fsync_contacts()",3000);
 	}
+	
+	myobj.otelnum.fsync_telnums();
 }
 
 ccontact.prototype.fresync=function(){
@@ -436,9 +463,9 @@ ccontact.prototype.fshow_detail_contact2=function(acontact){
 	tx+="<div style='font-size:20px;font-weight:bold;'>"+acontact.nom_usuel+"</div>";
 	if(acontact.dte_naissance)tx+="<div>Né(e) le : "+mytodfr(acontact.dte_naissance)+"</div>";
 	if(acontact.nss)tx+="<div>No. secu : "+acontact.nss+"</div>";
-	if(acontact.tmobile)tx+="<div>Tel M. : "+tel_url(acontact.tmobile)+"</div>";
-	if(acontact.tprof)tx+="<div>Tel pro. : "+tel_url(acontact.tprof)+"</div>";
-	if(acontact.tpri)tx+="<div>Tel pri. : "+tel_url(acontact.tpri)+"</div>";
+	if(acontact.tmobile)tx+="<div>Tél. mobile : "+tel_url(acontact.tmobile)+"</div>";
+	if(acontact.tprof)tx+="<div>Tél. pro. : "+tel_url(acontact.tprof)+"</div>";
+	if(acontact.tpri)tx+="<div>Tél pri. : "+tel_url(acontact.tpri)+"</div>";
 	if(acontact.mail1)tx+="<div>Email(s) : "+mail_url(acontact.mail1)+"</div>";
 	if(acontact.catdes)tx+="<div>Catégories : "+acontact.catdes+"</div>";
 	

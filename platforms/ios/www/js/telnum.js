@@ -1,4 +1,4 @@
-function telnum(_ref,_pref,_oparent) {
+function telnum(_ref,_pref,_oparent, ocontact) {
 	
 	this.ref=_ref;
 	this.pref=_pref;
@@ -9,22 +9,21 @@ function telnum(_ref,_pref,_oparent) {
 	this.nsoc0=this.oparent.nsoc0;
 	
 	this.aContactsTel = new Array();
-}
-
-telnum.prototype.finitial=function(){
 	
 	this.last_sync=this.oparent.local_config.con_last_sync;
 	
 	this.from=0;
-
-	this.initial=0;
-
-	this.fsync_telnums();
+	
+	this.initial=1;
+	
+	this.ccontact = ocontact;
 }
 
 
 // Appel soap
 telnum.prototype.fsync_telnums=function(){
+	
+	fshow_loading();
 
 	console.log("!=============fsync_telnums");
 	var req={
@@ -63,15 +62,9 @@ telnum.prototype.fsync_telnum_clb=function(r,rt,myobj){
 	}
 	
 	odb.query(qry,myobj);
-}
-
-
-// Récupère les numéros de tel
-telnum.prototype.fget_tel_type=function(ccontact, contact, callback) {
 	
-	if (!contact) return;
-
-	var qry = "select des, val from ncb_sys_contacts_tel where nco="+contact.n;
-	odb.query(qry,ccontact,callback);
+	setTimeout("fcancel_loading()",2000);
+	
+	//myobj.ccontact.fget_contacts_tel();
 }
 
