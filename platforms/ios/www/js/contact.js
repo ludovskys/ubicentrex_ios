@@ -134,7 +134,7 @@ ccontact.prototype.fsync_contacts_clb=function(r,rt,myobj){
 	for(var i in xcontact){
 		var acontact=xmltag2array(xcontact[i]);
 		if(acontact.n_sys_contact_pere!=myobj.ncli)continue;//si partager contacts d'un autre personne on va les ignorer
-		//myobj.fafficher_un_contact(acontact);
+		myobj.fafficher_un_contact(acontact);
 		myobj.acontacts_sync.push(acontact);
 		myobj.acontacts[acontact.n]=acontact;
 	}
