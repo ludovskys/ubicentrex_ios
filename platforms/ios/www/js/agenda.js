@@ -119,6 +119,7 @@ cagenda.prototype.fsync_agenda=function(){
 			act:'mobile_sync',
 			ncli:this.ncli,
 			from:this.from,
+			nsoc0:this.nsoc0,
 			initial:this.initial,
 			last_sync:this.last_sync
 		}
@@ -704,8 +705,15 @@ cagenda.prototype.fsave_rdv=function(){
 	req.txt=br2nl(document.getElementById(this.pref+"txt").innerHTML);
 	if(document.getElementById(this.pref+"vad").checked)req.vis=1;
 	else req.vis=0;
-	if(document.getElementById(this.pref+"nv_client").checked)req.nv_client=1;
-	else req.nv_client=0;
+
+	if(document.getElementById(this.pref+"nv_client").checked) {
+		req.nv_client=1;
+		req.nvcontact=1;
+	} else {
+		req.nv_client=0;
+		req.nvcontact=0;
+	}
+	
 	if(document.getElementById(this.pref+"rappel").checked)req.rappel=1;
 	else req.rappel=0;
 	soap.call(req,this.fmaj_affichage,this);
@@ -713,7 +721,7 @@ cagenda.prototype.fsave_rdv=function(){
 }
 
 cagenda.prototype.fsupp_rdv=function(n){
-	fconfirm("Supprimer ce rendez-vous?"+text(this.pref+"raison_sup","","placeholder='Raison de suppression'",""),this.ref+".fsupp_rdv2("+n+")","",120);
+	fconfirm("Supprimer ce rendez-vous ?"+text(this.pref+"raison_sup","","placeholder='Raison de suppression'",""),this.ref+".fsupp_rdv2("+n+")","",120);
 }
 
 cagenda.prototype.fsupp_rdv2=function(n){

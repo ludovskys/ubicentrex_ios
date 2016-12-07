@@ -251,6 +251,8 @@ var ncb_sys_contacts_field=new Array('n','ncb_ident','ncb_mdp','nsoc0','nsoc','c
 		'tel_mobile','tel_pri','tel_pro','fax_pro','clic_action','mail1','n_sys_contact_pere',
 		'rdvcolor','ag_duree_rdv_std','ag_debut_agenda','ag_fin_agenda','ag_nbjours','ldroits');
 
+var ncb_sys_contacts_tel_field=new Array('nsoc', 'nsoc0', 'nco', 'des', 'val', 'rq', 'tp', 'msq', 'dcre', 'suppr', 'ordre', 'bdef');
+
 var ncb_crm_actions_field=new Array('n_societe','n','n_tp_action','sous_tp','sous_tp2','date_creation','dmod','n_crm_clients',
 		'n_utilisateurs','txt','lpj','lpj_name','resultat','n_action_orig','perio_orig','lco','objet','emplacement','ddeb','dfin',
 		'jentier','cout','archive','catcouleur','nmotif','ndossier','nom_usuel_ut','rappel','nv_client','pasvenu',
@@ -293,16 +295,18 @@ function populateDB(tx) {
     tx.executeSql(ind_motifs_ncli_table());
     
     tx.executeSql(ncb_local_config_table());
+	
+	tx.executeSql(ncb_sys_contacts_tel_table());
 }
 
 // Transaction error callback
 function errorCB(tx, err) {
-    alert("Populate db version 1.0 error : "+err);
+    //alert("Populate db version 1.0 error : "+err);
 }
 
 // Transaction success callback
 function successCB() {
-    alert("Populate db version 1.0 success!");
+    //alert("Populate db version 1.0 success!");
 }
 
 // Crée la bdd
@@ -310,11 +314,11 @@ var odb=new cdb_sqlite("ubicentrex_db", "", "ubicentrex_db", 1024*1024*40);
 // Création des tables et index
 odb.transaction(populateDB, errorCB, successCB);
 
-alert("Db version : "+odb.db.version);
+//alert("Db version : "+odb.db.version);
 
 if (odb.db.version == "1.0") {
 	
-	alert("Update db 1.0 from 2.0");
+	//alert("Update db 1.0 from 2.0");
 	
 	try {
 		
@@ -322,25 +326,23 @@ if (odb.db.version == "1.0") {
 						 
 						 function(trans) {
 							//do initial setup
-							 //alert("c1");
 							trans.executeSql(ncb_sys_contacts_tel_table());
-							 //alert("c2");
 						 },
 						 
 						 //used for error
 						 function(e) {
 							log(JSON.stringify(e));
-							alert("Update db version 2.0 error :"+e);
+							//alert("Update db version 2.0 error :"+e);
 						 },
 						 
 						 //used for success
 						 function() {
 							log(db.version);
-							alert("Update db version 2.0 success!");
+							//alert("Update db version 2.0 success!");
 		 				 });
 		
 	} catch(e) {
-		alert("Une erreur est survenue lors de la mise à jour de la base de donnée locale : "+e);
+		//alert("Une erreur est survenue lors de la mise à jour de la base de donnée locale : "+e);
 	}
 	
 }
