@@ -663,7 +663,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Ubicentrex;
-				PROVISIONING_PROFILE = "52633cc8-c86f-4b4f-891d-0b3d62a209b8";
+				PROVISIONING_PROFILE = "77bbaa10-2176-40be-891e-718b6b9f4b8a";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -703,7 +703,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Ubicentrex;
-				PROVISIONING_PROFILE = "52633cc8-c86f-4b4f-891d-0b3d62a209b8";
+				PROVISIONING_PROFILE = "77bbaa10-2176-40be-891e-718b6b9f4b8a";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -747,7 +747,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PROVISIONING_PROFILE = "52633cc8-c86f-4b4f-891d-0b3d62a209b8";
+				PROVISIONING_PROFILE = "77bbaa10-2176-40be-891e-718b6b9f4b8a";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -792,7 +792,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PROVISIONING_PROFILE = "52633cc8-c86f-4b4f-891d-0b3d62a209b8";
+				PROVISIONING_PROFILE = "77bbaa10-2176-40be-891e-718b6b9f4b8a";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "";

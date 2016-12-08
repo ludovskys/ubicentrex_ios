@@ -42,16 +42,6 @@ ccontact.prototype.fget_local_contacts=function(ch){
 
 ccontact.prototype.fsuccess_get_contacts_clb=function(myobj,p){
 	
-	/*
-	for(var i in p){
-		var acontact=p[i];
-		myobj.fafficher_un_contact(acontact);
-		myobj.acontacts[acontact.n]=acontact;
-	}
-	if(!myobj.fsync_timer)myobj.fsync_contacts();
-	else fcancel_loading();
-	 */
-	
 	if (p) {
 		
 		for(var i in p){
