@@ -133,6 +133,8 @@ csoap.prototype.call=function(req,fcallback,myobj,foffline){
     }
 	
 	req.sessionname='appmobile';
+	req.version_app=version_app;
+	req.version_app_str=version_app_str;
 
 	$.ajax({
 	    type       : "POST",
