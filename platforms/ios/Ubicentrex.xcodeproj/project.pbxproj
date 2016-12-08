@@ -630,11 +630,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconUbi;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: UBICENTREX (7Y7S43Z66M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: UBICENTREX (7Y7S43Z66M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -649,7 +649,7 @@
 					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
 				);
 				INFOPLIST_FILE = "Ubicentrex/Ubicentrex-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -663,7 +663,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Ubicentrex;
-				PROVISIONING_PROFILE = "77bbaa10-2176-40be-891e-718b6b9f4b8a";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -672,11 +672,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconUbi;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: UBICENTREX (7Y7S43Z66M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: UBICENTREX (7Y7S43Z66M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ubicentrex/Ubicentrex-Prefix.pch";
@@ -689,7 +689,7 @@
 					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
 				);
 				INFOPLIST_FILE = "Ubicentrex/Ubicentrex-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -703,7 +703,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Ubicentrex;
-				PROVISIONING_PROFILE = "77bbaa10-2176-40be-891e-718b6b9f4b8a";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -747,7 +747,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PROVISIONING_PROFILE = "77bbaa10-2176-40be-891e-718b6b9f4b8a";
+				PROVISIONING_PROFILE = "52633cc8-c86f-4b4f-891d-0b3d62a209b8";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -792,7 +792,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PROVISIONING_PROFILE = "77bbaa10-2176-40be-891e-718b6b9f4b8a";
+				PROVISIONING_PROFILE = "52633cc8-c86f-4b4f-891d-0b3d62a209b8";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "";
