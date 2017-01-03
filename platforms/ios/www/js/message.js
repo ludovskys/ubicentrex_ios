@@ -422,7 +422,7 @@ cmessage.prototype.fpass_lu_clb=function(r,rt,myobj,p){
 		
 		var dic=document.getElementById(myobj.pref+"lu_icon");
 		if(amsg.lu==0){
-			ftoast("Vous avez passé le message à nou lu.",4000);
+			ftoast("Vous avez passé le message à non lu.",4000);
 			dic.innerHTML='N';
 			anbrmsg["n"+myobj.ncli]++;
 		}else{

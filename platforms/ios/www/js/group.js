@@ -129,7 +129,7 @@ cgroup.prototype.fresync=function(_action){
 	if(_action=="agenda")tx="rendez-vous";
 	else if(_action=="message")tx="messages";
 	else if(_action=="contact")tx="contacts";
-	fconfirm("Voulez-vous vraiment resynchroniser tous les "+tx+"? Les "+tx+" localement enregistrés seront éffacés.",this.ref+".fresync2('"+_action+"')",null,140);
+	fconfirm("Voulez-vous vraiment resynchroniser tous les "+tx+"? Les "+tx+" localement enregistrés seront effacés.",this.ref+".fresync2('"+_action+"')",null,140);
 }
 cgroup.prototype.fresync2=function(_action){
 	if(!this["o"+_action]){
