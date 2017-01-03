@@ -92,7 +92,6 @@ cconsole.prototype.flogin_clb=function(r,rt,myobj,p){
 		//nbr des messages non lu pour l'utilisateur ou la group
 		anbrmsg=xmltag2array(res.selectSingleNode("./messages"));
 		
-		/*
 		//register id for push notification
 		if(mobile_push_id){
 			var req={
@@ -104,7 +103,6 @@ cconsole.prototype.flogin_clb=function(r,rt,myobj,p){
 			}
 			soap.call(req);
 		}
-		 */
 		return true;
 	}
 }
