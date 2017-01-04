@@ -260,7 +260,7 @@ var ncb_sys_contacts_tel_field=new Array('nsoc', 'nsoc0', 'nco', 'des', 'val', '
 var ncb_crm_actions_field=new Array('n_societe','n','n_tp_action','sous_tp','sous_tp2','date_creation','dmod','n_crm_clients',
 		'n_utilisateurs','txt','lpj','lpj_name','resultat','n_action_orig','perio_orig','lco','objet','emplacement','ddeb','dfin',
 		'jentier','cout','archive','catcouleur','nmotif','ndossier','nom_usuel_ut','rappel','nv_client','pasvenu',
-		'dispo','vis','old','prive','lu','trait','depl','imp','nonfact','webag','lmedia','historique','copied');
+		'dispo','vis','old','prive','lu','trait','depl','imp','nonfact','webag','lmedia','historique','copied', 'temps_traitement');
 
 var ncb_crm_messages_field=new Array('n','n_crm_clients','date_creation','lco','objet','txt','n_utilisateurs','catcouleur','id_externe','sous_tp2','sous_tp',
 		'lu','old','trait','n_action_orig','lpj','lpj_name','emplacement','prive','msg_cat','important','cli_societe','cli_nom','cli_prenom',
