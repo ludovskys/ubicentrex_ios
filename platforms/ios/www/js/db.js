@@ -156,6 +156,10 @@ function ncb_sys_contacts_tel_table() {
 	"bdef INTEGER)";
 }
 
+function ncb_crm_actions_add_column_temps_traitement() {
+	return "ALTER TABLE ncb_crm_actions ADD COLUMN temps_traitement INTEGER DEFAULT 0";
+}
+
 function cdb_sqlite(db_name,db_version,db_displayname,db_size){
     
 	this.db_name=db_name;
@@ -314,38 +318,30 @@ var odb=new cdb_sqlite("ubicentrex_db", "", "ubicentrex_db", 1024*1024*40);
 // Création des tables et index
 odb.transaction(populateDB, errorCB, successCB);
 
-//alert("Db version : "+odb.db.version);
 
-if (odb.db.version == "1.0") {
-	
-	//alert("Update db 1.0 from 2.0");
-	
+if (odb.db.version == "" || odb.db.version == "1.0" || odb.db.version == "2.0") {
+ 
 	try {
 		
-		odb.db.changeVersion("1.0", "2.0",
+		odb.db.changeVersion(odb.db.version, "3.0",
 						 
 						 function(trans) {
 							//do initial setup
-							trans.executeSql(ncb_sys_contacts_tel_table());
+							trans.executeSql(ncb_crm_actions_add_column_temps_traitement());
 						 },
 						 
 						 //used for error
 						 function(e) {
-							log(JSON.stringify(e));
-							//alert("Update db version 2.0 error :"+e);
+							alert("Update db version 3.0 error :"+e);
 						 },
 						 
 						 //used for success
 						 function() {
-							log(db.version);
-							//alert("Update db version 2.0 success!");
+							alert("Update db version 3.0 success!");
 		 				 });
 		
 	} catch(e) {
-		//alert("Une erreur est survenue lors de la mise à jour de la base de donnée locale : "+e);
+		alert("Une erreur est survenue lors de la mise à jour de la base de donnée locale : "+e);
 	}
 	
 }
-
-
-

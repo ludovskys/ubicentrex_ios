@@ -1142,18 +1142,35 @@ cday.prototype.fafficher_un_rdv=function(ardv,tbd){
             if(my2jd(ardv["dfin"]).getTime()>dtf_max.getTime())dfin=dtf_max;
             
             var nbrl=Math.ceil((dfin.getTime()-ddeb.getTime())/(1000*60*this.ag_duree_rdv_std));
-            if(!this.oparent.tpcreneaux || !this.oparent.tpcreneaux[ardv.nmotif])return;
-            var bgclr=this.oparent.tpcreneaux[ardv.nmotif]["couleur"];
-            var duree=+this.oparent.tpcreneaux[ardv.nmotif]["duree"];
-            if(duree==0)duree=this.ag_duree_rdv_std;
-            var dispo=this.oparent.tpcreneaux[ardv.nmotif]["dispo"];
+			
+			if(!this.oparent.tpcreneaux)return;
+			
+			var bgclr=ardv.catcouleur;
+			
+			var dureeCreneau = 0;
+
+			if (this.oparent.tpcreneaux[ardv.nmotif]) {
+				// On récupère la durée du créneau via le motif
+				dureeCreneau = this.oparent.tpcreneaux[ardv.nmotif]["duree"];
+			} else if (ardv.temps_traitement && ardv.temps_traitement != 0) {
+				// On se base sur le temps_traitement (nouvelle colonne ajoutée dans l'app version 2.1.6)
+				dureeCreneau = ardv.temps_traitement;
+			} else {
+				// On calcule la durée du créneau
+				dureeCreneau = ((my2jd(ardv["dfin"]).getTime()-my2jd(ardv["ddeb"]).getTime()) / 60000); // Durée du créneau en minutes
+			}
+			
+			var duree=+dureeCreneau;
+
+			var dispo=ardv.dispo;
+			
             var dcre=document.createElement('div');
             dcre.id="dcreneau_"+ardv["n_action_orig"];
             dcre.style.top=arrayAttributeTop[i]+"px";
             if(top)dcre.style.borderTop="1px solid #ccc";
             if(dispo==0){
                 dcre.className='creneau_day';
-                var nbrc=Math.ceil(nbrl*this.ag_duree_rdv_std/duree);
+                var nbrc=Math.round(nbrl*this.ag_duree_rdv_std/duree);
                 var lhcre=this.lheight*duree/this.ag_duree_rdv_std+(duree/this.ag_duree_rdv_std-1);
                 var tx="<ul style='list-style:none;margin:0;padding:0;'>";
                 for(var k=0;k<nbrc;k++){
@@ -1560,7 +1577,7 @@ cweek.prototype.fafficher_un_rdv=function(ardv,tbw){
 	} else {
         
         for (var i = 0; i < arrayW.length; i++) {
-            
+			
             if (i > 0) {
                 var ddeb = addDays(my2jd(ardv["ddeb"]).setHours(this.ag_debut_agenda), i);
             } else {
@@ -1580,19 +1597,35 @@ cweek.prototype.fafficher_un_rdv=function(ardv,tbw){
             if(my2jd(ardv["dfin"]).getTime()>dtf_max.getTime())dfin=dtf_max;
             
             var nbrl=Math.ceil((dfin.getTime()-ddeb.getTime())/(1000*60*this.ag_duree_rdv_std));
-            if(!this.oparent.tpcreneaux || !this.oparent.tpcreneaux[ardv.nmotif])return;
-            var bgclr=this.oparent.tpcreneaux[ardv.nmotif]["couleur"];
-            var duree=+this.oparent.tpcreneaux[ardv.nmotif]["duree"];
+            if(!this.oparent.tpcreneaux)return;
+
+			var bgclr=ardv.catcouleur;
+			
+			var dureeCreneau = 0;
+			
+			if (this.oparent.tpcreneaux[ardv.nmotif]) {
+				// On récupère la durée du créneau via le motif
+				dureeCreneau = this.oparent.tpcreneaux[ardv.nmotif]["duree"];
+			} else if (ardv.temps_traitement && ardv.temps_traitement != 0) {
+				// On se base sur le temps_traitement (nouvelle colonne ajoutée dans l'app version 2.1.6)
+				dureeCreneau = ardv.temps_traitement;
+			} else {
+				// On calcule la durée du créneau
+				dureeCreneau = ((my2jd(ardv["dfin"]).getTime()-my2jd(ardv["ddeb"]).getTime()) / 60000); // Durée du créneau en minutes
+			}
+			
+			var duree=+dureeCreneau;
+			
             if(duree==0)duree=this.oparent.ag_duree_rdv_std;
             else if(duree<10)duree=10;
-            var dispo=this.oparent.tpcreneaux[ardv.nmotif]["dispo"];
+			var dispo=ardv.dispo;
             var wcre=document.createElement('div');
             wcre.id="wcreneau_"+ardv["n_action_orig"];
             wcre.style.top=top+"px";
             if(top)wcre.style.borderTop="1px solid #ccc";
             if(dispo==0){
                 wcre.className='creneau_week';
-                var nbrc=Math.ceil(nbrl*this.ag_duree_rdv_std/duree);
+                var nbrc=Math.round(nbrl*this.ag_duree_rdv_std/duree);
                 var lhcre=this.lheight*duree/this.ag_duree_rdv_std+(duree/this.ag_duree_rdv_std-1);
                 var tx="<ul style='list-style:none;margin:0;padding:0;'>";
                 for(var k=0;k<nbrc;k++){
