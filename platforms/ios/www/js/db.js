@@ -332,16 +332,16 @@ if (odb.db.version == "" || odb.db.version == "1.0" || odb.db.version == "2.0") 
 						 
 						 //used for error
 						 function(e) {
-							alert("Update db version 3.0 error :"+e);
+							//alert("Update db version 3.0 error :"+e);
 						 },
 						 
 						 //used for success
 						 function() {
-							alert("Update db version 3.0 success!");
+							//alert("Update db version 3.0 success!");
 		 				 });
 		
 	} catch(e) {
-		alert("Une erreur est survenue lors de la mise à jour de la base de donnée locale : "+e);
+		//alert("Une erreur est survenue lors de la mise à jour de la base de donnée locale : "+e);
 	}
 	
 }
