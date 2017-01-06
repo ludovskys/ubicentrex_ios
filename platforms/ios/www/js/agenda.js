@@ -1161,6 +1161,8 @@ cday.prototype.fafficher_un_rdv=function(ardv,tbd){
 			}
 			
 			var duree=+dureeCreneau;
+			
+			if(duree==0)duree=this.ag_duree_rdv_std;
 
 			var dispo=ardv.dispo;
 			
