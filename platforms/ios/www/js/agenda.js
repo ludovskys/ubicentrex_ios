@@ -1413,18 +1413,28 @@ cweek.prototype.fafficher_rdvs=function(y,m,d,tbw){
 	}
 	
 	var ardvs=this.oparent.ardvs[aday[0].getFullYear()+'_'+(aday[0].getMonth()+1)];
-	if(ardvs){		
+	
+	if(ardvs){
+		
 		for(var i in ardvs){
-			if(my2jd(ardvs[i].ddeb)<aday[0] || my2jd(ardvs[i].dfin)>aday[6])continue;
-			this.fafficher_un_rdv(ardvs[i],tbw);
+			
+			if (ardvs[i].ddeb != "" && my2jd(ardvs[i].ddeb).getTime() >= aday[0].getTime() &&
+				ardvs[i].dfin != "" && my2jd(ardvs[i].dfin).getTime() <= aday[6].getTime()) {
+				
+				this.fafficher_un_rdv(ardvs[i],tbw);
+			}
 		}
 	}	
 	if(aday[0].getMonth()==aday[6].getMonth())return;
 	ardvs=this.oparent.ardvs[aday[6].getFullYear()+'_'+(aday[6].getMonth()+1)];
 	if(ardvs){		
 		for(var i in ardvs){
-			if(my2jd(ardvs[i].ddeb)<aday[0] || my2jd(ardvs[i].dfin)>aday[6])continue;
-			this.fafficher_un_rdv(ardvs[i],tbw);
+			
+			if (ardvs[i].ddeb != "" && my2jd(ardvs[i].ddeb).getTime() >= aday[0].getTime() &&
+				ardvs[i].dfin != "" && my2jd(ardvs[i].dfin).getTime() <= aday[6].getTime()) {
+				
+				this.fafficher_un_rdv(ardvs[i],tbw);
+			}
 		}
 	}	
 }

@@ -422,8 +422,16 @@ function fget_week_days(y,m,d){
 	if(day==0)day=7;
 	dt=new Date(dt.getTime()-(day-1)*24*60*60*1000);
 	var aday=new Array();
+					
 	for(var i=0;i<7;i++){
-		aday[i]=new Date(dt.getTime()+i*24*60*60*1000);
+			
+		// On prend le lundi de la semaine d'après et on enlève une seconde -> Dimanche 23h59m59s
+		if (i == 6) {
+			aday[i]=new Date(dt.getTime()+((i+1)*24*60*60*1000)-1);
+		} else {
+			aday[i]=new Date(dt.getTime()+i*24*60*60*1000);
+		}
+		
 	}
 	return aday;
 }
