@@ -443,6 +443,9 @@ cagenda.prototype.fshow_detail_rdv=function(ddeb,n_action_orig){
 	tx+="<div>"+txp+"</div>";
 	if(ardv.emplacement)tx+="<div>"+tel_url(ardv.emplacement)+"</div>";
 	
+	// TODO : ajouter adresse si visite à domicile -> ajouter la table des adresses
+	// if (ardv["vis"]==1)
+	
 	var bgclr=this.rdvcolor;
 	var motif="Rendez-vous";
 	if(ardv["sous_tp"]==1){
@@ -1106,9 +1109,9 @@ cday.prototype.fafficher_un_rdv=function(ardv,tbd){
 			break;
 		}
 		if(ardv["depl"]==1)drdv.style.color='#FF3399';
-		drdv.innerHTML=txrdv+(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span>" : "")+
-					   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span>" : "")+
-					   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span>" : "")+
+		drdv.innerHTML=txrdv+(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span> " : "")+
+					   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
+					   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
 					   ((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ardv["objet"]);
 		drdv.id="drdv_"+ardv["n_action_orig"];
 		drdv.style.height=(nbrl*this.lheight+nbrl-1)+"px";
@@ -1560,9 +1563,9 @@ cweek.prototype.fafficher_un_rdv=function(ardv,tbw){
 			break;
 		}
 		if(ardv["depl"]==1)wrdv.style.color='#FF3399';
-		wrdv.innerHTML=txrdv+(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span>" : "")+
-					   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span>" : "")+
-					   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span>" : "")+
+		wrdv.innerHTML=txrdv+(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span> " : "")+
+					   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
+					   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
 					   ((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ardv["objet"]);
 		wrdv.id="wrdv_"+ardv["n_action_orig"];
 		wrdv.style.height=(nbrl*this.lheight+nbrl-1)+"px";
@@ -1893,9 +1896,9 @@ cmensuel.prototype.fshow_rdvs_jour=function(obj){
 			
 			var adb=ar[i].ddeb.split(reg);
 			var txtRdv = adb[3]+":"+adb[4]+" ";
-			txtRdv += (ar[i]["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span>" : "")+
-				(ar[i]["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span>" : "")+
-				(ar[i]["webag"]==1 ? "<span style='color:#336600;'>(W)</span>" : "")+
+			txtRdv += (ar[i]["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span> " : "")+
+				(ar[i]["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
+				(ar[i]["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
 				((ar[i]["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ar[i]["objet"]);
 			
 			divRdvMensuel.innerHTML += "<p>"+txtRdv+"</p>";
@@ -1958,9 +1961,9 @@ cmensuel.prototype.fafficher_un_rdv=function(ardv,tbm){
 	var mrdv=document.createElement('div');
 	mrdv.id="mrdv_"+ardv["n_action_orig"];
 	
-	mrdv.innerHTML=(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span>" : "")+
-				   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span>" : "")+
-				   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span>" : "")+
+	mrdv.innerHTML=(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span> " : "")+
+				   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
+				   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
 				   ((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ardv["objet"]);
 	mrdv.className="rdv_mensuel";
 	var hre_rdv=(+adt[3])*60+(+adt[4]);
