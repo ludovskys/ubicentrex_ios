@@ -770,6 +770,8 @@ border-radius: 2px 2px 0px 0px;
     -webkit-border-radius: 2px 2px 0px 0px;
     border-radius: 2px 2px 0px 0px;
     display: inline-flex;
+	margin: 6px;
+	text-align: center;
 }
 
 .mensuel_ajouter_rdv img {
@@ -1000,4 +1002,10 @@ border-color: transparent transparent #777 transparent;
 position:absolute;
 right:0;
 bottom:0;
+}
+
+.divRdvMensuel {
+	text-align: center;
+	padding: 5px;
+	border: 1px solid black;
 }

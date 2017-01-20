@@ -1884,14 +1884,23 @@ cmensuel.prototype.fshow_rdvs_jour=function(obj){
 			var bgclr=this.oparent.rdvcolor;
 			if(ar[i]["sous_tp"]==1)bgclr='orange';
 			else if(this.oparent.tpmotifs && this.oparent.tpmotifs[ar[i].nmotif])bgclr=this.oparent.tpmotifs[ar[i].nmotif]["couleur"];
-			tx+="<p>";
-			tx+="<span style='background:"+bgclr+"'>&nbsp;&nbsp;</span> ";
+			
+			var divRdvMensuel=document.createElement('div');
+			
+			divRdvMensuel.className = "divRdvMensuel";
+			divRdvMensuel.setAttribute('onClick',this.oparent.ref+".fshow_detail_rdv('"+ar[i]["ddeb"]+"',"+ar[i]["n_action_orig"]+")");
+			divRdvMensuel.style.borderLeft = "4px solid "+bgclr;
+			
 			var adb=ar[i].ddeb.split(reg);
-			tx+=adb[3]+":"+adb[4]+" ";
-			tx+=(ar[i]["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span>" : "")+
+			var txtRdv = adb[3]+":"+adb[4]+" ";
+			txtRdv += (ar[i]["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span>" : "")+
 				(ar[i]["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span>" : "")+
 				(ar[i]["webag"]==1 ? "<span style='color:#336600;'>(W)</span>" : "")+
-				((ar[i]["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ar[i]["objet"])+"</p>";
+				((ar[i]["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ar[i]["objet"]);
+			
+			divRdvMensuel.innerHTML += "<p>"+txtRdv+"</p>";
+			
+			tx += divRdvMensuel.outerHTML;
 		}
 	}
 		
@@ -1907,7 +1916,7 @@ cmensuel.prototype.fshow_rdvs_jour=function(obj){
         // Heure par défaut : 9h
         dte = dte + " 09:00:00";
         // On affiche un ligne pour pouvoir ajouter un rendez vous
-        tx+="<div class='mensuel_ajouter_rdv' onClick=\""+this.ref+".oparent.fopen_rdv('"+dte+"')\"><img src='img/icon_plus.png'><p style='font-weight: bold;'>Nouveau rendez-vous</p></div>";
+        tx+="<div class='mensuel_ajouter_rdv' onClick=\""+this.ref+".oparent.fopen_rdv('"+dte+"')\"><p style='font-weight: bold;'>Nouveau rendez-vous</p></div>";
     }
     
 	fcontext_menu(obj,tx,wwin*0.7);
