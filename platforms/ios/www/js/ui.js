@@ -1167,6 +1167,25 @@ ctab.prototype.fdrag_end=function(e){
 	this.ahtt[-this.offsetLeft/wwin].className="item selected";	
 	return false;
 }
+
+function inputElement(id, name, compl, value, tp) {
+	
+	if(typeof(tp)=='undefined')tp='text';
+	
+	var _tx = "<input type='"+tp+"' ";
+	
+	if(id)_tx+="id='"+id+"' ";
+	if(name)_tx+="name='"+name+"' ";
+	if(typeof(value)!="undefined"){
+		_tx+="value='"+afficher_txt(value)+"' ";
+	}
+	
+	if(compl)_tx+=compl;
+	_tx+=" />";
+	
+	return _tx;
+}
+
 //textbox===================================
 function text(id,name,compl,value,tp){
 	if(typeof(tp)=='undefined')tp='text';

@@ -473,10 +473,10 @@ cconsole.prototype.fabout_app=function(){
 
 cconsole.prototype.flogin_page=function(){
 	var a=new Array();
-	a["content"]="<table style='position:absolute;top:10%;' class='struct'>";
-	a["content"]+="<tr><td>"+text(this.pref+"username","","placeholder='Identifiant'","","text")+"</td></tr>";
-	a["content"]+="<tr><td>"+text(this.pref+"pwd","","placeholder='Mot de passe'","","password")+"</td></tr>";
-	a["content"]+="<tr><td><br/>"+button("test",""," onClick='"+this.ref+".flogin()'","Login")+"</td></tr></table>";
+	a["content"]="<table class='tableLogin'>";
+	a["content"]+="<tr class='trTableLogin'><td><div class='divInputLogin'>"+inputElement(this.pref+"username","","class='inputLogin' placeholder='Identifiant'","","text")+"</div></td></tr>";
+	a["content"]+="<tr class='trTableLogin'><td><div class='divInputLogin'>"+inputElement(this.pref+"pwd","","class='inputLogin' placeholder='Mot de passe'","","password")+"</div></td></tr>";
+	a["content"]+="<tr class='trTableLogin'><td><br/><div class='divButtonLogin'>"+inputElement(this.pref+"buttonLogin","","onClick='"+this.ref+".flogin()'","SE CONNECTER", "button")+"</div></td></tr></table>";
 	this.login_page=fnew_page(a,'');
 }
 

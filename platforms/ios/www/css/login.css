@@ -1,0 +1,56 @@
+/* CSS Page Login */
+.content {
+	background-color: #4ba9c7;
+}
+
+.tableLogin {
+	padding:8px;
+	width:100%;
+	position:absolute;
+	top:30%;
+	border-collapse:separate;
+	border-spacing:1em;
+}
+
+.inputLogin {
+	color: #4ba9c7;
+	width: 90%;
+	font-size : 13px;
+	border: none;
+}
+
+/* do not group these rules */
+*.inputLogin::-webkit-input-placeholder {
+	color: #4ba9c7;
+}
+
+#consolebuttonLogin {
+	border: none;
+	width: 100%;
+	background: none;
+	color: white;
+	font-size: 15px;
+}
+
+.trTableLogin {
+	text-align: center;
+}
+
+.divInputLogin {
+	background: white;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-radius:3px;
+	
+}
+
+.divButtonLogin {
+	background: #205070;
+	border-radius: 3px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	
+}
+
+
+
