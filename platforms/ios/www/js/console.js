@@ -43,7 +43,7 @@ cconsole.prototype.flogin=function(ident,mdp){
 	if(typeof(ident)=="undefined" || !ident)ident=document.getElementById(this.pref+'username').value;
 	if(typeof(mdp)=="undefined" || !mdp)mdp=document.getElementById(this.pref+'pwd').value;
 	if(ident=='' || mdp==''){
-		ftoast("L'identifant ou le mot de passe ne peut pas être vide.");
+		ftoast("Veuillez saisir un identifiant et un mot de passe.");
 		return;
 	}
 	var req={
@@ -427,7 +427,7 @@ cconsole.prototype.fuser_setting_save_clb=function(r,rt,myobj,req){
 	if(!r)return;
 	var nus=r.selectSingleNode("./nus/text()").nodeValue;
 	if(!nus){
-		ftoast("Souci de connexion au serveur, veuillez réessayer plus tard.");
+		ftoast("Problème de connexion au serveur, veuillez réessayer plus tard.");
 		return;
 	}
 	user.nom_usuel=req.nom_usuel;
@@ -548,7 +548,7 @@ cconsole.prototype.fonline=function(){
 }
 
 cconsole.prototype.foffline=function(){
-	ftoast("Vous n'êtes pas connecté à l'internet.");
+	ftoast("Vous n'êtes pas connecté à Internet.");
 }
 
 // handle GCM notifications for Android

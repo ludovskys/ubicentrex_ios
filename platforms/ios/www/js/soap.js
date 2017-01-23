@@ -128,7 +128,7 @@ csoap.prototype.call=function(req,fcallback,myobj,foffline){
 	if(!hnwk){
 		fcancel_loading();
     	if(foffline)foffline(myobj,req);
-    	else ftoast("Vous n'êtes pas connecté à l'internet.");
+    	else ftoast("Vous n'êtes pas connecté à Internet.");
     	return;
     }
 	
@@ -168,7 +168,7 @@ csoap.prototype.call=function(req,fcallback,myobj,foffline){
 	    error     : function() {
 	    	fcancel_loading();
 	    	if(foffline)foffline(myobj,req);
-	    	else ftoast("timeout");
+	    	else ftoast("La requête a échoué (timeout)");
 	    }
 	});
 }

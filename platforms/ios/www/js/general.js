@@ -447,7 +447,7 @@ function fdownload_file(uri,filename){
 			    filePath,
 			    function(entry) {
 			        console.log("download complete: " + entry.fullPath);
-			        ftoast("Le document est mis dans "+entry.toURL(),7000);
+			        ftoast("Le document est stocké dans "+entry.toURL(),7000);
 			        window.plugins.fileOpener.open(entry.toURL())
 			        //window.open(entry.toURL(), '_system');
 			    },

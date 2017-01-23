@@ -390,7 +390,7 @@ cagenda.prototype.fsave_consigne=function(ddeb){
 	if(!hcons)return;
 	var hnwk=soap.has_network();
 	if(!hnwk){
-		ftoast("Vous n'êtes pas connecté à l'internet.");
+		ftoast("Vous n'êtes pas connecté à Internet.");
 		return;
 	}
 	var req={
@@ -668,7 +668,7 @@ cagenda.prototype.fonchange_ddeb=function(tp){
 cagenda.prototype.fsave_rdv=function(){
 	var hnwk=soap.has_network();
 	if(!hnwk){
-		ftoast("Vous n'êtes pas connecté à l'internet.");
+		ftoast("Vous n'êtes pas connecté à Internet.");
 		return;
 	}
 	var req={
@@ -782,7 +782,7 @@ cagenda.prototype.fopen_canvas=function(ddeb,type){
 cagenda.prototype.fsave_canvas=function(type){
 	var hnwk=soap.has_network();
 	if(!hnwk){
-		ftoast("Vous n'êtes pas connecté à l'internet.");
+		ftoast("Vous n'êtes pas connecté à Internet.");
 		return;
 	}
 	var req={
@@ -812,7 +812,7 @@ cagenda.prototype.fsave_canvas=function(type){
 
 cagenda.prototype.fmaj_affichage=function(r,rt,myobj,req){
 	if(!r){
-		ftoast("Eurreur connexion.");
+		ftoast("Erreur connexion.");
 		return;
 	}
 	switch(req.act){

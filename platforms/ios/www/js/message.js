@@ -36,7 +36,7 @@ cmessage.prototype.finitial=function(){
 	}else{
 		this.initial=1;
 		this.nbr_a_charger=-1;
-		ftoast("La première synchronisation de messages peut prendre quelques minutes, veuillez patienter...");
+		ftoast("La première synchronisation des messages peut prendre quelques minutes, veuillez patienter...");
 		this.fsync_message();
 		this.ajax_div.innerHTML="Pas plus de message.";
 	}
@@ -152,7 +152,7 @@ cmessage.prototype.fsync_message_clb=function(r,rt,myobj){
 
 cmessage.prototype.fresync=function(){
 	fshow_loading();
-	ftoast("Resynchronisation de messages en cours, cela peut prendre quelques minutes, veuillez patienter...",5000);
+	ftoast("Resynchronisation des messages en cours, cela peut prendre quelques minutes, veuillez patienter...",5000);
 	this.amsgs=new Array();
 	this.last_sync=0;
 	this.allow_update_last_sync=true;

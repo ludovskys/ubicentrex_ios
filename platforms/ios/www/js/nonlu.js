@@ -156,7 +156,7 @@ cnonlu.prototype.fpasser_tous_lu=function(n){
 
 cnonlu.prototype.fpasser_tous_lu2=function(n){
 	if(!this.an.join(',')){
-		ftoast("Pas de élément affiché, opération abandonnée.");
+		ftoast("Pas d'élément affiché, opération abandonnée.");
 		return;
 	}
 	var req={

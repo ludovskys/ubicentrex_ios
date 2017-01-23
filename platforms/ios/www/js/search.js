@@ -59,7 +59,7 @@ csearch.prototype.fsearch=function(){
 	switch(this.stp){
 		case "agenda":
 			if(this.txrdv.value.length<3){
-				ftoast("Veuillez saisir au moins 3 caractères pour éffectuer la recherche.");
+				ftoast("Veuillez saisir au moins 3 caractères pour effectuer la recherche.");
 				return;
 			}
 			var req={
@@ -74,7 +74,7 @@ csearch.prototype.fsearch=function(){
 		break;
 		case "message":
 			if(this.txmsg.value.length<3){
-				ftoast("Veuillez saisir au moins 3 caractères pour éffectuer la recherche.");
+				ftoast("Veuillez saisir au moins 3 caractères pour effectuer la recherche.");
 				return;
 			}
 			var req={
