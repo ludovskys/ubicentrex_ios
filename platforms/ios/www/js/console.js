@@ -261,7 +261,9 @@ cconsole.prototype.fset_grp=function(r){
 cconsole.prototype.fcreate_console_pages=function(){
 	if(typeof(user)=="undefined")return;
 	var a=new Array();
-	a["content"]="<img src='img/nav.png' style='position:absolute;top:0px;height:25%;width:100%;Z-index:0;opacity:0.9;' />";
+	
+	
+	//a["content"]="<img style='position:absolute;top:0px;height:25%;width:100%;Z-index:0;opacity:0.9;' />";
 	
 	var len=0;
 	var ar=new Array();
@@ -280,16 +282,17 @@ cconsole.prototype.fcreate_console_pages=function(){
 	}
 	this.agrp[user.n]=new cgroup(this.ref+".agrp["+user.n+"]",this.pref+"agrp"+user.n,this,user);
 	
-	a["content"]+="<a onClick=\""+this.ref+".fsync_config("+this.ref+".ncli_active)\" style=\"position:absolute;top:3px;left:3px;text-align:center;height:45px;width:45px;border-radius:40px;background:yellow url('img/icon_user.png') no-repeat center center;background-size:27px auto;\"> </a>";
-	a["content"]+="<div style='position:absolute;top:8px;right:20%;height:40px;line-height:40px;width:67%;Z-index:0;white-space:nowrap;overflow:hidden;'>";
+	a["content"]="<div class='divContentMenu'>";
+	a["content"]+="<a onClick=\""+this.ref+".fsync_config("+this.ref+".ncli_active)\" class='linkProfileMenu'> </a>";
+	a["content"]+="<div class='divSelectUser'>";
 	if(droit(26) && len>1){
 		this.users_select=new cselect(this.ref+".users_select","users_select",ar,this.ncli_active,this.ref+".fonchange_client");
 		a["content"]+=this.users_select.fcreate();
 	}else{
-		a["content"]+=" <u style='font-size:16px;margin-left:8px;'>"+this.agrp[this.ncli_active].nom_usuel+"</u>";
+		a["content"]+=" <u class='uNomUsuel'>"+this.agrp[this.ncli_active].nom_usuel+"</u>";
 	}
 	a["content"]+="</div>";	
-	a["content"]+="<ul class='nav'>" +	
+	a["content"]+="<ul class='ulMenu'>" +
 				"<li class='title'>Favoris</li>" +
 				"<li style=\"background-image:url('img/icon_search2.png')\" onclick=\""+this.ref+".fonchange_action('search')\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Rechercher</a></li>" +
 				"<li style=\"background-image:url('img/icon_calendar.png')\" onclick=\""+this.ref+".fonchange_action('agenda')\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Planning</a></li>" +
@@ -302,6 +305,8 @@ cconsole.prototype.fcreate_console_pages=function(){
 	a["content"]+="<li style=\"background-image:url('img/icon_adjust-vert.png')\" onclick=\""+this.ref+".fuser_setting();\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Préférences</a></li>" +
 				"<li style=\"background-image:url('img/icon_error-circle_alt.png')\" onclick=\""+this.ref+".fabout_app();\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>À propos</a></li>" +
 				"</ul>";
+	a["content"]+="</div>";
+	
 	this.nav_page=fnew_page(a,'');
 
 
@@ -473,10 +478,10 @@ cconsole.prototype.fabout_app=function(){
 
 cconsole.prototype.flogin_page=function(){
 	var a=new Array();
-	a["content"]="<table class='tableLogin'>";
+	a["content"]="<div class='divContentLogin'><table class='tableLogin'>";
 	a["content"]+="<tr class='trTableLogin'><td><div class='divInputLogin'>"+inputElement(this.pref+"username","","class='inputLogin' placeholder='Identifiant'","","text")+"</div></td></tr>";
 	a["content"]+="<tr class='trTableLogin'><td><div class='divInputLogin'>"+inputElement(this.pref+"pwd","","class='inputLogin' placeholder='Mot de passe'","","password")+"</div></td></tr>";
-	a["content"]+="<tr class='trTableLogin'><td><br/><div class='divButtonLogin'>"+inputElement(this.pref+"buttonLogin","","onClick='"+this.ref+".flogin()'","SE CONNECTER", "button")+"</div></td></tr></table>";
+	a["content"]+="<tr class='trTableLogin'><td><br/><div class='divButtonLogin'>"+inputElement(this.pref+"buttonLogin","","onClick='"+this.ref+".flogin()'","SE CONNECTER", "button")+"</div></td></tr></table></div>";
 	this.login_page=fnew_page(a,'');
 }
 

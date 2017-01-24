@@ -1,6 +1,8 @@
 /* CSS Page Login */
-.content {
-	background-color: #4ba9c7;
+.divContentLogin {
+	background-color: var(--color-background-splashscreen);
+	width: 100%;
+	height: 100%;
 }
 
 .tableLogin {
@@ -13,7 +15,7 @@
 }
 
 .inputLogin {
-	color: #4ba9c7;
+	color: var(--color-background-splashscreen);
 	width: 90%;
 	font-size : 13px;
 	border: none;
@@ -21,7 +23,7 @@
 
 /* do not group these rules */
 *.inputLogin::-webkit-input-placeholder {
-	color: #4ba9c7;
+	color: var(--color-titleorplaceholder-text);
 }
 
 #consolebuttonLogin {
@@ -45,7 +47,7 @@
 }
 
 .divButtonLogin {
-	background: #205070;
+	background: var(--color-background-menu);
 	border-radius: 3px;
 	padding-top: 8px;
 	padding-bottom: 8px;
