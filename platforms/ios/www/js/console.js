@@ -262,9 +262,6 @@ cconsole.prototype.fcreate_console_pages=function(){
 	if(typeof(user)=="undefined")return;
 	var a=new Array();
 	
-	
-	//a["content"]="<img style='position:absolute;top:0px;height:25%;width:100%;Z-index:0;opacity:0.9;' />";
-	
 	var len=0;
 	var ar=new Array();
 	if(droit(4) || droit(44)){
@@ -280,31 +277,39 @@ cconsole.prototype.fcreate_console_pages=function(){
 		this.agrp[ncli]=new cgroup(this.ref+".agrp["+ncli+"]",this.pref+"agrp"+ncli,this,this.agrp[i]);//transform every group array to group object
 		len++;
 	}
+	
 	this.agrp[user.n]=new cgroup(this.ref+".agrp["+user.n+"]",this.pref+"agrp"+user.n,this,user);
 	
 	a["content"]="<div class='divContentMenu'>";
-	a["content"]+="<a onClick=\""+this.ref+".fsync_config("+this.ref+".ncli_active)\" class='linkProfileMenu'> </a>";
-	a["content"]+="<div class='divSelectUser'>";
+	
+	a["content"]+="<div class='divUser'>";
+	
+	//a["content"]+="<a onClick=\""+this.ref+".fsync_config("+this.ref+".ncli_active)\" class='linkProfileMenu'> </a>";
+	
+	a["content"]+="<img class='imgProfile' />";
+	
 	if(droit(26) && len>1){
 		this.users_select=new cselect(this.ref+".users_select","users_select",ar,this.ncli_active,this.ref+".fonchange_client");
 		a["content"]+=this.users_select.fcreate();
 	}else{
-		a["content"]+=" <u class='uNomUsuel'>"+this.agrp[this.ncli_active].nom_usuel+"</u>";
+		a["content"]+=" <p class='pNomUsuel'>"+this.agrp[this.ncli_active].nom_usuel+"</p>";
 	}
-	a["content"]+="</div>";	
+	a["content"]+="</div>";
+	
 	a["content"]+="<ul class='ulMenu'>" +
 				"<li class='title'>Favoris</li>" +
-				"<li style=\"background-image:url('img/icon_search2.png')\" onclick=\""+this.ref+".fonchange_action('search')\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Rechercher</a></li>" +
-				"<li style=\"background-image:url('img/icon_calendar.png')\" onclick=\""+this.ref+".fonchange_action('agenda')\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Planning</a></li>" +
-				"<li style=\"background-image:url('img/icon_mail_alt.png')\" onclick=\""+this.ref+".fonchange_action('message')\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Messages</a><div class='ind' id='nbr_msg_ind'></div></li>" +
-				"<li style=\"background-image:url('img/icon_contacts_alt.png')\" onclick=\""+this.ref+".fonchange_action('contact')\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Contacts</a></li>" +
-				"<li style=\"background-image:url('img/icon_document_alt.png')\" onclick=\""+this.ref+".fonchange_action('nonlu')\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Non lu</a></li>" +
+				"<li class='liMenu' id='liMenuSearch' onclick=\""+this.ref+".fonchange_action('search')\"><a>Rechercher</a></li>" +
+				"<li class='liMenu' id='liMenuPlanning' onclick=\""+this.ref+".fonchange_action('agenda')\"><a>Planning</a></li>" +
+				"<li class='liMenu' id='liMenuMessages' onclick=\""+this.ref+".fonchange_action('message')\"><a>Messages</a><div class='ind' id='nbr_msg_ind'></div></li>" +
+				"<li class='liMenu' id='liMenuContacts' onclick=\""+this.ref+".fonchange_action('contact')\"><a>Contacts</a></li>" +
+				"<li class='liMenu' id='liMenuNonLu' onclick=\""+this.ref+".fonchange_action('nonlu')\"><a>Non lu</a></li>" +
 				"<li class='title'>Mon compte</li>";
 	
-	if(droit(44))a["content"]+="<li style=\"background-image:url('img/icon_toolbox_alt.png')\" onclick=\""+this.ref+".fsupervision();\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Supervision</a></li>";
-	a["content"]+="<li style=\"background-image:url('img/icon_adjust-vert.png')\" onclick=\""+this.ref+".fuser_setting();\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>Préférences</a></li>" +
-				"<li style=\"background-image:url('img/icon_error-circle_alt.png')\" onclick=\""+this.ref+".fabout_app();\" ontouchstart=\"this.style.color='orange'\" ontouchend=\"this.style.color=''\"><a>À propos</a></li>" +
-				"</ul>";
+	if(droit(44))a["content"]+="<li class='liMenu' id='liMenuSupervision' onclick=\""+this.ref+".fsupervision();\"><a>Supervision</a></li>";
+	a["content"]+="<li class='liMenu' id='liMenuPreferences' onclick=\""+this.ref+".fuser_setting();\"><a>Préférences</a></li>" +
+				"<li class='liMenu' id='liMenuSync' onclick=\""+this.ref+".fsync_config("+this.ref+".ncli_active)\"><a>Synchronisation</a></li>" +
+				"<li class='liMenu' id='liMenuAbout' onclick=\""+this.ref+".fabout_app();\"><a>À propos</a></li>" +
+		"</ul>";
 	a["content"]+="</div>";
 	
 	this.nav_page=fnew_page(a,'');

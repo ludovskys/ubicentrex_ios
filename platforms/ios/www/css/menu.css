@@ -7,17 +7,27 @@
 
 .linkProfileMenu {
 	position:absolute;
-	top:3px;
-	left:3px;
-	text-align:center;
 	height:45px;
 	width:45px;
 	border-radius:40px;
-	background:yellow url('../img/icon_user.png') no-repeat center center;
+	background:yellow url('../img/menu/icon-User.png') no-repeat center center;
 	background-size:27px auto;
 }
 
-.divSelectUser {
+.imgProfile {
+	content: url('../img/menu/icon-User.png');
+	height:65px;
+	width:65px;
+}
+
+.divUser {
+	
+	padding-top: 10px;
+	height: 25%;
+	width: 82%;
+	text-align: center;
+	
+	/*
 	position:absolute;
 	top:8px;
 	right:20%;
@@ -27,11 +37,11 @@
 	Z-index:0;
 	white-space:nowrap;
 	overflow:hidden;
+	 */
 }
 
-.uNomUsuel {
+.pNomUsuel {
 	font-size:16px;
-	margin-left:8px;
 	color: white;
 }
 
@@ -47,8 +57,6 @@
 	color: var(--color-titleorplaceholder-text);
 }
 
-
-/*navigator=======================================================*/
 .ulMenu{
 	list-style: none;
 	margin: 0;
@@ -95,3 +103,45 @@
 	border-radius: 10px;
 	font-size:16px;
 }
+
+.liMenu:active {
+	color: var(--color-li-touchstart);
+}
+
+
+#liMenuSearch {
+	background-image:url('../img/menu/icon-Search.png');
+}
+
+#liMenuPlanning {
+	background-image:url('../img/menu/icon-Planning.png');
+}
+
+#liMenuContacts {
+	background-image:url('../img/menu/icon-Contacts.png');
+}
+
+#liMenuMessages {
+	background-image:url('../img/menu/icon-Messages.png');
+}
+
+#liMenuSupervision {
+	background-image:url('../img/menu/icon-Supervision.png');
+}
+
+#liMenuNonLu {
+	background-image:url('../img/menu/icon-Nonlu.png');
+}
+
+#liMenuPreferences {
+	background-image:url('../img/menu/icon-Preferences.png');
+}
+
+#liMenuSync {
+	background-image:url('../img/menu/icon-Sync.png');
+}
+
+#liMenuAbout {
+	background-image:url('../img/menu/icon-Apropos.png');
+}
+
