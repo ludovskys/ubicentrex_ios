@@ -277,10 +277,10 @@ cagenda.prototype.fdisplay_header=function(_target_hdr){
 		this.hhdr=document.createElement('div');
 		this.hhdr.id="ag_hdr_"+this.ncli;
 		this.hhdr.className='bdiv';
-		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left' style=\"background:url('img/icon_ul.png') no-repeat center center\"> </a>";
+		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left'> </a>";
 		tx+="<a id='"+this.pref+"ag_select' class='m_select' onClick=\""+this.ref+".fag_menu(this);\"> </a>";
-		tx+="<a onClick=\""+this.ref+".fauj();\" class='menu_right' style=\"font-size:12px;line-height:50px;right:40px;background:url('img/icon_calendar.png') no-repeat center center;background-size:23px auto;\">"+this.current_date+"</a>";
-		tx+="<a onClick=\""+this.ref+".fopen_rdv();\" class='menu_right' style=\"background:url('img/icon_plus.png') no-repeat center center\"> </a>";
+		tx+="<a onClick=\""+this.ref+".fauj();\" class='menu_right menu_right_calendar'>"+this.current_date+"</a>";
+		tx+="<a onClick=\""+this.ref+".fopen_rdv();\" class='menu_right menu_right_plus'> </a>";
 		this.hhdr.innerHTML=tx;
 		this.target_hdr.appendChild(this.hhdr);
 		this.hag_select=document.getElementById(this.pref+"ag_select");

@@ -112,34 +112,9 @@ background:#fff;
 -ms-transition: all .1s ease-in-out;
 }
 
-.header
-{
-top: 0px;
-background-color:#B0E0E6;
-font-size:16px;
-text-align: center;
-line-height: 40px;
-height: 40px;
-width:100%;
-position:absolute;
-Z-index:1;
-}
 
-a.menu_right
-{
-position: absolute;
-height: 40px;
-width:40px;
-right: 0px;
-}
 
-a.menu_left
-{
-position: absolute;
-height: 40px;
-width:40px;	
-left: 0px;
-}
+
 
 .content
 {
@@ -187,13 +162,7 @@ width:40px;
 right: 0px;
 }
 
-.footer a.menu_left
-{
-position: absolute;
-height: 40px;
-width:40px;	
-left: 0px;
-}
+
 /*
  * CSS animated rainbow dividers of awesome 
  * by Chris Heilmann @codepo8 and Lea Verou @leaverou 
@@ -600,26 +569,6 @@ border-radius:5px;
 }
 
 
-/*Agenda======================================================================================================*/
-.m_select{
-position: absolute;
-height: 40px;
-line-height: 40px;
-min-width:110px;
-left:40px;
-padding-right:5px;
-}
-.m_select:after{
-content:'';
-width: 0px;
-height: 0px;
-border-style: solid;
-border-width: 0 0 10px 10px;
-border-color: transparent transparent #777 transparent;
-position:absolute;
-right:0;
-bottom:8px;
-}
 
 .week_title{
 Z-index:10;

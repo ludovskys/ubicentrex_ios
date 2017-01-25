@@ -145,3 +145,15 @@
 	background-image:url('../img/menu/icon-Apropos.png');
 }
 
+
+
+
+
+
+.footer a.menu_left {
+	position: absolute;
+	height: 40px;
+	width:40px;
+	left: 0px;
+}
+

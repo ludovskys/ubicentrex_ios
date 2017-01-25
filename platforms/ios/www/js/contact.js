@@ -599,7 +599,7 @@ ccontact.prototype.fdisplay_header=function(_target_hdr){
 		this.hhdr=document.createElement('div');
 		this.hhdr.id="msg_hdr_"+this.ncli;
 		this.hhdr.className='bdiv';
-		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left' style=\"background:url('img/icon_ul.png') no-repeat center center\"> </a>";
+		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left'> </a>";
 		tx+="<a onClick=\""+this.ref+".fopen_contact();\" class='menu_right' style=\"background:url('img/icon_plus.png') no-repeat center center\"> </a>";
 
 		this.hhdr.innerHTML=tx;
