@@ -233,7 +233,7 @@ function array_merge(ar1,ar2){
 
 //textes
 var almois=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
-var amois=new Array("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre");
+var amois=new Array("Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre");
 var amoiscourts=new Array("Jan","Fév","Mars","Avr","Mai","Juin","Juil","Août","Sept","Oct","Nov","Déc");
 var ajours=new Array("Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi");
 var ajourscourts=new Array("Dim.","Lun.","Mar.","Mer.","Jeu.","Ven.","Sam.");

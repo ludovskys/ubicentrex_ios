@@ -521,11 +521,10 @@ width:100%;
 top:0;
 left:0;
 position: relative;
-background:#fff;
--moz-box-shadow:2px 2px 2px 0 #666;
--webkit-box-shadow:2px 2px 2px 0 #666;
-box-shadow:2px 2px 2px 0 #666;
+background:#fafafa;
+border-bottom: 1px solid black;
 }
+
 .week_title tr td{
 text-align:center;
 font-size:10px;
@@ -540,7 +539,7 @@ bottom:0;
 left:0;
 right:0;
 font-size:11px;
-background:#fbfbfb;
+background:#f1f1f0;
 }
 
 .mensuel div.ctn{
@@ -671,7 +670,6 @@ top:-1px;
 left:0;
 height:98%;
 width:100%;
-background:#fbfbfb;
 overflow-y:scroll;
 -webkit-overflow-scrolling: touch;
 }
@@ -680,15 +678,26 @@ overflow-y:scroll;
 position: absolute;
 width:100%;
 border-collapse:collapse;
-background:#f5f5f5;
+background:#f1f1f0;
 font-size:10px;
 }
 
 .week div .ctn table tr td{
 position:relative;	
 vertical-align:center;
-border:1px solid #ccc;
 }
+
+.week div .ctn  table tr .tdHoursMinutes {
+	background:#fafafa;
+}
+
+.week div .ctn table tr .tdRdv{
+	border:1px solid #c6c6c6;
+	background:#f1f1f0;
+	
+}
+
+
 
 .week div .ctn table tr td .rdv_week{
 position:absolute;
@@ -768,7 +777,6 @@ position: absolute;
 top:0;
 left:0;
 width:100%;
-background:#fbfbfb;
 }
 
 .day .ctn div table{
@@ -780,10 +788,20 @@ border-collapse:collapse;
 font-size:15px;
 }
 
+.day .ctn div table tr .tdHoursMinutes {
+	background:#fafafa;
+}
+
+.day .ctn div table tr .tdRdv{
+	border:1px solid #c6c6c6;
+	background:#f1f1f0;
+	
+}
+
 .day .ctn div table tr td{
 position:relative;	
 vertical-align:center;
-border:1px solid #ccc;
+
 }
 
 .day .ctn div table tr td .rdv_day{
@@ -951,4 +969,30 @@ bottom:0;
 	width:99%;
 	height:20%;
 	top:0;
+}
+
+.day .tdHoursMinutes {
+	width:34px;
+	border:0;
+	font-size:9px;
+}
+
+.day .tdHoursMinutes div {
+	width:100%;
+	text-align: center;
+	font-size: 11px;
+	font-style: bold;
+}
+
+.week .tdHoursMinutes {
+	width:34px;
+	border:0;
+	font-size:7px;
+}
+
+.week .tdHoursMinutes div {
+	width:100%;
+	text-align: center;
+	font-size: 11px;
+	font-style: bold;
 }

@@ -924,7 +924,7 @@ cday.prototype.fcreate_cadre=function(y,m,d){
 		var min=Math.round((h*this.ag_duree_rdv_std/60-hre)*60);
 		if(min<10) min='0'+min;
 		var str_hr=hre+':'+min;
-		tx+="<tr><td style='width:22px;height:"+(this.lheight-2)+"px;border:0;font-size:9px;'><div style='width:100%;'>"+str_hr+"</div></td>";
+		tx+="<tr><td class='tdHoursMinutes' style='height:"+(this.lheight-2)+"px;'><div>"+str_hr+"</div></td>";
 		var dtid=this.fdt2id(y,m,d,+hre,+min);
 		var jdte=new Date(y,m-1,d,+hre,+min);
 		var dte=jd2my(jdte);
@@ -937,7 +937,7 @@ cday.prototype.fcreate_cadre=function(y,m,d){
 			var ht=(this.lheight+1)*nbrl;
 			if(ht>0)hpast="<div class='past' style='height:"+ht+"px;'></div>"
 		}
-		tx+="<td id='"+dtid+"' " +
+		tx+="<td class='tdRdv' id='"+dtid+"' " +
 			"ontouchstart=\""+this.ref+".oparent.faction_start(event)\" " +
 			"ontouchend=\""+this.ref+".oparent.faction_end()\" " +
 			"onClick=\""+this.ref+".oparent.fopen_rdv('"+dte+"')\" dte='"+dte+"' nbrdv=0 style='height:"+(this.lheight-2)+"px;'>"+hpast+"</td></tr>";
@@ -1364,7 +1364,7 @@ cweek.prototype.fcreate_cadre=function(y,m,d){
 	var aday=fget_week_days(y,m,d);
 	
 	var tbw=document.createElement("div");
-	var tx="<table class='week_title'><tr><td style='width:21px;'></td>";
+	var tx="<table class='week_title'><tr><td style='width:38px;'></td>";
 	for(var i=0;i<this.ag_nbjours;i++){
 		tx+="<td id='wd_"+aday[i].getFullYear()+"_"+(aday[i].getMonth()+1)+"_"+aday[i].getDate()+"' style='width:"+((wwin-21)/this.ag_nbjours)+"px;'>"+awkd[i]+aday[i].getDate()+"</td>";			
 	}
@@ -1378,7 +1378,7 @@ cweek.prototype.fcreate_cadre=function(y,m,d){
 		var min=Math.round((h*this.ag_duree_rdv_std/60-hre)*60);
 		if(min<10) min='0'+min;
 		var str_hr=hre+':'+min;
-		tx+="<tr><td style='width:21px;height:"+(this.lheight-2)+"px;border:0;font-size:7px;'><div>"+str_hr+"</div></td>";
+		tx+="<tr><td class='tdHoursMinutes' style='height:"+(this.lheight-2)+"px;'><div>"+str_hr+"</div></td>";
 		for(var b=0;b<this.ag_nbjours;b++){
 			var dtid=this.fdt2id(aday[b].getFullYear(),aday[b].getMonth()+1,aday[b].getDate(),+hre,+min);
 			var jdte=new Date(aday[b].getFullYear(),aday[b].getMonth(),aday[b].getDate(),+hre,+min)
@@ -1392,7 +1392,7 @@ cweek.prototype.fcreate_cadre=function(y,m,d){
 				var ht=(this.lheight+1)*nbrl;
 				if(ht>0)hpast="<div class='past' style='height:"+ht+"px;'></div>"
 			}
-			tx+="<td onClick=\""+this.ref+".oparent.fopen_rdv('"+dte+"')\" " +
+			tx+="<td class='tdRdv' onClick=\""+this.ref+".oparent.fopen_rdv('"+dte+"')\" " +
 				"ontouchstart=\""+this.ref+".oparent.faction_start(event)\" " +
 				"ontouchend=\""+this.ref+".oparent.faction_end()\" " +
 				"id='"+dtid+"' dte='"+dte+"' nbrdv=0 style='height:"+(this.lheight-2)+"px;'>"+hpast+"</td>";
