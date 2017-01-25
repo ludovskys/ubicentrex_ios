@@ -505,19 +505,22 @@ cmessage.prototype.fmsg_filtre=function(obj){
 	else if(this.recu==1)f2=1;
 	else if(this.recu==2)f2=2;
 	
-	var tx="<div class='select_item "+(f1==0 ? "selected":"")+"' onclick=\""+this.ref+".lu=0;"+this.ref+".old=0;fback_history();"+this.ref+".frafficher_msgs();\">Non lus</div>";
-	tx+="<div class='select_item "+(f1==1 ? "selected":"")+"' onclick=\""+this.ref+".lu=1;"+this.ref+".old=0;fback_history();"+this.ref+".frafficher_msgs();\">Lus</div>";
-	tx+="<div class='select_item "+(f1==2 ? "selected":"")+"' onclick=\""+this.ref+".lu=2;"+this.ref+".old=0;fback_history();"+this.ref+".frafficher_msgs();\">Tous sauf supprimés</div>";
-	tx+="<div class='select_item "+(f1==3 ? "selected":"")+"' onclick=\""+this.ref+".lu=2;"+this.ref+".old=1;fback_history();"+this.ref+".frafficher_msgs();\">Supprimés</div>";
-	tx+="<div class='select_item "+(f1==4 ? "selected":"")+"' onclick=\""+this.ref+".lu=2;"+this.ref+".old=2;fback_history();"+this.ref+".frafficher_msgs();\">Tous</div>";
+	var tx="<div class='select_item "+(f1==0 ? "selected":"")+"' onclick=\""+this.ref+".lu=0;"+this.ref+".old=0;fback_history();"+this.ref+".frafficher_msgs('Non lus');\">Non lus</div>";
+	tx+="<div class='select_item "+(f1==1 ? "selected":"")+"' onclick=\""+this.ref+".lu=1;"+this.ref+".old=0;fback_history();"+this.ref+".frafficher_msgs('Lus');\">Lus</div>";
+	tx+="<div class='select_item "+(f1==2 ? "selected":"")+"' onclick=\""+this.ref+".lu=2;"+this.ref+".old=0;fback_history();"+this.ref+".frafficher_msgs('Tous sauf supprimés');\">Tous sauf supprimés</div>";
+	tx+="<div class='select_item "+(f1==3 ? "selected":"")+"' onclick=\""+this.ref+".lu=2;"+this.ref+".old=1;fback_history();"+this.ref+".frafficher_msgs('Supprimés');\">Supprimés</div>";
+	tx+="<div class='select_item "+(f1==4 ? "selected":"")+"' onclick=\""+this.ref+".lu=2;"+this.ref+".old=2;fback_history();"+this.ref+".frafficher_msgs('Tous');\">Tous</div>";
 	tx+="<div class='select_item' style='border:0;height:10px;background:#ddd;'></div>";
-	tx+="<div class='select_item "+(f2==0 ? "selected":"")+"' onclick=\""+this.ref+".recu=0;fback_history();"+this.ref+".frafficher_msgs();\">Reçus</div>";
-	tx+="<div class='select_item "+(f2==1 ? "selected":"")+"' onclick=\""+this.ref+".recu=1;fback_history();"+this.ref+".frafficher_msgs();\">Envoyés</div>";
-	tx+="<div class='select_item "+(f2==2 ? "selected":"")+"' onclick=\""+this.ref+".recu=2;fback_history();"+this.ref+".frafficher_msgs();\">Tous</div>";
+	tx+="<div class='select_item "+(f2==0 ? "selected":"")+"' onclick=\""+this.ref+".recu=0;fback_history();"+this.ref+".frafficher_msgs('Reçus');\">Reçus</div>";
+	tx+="<div class='select_item "+(f2==1 ? "selected":"")+"' onclick=\""+this.ref+".recu=1;fback_history();"+this.ref+".frafficher_msgs('Envoyés');\">Envoyés</div>";
+	tx+="<div class='select_item "+(f2==2 ? "selected":"")+"' onclick=\""+this.ref+".recu=2;fback_history();"+this.ref+".frafficher_msgs('Tous');\">Tous</div>";
 	fcontext_menu(obj,tx,wwin*0.6);
 }
 
-cmessage.prototype.frafficher_msgs=function(){
+cmessage.prototype.frafficher_msgs=function(txtSelected){
+	
+	this.hag_select.innerHTML = txtSelected;
+	
 	this.allow_scroll_charge=true;
 	this.hctn.innerHTML="";
 	this.hctn.scrollTop=0;
@@ -668,10 +671,13 @@ cmessage.prototype.fdisplay_header=function(_target_hdr){
 		this.hhdr=document.createElement('div');
 		this.hhdr.id="msg_hdr_"+this.ncli;
 		this.hhdr.className='bdiv';
-		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left' style=\"background:url('img/icon_ul.png') no-repeat center center\"> </a>";
+		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left'> </a>";
+		
+		tx+="<a id='"+this.pref+"ag_select' class='m_select m_select_messages' onClick=\""+this.ref+".fmsg_filtre(this);\">Non lus</a>";
 
-		tx+="<a onClick=\""+this.ref+".fmsg_filtre(this);\" class='menu_right' style=\"font-size:12px;line-height:50px;right:40px;background:url('img/icon_ribbon_alt.png') no-repeat center center;background-size:22px auto;\"> </a>";
-		tx+="<a onClick=\""+this.ref+".fnew_msg();\" class='menu_right' style=\"background:url('img/icon_pencil.png') no-repeat center center;background-size:23px auto;\"> </a>";
+		//tx+="<a onClick=\""+this.ref+".fmsg_filtre(this);\" class='menu_right menu_right_bookmark'> </a>";
+		
+		tx+="<a onClick=\""+this.ref+".fnew_msg();\" class='menu_right menu_right_newmessage'> </a>";
 		this.hhdr.innerHTML=tx;
 		this.target_hdr.appendChild(this.hhdr);
 		this.hag_select=document.getElementById(this.pref+"ag_select");

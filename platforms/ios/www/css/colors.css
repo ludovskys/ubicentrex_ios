@@ -2,16 +2,22 @@
 
 :root{
 	
+	/* Arrière plan du menu */
 	--color-background-menu: #205070;
 	
+	/* Arrière plan de la page de login */
 	--color-background-splashscreen: #4ba9c7;
 	
+	/*  */
 	--color-titleorplaceholder-text: #4ba9c7;
 	
+	/* */
 	--color-background-title-menu: #123346;
 	
+	/* */
 	--color-separator-menu: #47697b;
 	
+	/* */
 	--color-li-touchstart: #da328a;
 	
 }

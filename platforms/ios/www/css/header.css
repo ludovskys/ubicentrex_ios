@@ -36,6 +36,14 @@ a.menu_right_plus {
 	right: 5px;
 }
 
+a.menu_right_search {
+	background-size: 30px auto;
+	top: 5px;
+	right: 8px;
+	background-image: url('../img/menu/icon-Search.png');
+	height: 30px;
+	width: 30px;
+}
 
 a.menu_left {
 	position: absolute;
@@ -46,6 +54,19 @@ a.menu_left {
 	width:40px;
 }
 
+a.menu_right_bookmark {
+	font-size:12px;
+	line-height:50px;
+	right:40px;
+	background:url('../img/header/icon-Bookmark.png') no-repeat center center;
+	background-size:22px auto;
+}
+
+a.menu_right_newmessage {
+	background:url('../img/header/icon-NewMessage.png') no-repeat center center;
+	background-size:25px auto;
+	right: 5px;
+}
 
 
 .m_select{
@@ -68,3 +89,12 @@ a.menu_left {
 	right:0;
 	bottom:8px;
 }
+
+.m_select_search {
+	min-width:100px;
+}
+
+.m_select_messages {
+	min-width:80px;
+}
+
