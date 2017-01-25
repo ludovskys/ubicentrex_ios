@@ -391,7 +391,7 @@ csv_calls.prototype.finitial_clb=function(r,rt,myobj){
 
 csv_calls.prototype.fremplir=function(){
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
 	var ar=new Array();
 	ar["0"]="Tous";
 	for(var i=0;i<this.xmlqueue.length;i++){
@@ -401,16 +401,16 @@ csv_calls.prototype.fremplir=function(){
 	}
 	this.ogrp_select=new cselect(this.ref+".ogrp_select",this.pref+"grp_select",ar,"0",this.ref+".fonchage_grp");
 	
-	a["header"]+="<div style='position:relative;left:40px;width:"+(wwin-43)+"px;'>"+this.ogrp_select.fcreate("style='border:0;text-align:left;'")+"</div>";
+	a["header"]+="<div class='divSv' style='width:"+(wwin-43)+"px;'>"+this.ogrp_select.fcreate("style='border:0;text-align:left;'")+"</div>";
 
-	a["content"]="<table id='nb_appel' style='font-size:13px;position:absolute;width:99%;top:0;'>";
+	a["content"]="<table id='nb_appel' class='tableNbAppel'>";
 	a["content"]+="<tr><td>Appels traités aujourd'hui :</td><td style='text-align:right;' id='"+this.pref+"sv_titleleft'></td></tr>";
 	a["content"]+="<tr><td>Appels perdus :</td><td style='text-align:right;' id='"+this.pref+"sv_titleperdu'></td></tr>"
 	a["content"]+="<tr><td>Appels dissuadés :</td><td style='text-align:right;' id='"+this.pref+"sv_titledissuade'></td></tr>"
 	a["content"]+="<tr><td>Appels à l'arrivée :</td><td style='text-align:right;' id='"+this.pref+"sv_titlenonaffecte'></td></tr>";
 	a["content"]+="<tr><td>Appels en cours :</td><td style='text-align:right;' id='"+this.pref+"sv_titleencours'></td></tr>";
 	a["content"]+="</table>"
-	a["content"]+="<div id='"+this.pref+"hagent' style='font-size:12px;position:absolute;width:98%;top:100px;left:1%;bottom:0;overflow:scroll;-webkit-overflow-scrolling:touch;'></div>";
+	a["content"]+="<div id='"+this.pref+"hagent' class='divAgent'></div>";
 
 	fnew_page(a,"right");
 

@@ -38,7 +38,7 @@ cmessage.prototype.finitial=function(){
 		this.nbr_a_charger=-1;
 		ftoast("La première synchronisation des messages peut prendre quelques minutes, veuillez patienter...");
 		this.fsync_message();
-		this.ajax_div.innerHTML="Pas plus de message.";
+		this.ajax_div.innerHTML="";
 	}
 }
 
@@ -58,7 +58,7 @@ cmessage.prototype.fget_thms=function(r,rt,myobj){
 
 cmessage.prototype.fget_local_messages=function(){
 	if(this.nbr_a_charger==-1){
-		this.ajax_div.innerHTML="Pas plus de message.";
+		this.ajax_div.innerHTML="";
 		return;
 	}
 	var qry="select * from ncb_crm_messages where ndossier="+this.ncli;
@@ -87,7 +87,7 @@ cmessage.prototype.fsuccess_get_local_msgs_clb=function(myobj,p){
 	}else if(p.length<50){//stoper charger msg quand scroll
 		myobj.allow_scroll_charge=false;
 		myobj.nbr_a_charger=-1;//message locals déjà tous chargés
-		myobj.ajax_div.innerHTML="Pas plus de message.";
+		myobj.ajax_div.innerHTML="";
 	}
 	if(!myobj.fsync_timer)myobj.fsync_message();
 }

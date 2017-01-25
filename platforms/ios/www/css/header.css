@@ -68,6 +68,17 @@ a.menu_right_newmessage {
 	right: 5px;
 }
 
+a.menu_right_check {
+	background:url('../img/header/icon-Check.png') no-repeat center center;
+	background-size:25px auto;
+	right: 5px;
+}
+
+a.menu_left_back {
+	background:url('../img/header/icon-Back.png') no-repeat center center;
+	background-size: 25px auto;
+}
+
 
 .m_select{
 	position: absolute;
@@ -96,5 +107,23 @@ a.menu_right_newmessage {
 
 .m_select_messages {
 	min-width:80px;
+}
+
+
+
+
+.divSv {
+	position:relative;
+	left:40px;
+}
+
+.divTitle {
+	position:absolute;
+	right:40px;
+	left:40px;
+	white-space:nowrap;
+	overflow:hidden;
+	color: white;
+	text-overflow:ellipsis;
 }
 

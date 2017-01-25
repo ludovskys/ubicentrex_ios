@@ -328,7 +328,7 @@ cconsole.prototype.fcreate_console_pages=function(){
 	
 	//alert s'il y a une nouvelle version
 	if(user.new_version>version_app){
-		setTimeout("fconfirm(\"Il y a une nouvelle version de l'application, voulez-vous la mettre à jour?\",'fgoto_app_store()','',120)",6000);
+		setTimeout("fconfirm(\"Il y a une nouvelle version de l'application, voulez-vous la mettre à jour ?\",'fgoto_app_store()','',120)",6000);
 	}	
 }
 
@@ -381,8 +381,9 @@ cconsole.prototype.fuser_setting=function(){
 	this.nav_open=false;
 	this.main_page.container.className="page nav_open";
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";
-	a["header"]+="<a onClick=\""+this.ref+".fuser_setting_save();\" class='menu_right' style=\"background:url('img/icon_check.png') no-repeat center center;background-size:23px auto;\"> </a>";
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
+	a["header"]+="<div class='divTitle'>Préférences</div>";
+	a["header"]+="<a onClick=\""+this.ref+".fuser_setting_save();\" class='menu_right menu_right_check'> </a>";
 	a["content"]="<div class='bdiv scr'><table class='struct'>";	
 	a["content"]+="<tr><td colspan='3' style='color:#777;font-weight:bold;'>Général <hr /></td></tr>";
 	a["content"]+="<tr><td colspan='3'>"+text(this.pref+"user_nom_usuel",'',"placeholder='Nom usuel'",(user && user.nom_usuel) ? user.nom_usuel : "")+"</td></tr>";
@@ -404,7 +405,7 @@ cconsole.prototype.fuser_setting=function(){
 	a["content"]+="<tr><td colspan='3'>"+text(this.pref+"user_tel_pri",'',"placeholder='Tel. pri'",(user && user.tel_pri) ? ftel_lisible(user.tel_pri) : "")+"</td></tr>";
 	a["content"]+="<tr><td colspan='3'>"+text(this.pref+"user_fax_pro",'',"placeholder='Fax(es)'",(user && user.fax_pro) ? ftel_lisible(user.fax_pro) : "")+"</td></tr>";
 	a["content"]+="<tr><td colspan='3' style='color:#777;font-weight:bold;'><br>Fonctions <hr /></td></tr>";
-	a["content"]+="<tr><td colspan='3'>"+button(this.pref+'btn_disconect',"","onClick=\"fconfirm('Voulez-vous vraiment vous déconnecter?','"+this.ref+".fdisconect()')\" style='background:red;'","Déconnexion")+"</td></tr>";
+	a["content"]+="<tr><td colspan='3'>"+button(this.pref+'btn_disconect',"","onClick=\"fconfirm('Voulez-vous vraiment vous déconnecter ?','"+this.ref+".fdisconect()')\" style='background:red;'","Déconnexion")+"</td></tr>";
 	a["content"]+="</table></div>";	
 	this.config_page=fnew_page(a,"right");
 }
@@ -476,8 +477,9 @@ cconsole.prototype.fabout_app=function(){
 	this.nav_open=false;
 	this.main_page.container.className="page nav_open";
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";
-	a["content"]="<div class='bdiv scr' style='text-align:center;'>Version d'application: "+version_app_str+"</div>";	
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
+	a["header"]+="<div class='divTitle'>À propos</div>";
+	a["content"]="<div class='bdiv scr' style='text-align:center;'>Version de l'application : "+version_app_str+"</div>";
 	this.config_page=fnew_page(a,"right");
 }
 

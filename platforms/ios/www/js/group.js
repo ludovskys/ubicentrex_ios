@@ -76,9 +76,9 @@ cgroup.prototype.fcreate_action=function(_action){
 
 cgroup.prototype.fsetting=function(){
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";
-	a["header"]+="<div style='position:absolute;right:40px;left:40px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>"+this.nom_usuel+"</div>";
-	a["header"]+="<a onClick=\""+this.ref+".fsetting_save();\" class='menu_right' style=\"background:url('img/icon_check.png') no-repeat center center;background-size:23px auto;\"> </a>";
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
+	a["header"]+="<div class='divTitle'>Synchronisation</div>";
+	a["header"]+="<a onClick=\""+this.ref+".fsetting_save();\" class='menu_right menu_right_check'> </a>";
 	a["content"]="<div class='bdiv scr'><table class='struct'>";	
 	a["content"]+="<tr><td colspan=2 style='color:#777;font-weight:bold;'>Agenda<hr /></td></tr>";
 	var ar=new Array();
@@ -86,23 +86,23 @@ cgroup.prototype.fsetting=function(){
 	ar["w"]="Afficher la semaine";
 	ar["m"]="Afficher le mois";
 	this.aff_select=new cselect(this.ref+".aff_select",this.pref+"aff_select",ar,this.local_config.ag_aff);
-	a["content"]+="<tr><td style='width:45%'>Defaut affichage:</td><td>"+this.aff_select.fcreate()+"</td></tr>";
+	a["content"]+="<tr><td style='width:45%'>Affichage défaut :</td><td>"+this.aff_select.fcreate("","selectSync")+"</td></tr>";
 	ar=new Array();
-	ar[5]="Tous les 5 minutes";
-	ar[10]="Tous les 10 minutes";
-	ar[20]="Tous les 20 minutes";
-	ar[30]="Tous les 30 minutes";
-	ar[60]="Tous les 60 minutes";
+	ar[5]="Toutes les 5 minutes";
+	ar[10]="Toutes les 10 minutes";
+	ar[20]="Toutes les 20 minutes";
+	ar[30]="Toutes les 30 minutes";
+	ar[60]="Toutes les 60 minutes";
 	this.sync_ag_select=new cselect(this.ref+".sync_ag_select",this.pref+"sync_ag_select",ar,this.local_config.interval_ag);
-	a["content"]+="<tr><td style='width:45%'>Synchroniser :</td><td>"+this.sync_ag_select.fcreate()+"</td></tr>";
+	a["content"]+="<tr><td style='width:45%'>Synchroniser :</td><td>"+this.sync_ag_select.fcreate("","selectSync")+"</td></tr>";
 	a["content"]+="<tr><td colspan=2><br>"+button(this.pref+'btn_sync_ag',"","onClick=\""+this.ref+".fresync('agenda')\"","Resynchroniser agenda")+"</td></tr>";	
 	a["content"]+="<tr><td colspan=2 style='color:#777;font-weight:bold;'><br>Messages<hr /></td></tr>";
 	this.sync_msg_select=new cselect(this.ref+".sync_msg_select",this.pref+"sync_msg_select",ar,this.local_config.interval_msg);
-	a["content"]+="<tr><td style='width:45%'>Synchroniser :</td><td>"+this.sync_msg_select.fcreate()+"</td></tr>";
+	a["content"]+="<tr><td style='width:45%'>Synchroniser :</td><td>"+this.sync_msg_select.fcreate("","selectSync")+"</td></tr>";
 	a["content"]+="<tr><td colspan=2><br>"+button(this.pref+'btn_sync_msg',"","onClick=\""+this.ref+".fresync('message')\"","Resynchroniser messages")+"</td></tr>";
 	a["content"]+="<tr><td colspan=2 style='color:#777;font-weight:bold;'><br>Contacts<hr /></td></tr>";
 	this.sync_con_select=new cselect(this.ref+".sync_con_select",this.pref+"sync_con_select",ar,this.local_config.interval_con);
-	a["content"]+="<tr><td style='width:45%'>Synchroniser :</td><td>"+this.sync_con_select.fcreate()+"</td></tr>";
+	a["content"]+="<tr><td style='width:45%'>Synchroniser :</td><td>"+this.sync_con_select.fcreate("","selectSync")+"</td></tr>";
 	a["content"]+="<tr><td colspan=2><br>"+button(this.pref+'btn_sync_con',"","onClick=\""+this.ref+".fresync('contact')\"","Resynchroniser contacts")+"</td></tr>";
 	a["content"]+="</table></div>";
 	
@@ -129,7 +129,7 @@ cgroup.prototype.fresync=function(_action){
 	if(_action=="agenda")tx="rendez-vous";
 	else if(_action=="message")tx="messages";
 	else if(_action=="contact")tx="contacts";
-	fconfirm("Voulez-vous vraiment resynchroniser tous les "+tx+"? Les "+tx+" localement enregistrés seront effacés.",this.ref+".fresync2('"+_action+"')",null,140);
+	fconfirm("Voulez-vous vraiment resynchroniser tous les "+tx+" ? Les "+tx+" localement enregistrés seront effacés.",this.ref+".fresync2('"+_action+"')",null,140);
 }
 cgroup.prototype.fresync2=function(_action){
 	if(!this["o"+_action]){

@@ -151,7 +151,7 @@ cnonlu.prototype.passer_lu_clb=function(r,rt,myobj){
 }
 
 cnonlu.prototype.fpasser_tous_lu=function(n){
-	fconfirm("Voulez vous vraiment passer tous les éléments affichés à lu?",this.ref+".fpasser_tous_lu2("+n+")");
+	fconfirm("Voulez-vous vraiment passer tous les éléments affichés à lu ?",this.ref+".fpasser_tous_lu2("+n+")");
 }
 
 cnonlu.prototype.fpasser_tous_lu2=function(n){
@@ -182,12 +182,12 @@ cnonlu.prototype.fnl_filtre=function(obj){
 	var tx="<div class='select_item "+(this.vfltype==0 ? "selected":"")+"' onclick=\""+this.ref+".vfltype=0;fback_history();"+this.ref+".fremplir_nonlu();\">Tout</div>";
 	tx+="<div class='select_item "+(this.vfltype==1 ? "selected":"")+"' onclick=\""+this.ref+".vfltype=1;fback_history();"+this.ref+".fremplir_nonlu();\">Rendez-vous</div>";
 	tx+="<div class='select_item "+(this.vfltype==2 ? "selected":"")+"' onclick=\""+this.ref+".vfltype=2;fback_history();"+this.ref+".fremplir_nonlu();\">Visites à domicile</div>";
-	tx+="<div class='select_item "+(this.vfltype==3 ? "selected":"")+"' onclick=\""+this.ref+".vfltype=3;fback_history();"+this.ref+".fremplir_nonlu();\">Les messages</div>";
+	tx+="<div class='select_item "+(this.vfltype==3 ? "selected":"")+"' onclick=\""+this.ref+".vfltype=3;fback_history();"+this.ref+".fremplir_nonlu();\">Messages</div>";
 	tx+="<div class='select_item' style='border:0;height:10px;background:#ddd;'></div>";
 	tx+="<div class='select_item "+(this.vapartir==0 ? "selected":"")+"' onclick=\""+this.ref+".vapartir=0;fback_history();"+this.ref+".fremplir_nonlu();\">Une semaine</div>";
 	tx+="<div class='select_item "+(this.vapartir==1 ? "selected":"")+"' onclick=\""+this.ref+".vapartir=1;fback_history();"+this.ref+".fremplir_nonlu();\">Aujourd'hui</div>";
-	tx+="<div class='select_item "+(this.vapartir==2 ? "selected":"")+"' onclick=\""+this.ref+".vapartir=2;fback_history();"+this.ref+".fremplir_nonlu();\">deux semaine</div>";
-	tx+="<div class='select_item "+(this.vapartir==3 ? "selected":"")+"' onclick=\""+this.ref+".vapartir=3;fback_history();"+this.ref+".fremplir_nonlu();\">troix semaine</div>";
+	tx+="<div class='select_item "+(this.vapartir==2 ? "selected":"")+"' onclick=\""+this.ref+".vapartir=2;fback_history();"+this.ref+".fremplir_nonlu();\">Deux semaines</div>";
+	tx+="<div class='select_item "+(this.vapartir==3 ? "selected":"")+"' onclick=\""+this.ref+".vapartir=3;fback_history();"+this.ref+".fremplir_nonlu();\">Trois semaines</div>";
 	tx+="<div class='select_item "+(this.vapartir==4 ? "selected":"")+"' onclick=\""+this.ref+".vapartir=4;fback_history();"+this.ref+".fremplir_nonlu();\">Un mois</div>";
 	tx+="<div class='select_item "+(this.vapartir==5 ? "selected":"")+"' onclick=\""+this.ref+".vapartir=5;fback_history();"+this.ref+".fremplir_nonlu();\">Deux mois</div>";
 	fcontext_menu(obj,tx,wwin*0.6);
@@ -224,10 +224,10 @@ cnonlu.prototype.fdisplay_header=function(_target_hdr){
 		this.hhdr=document.createElement('div');
 		this.hhdr.id="nl_hdr_"+this.ncli;
 		this.hhdr.className='bdiv';
-		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left' style=\"background:url('img/icon_ul.png') no-repeat center center\"> </a>";
+		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left'> </a>";
 
-		tx+="<a onClick=\""+this.ref+".fnl_filtre(this);\" class='menu_right' style=\"font-size:12px;line-height:50px;right:40px;background:url('img/icon_ribbon_alt.png') no-repeat center center;background-size:22px auto;\"> </a>";
-		tx+="<a onClick=\""+this.ref+".fpasser_tous_lu();\" class='menu_right' style=\"background:url('img/icon_check_alt2.png') no-repeat center center;background-size:23px auto;\"> </a>";
+		tx+="<a onClick=\""+this.ref+".fnl_filtre(this);\" class='menu_right menu_right_bookmark'> </a>";
+		tx+="<a onClick=\""+this.ref+".fpasser_tous_lu();\" class='menu_right menu_right_check'> </a>";
 		this.hhdr.innerHTML=tx;
 		this.target_hdr.appendChild(this.hhdr);
 		this.hag_select=document.getElementById(this.pref+"ag_select");

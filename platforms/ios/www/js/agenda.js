@@ -474,7 +474,7 @@ cagenda.prototype.fopen_rdv=function(ddeb,n_action_orig,duree){
     if(opopup) opopup.fdelete();
 	this.act_rdv=null;
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";	
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
 	if(ddeb){
 		var dt=my2jd(ddeb);
 		var dte_deb=d2my(dt);
@@ -520,11 +520,11 @@ cagenda.prototype.fopen_rdv=function(ddeb,n_action_orig,duree){
 		nv_client=ardv.nv_client;
 		rappel=ardv.rappel;
 		lco=ardv.lco;		
-		func_save="fconfirm('Voulez-vous vraiment modifier cet rendez-vous?','"+this.ref+".fsave_rdv()')";
-		a["header"]+="<a class='menu_left' style='left:40px;width:auto;'>Modifier rendez-vous</a>";
-	}else a["header"]+="<a class='menu_left' style='left:40px;width:auto;'>Nouveau rendez-vous</a>";	
+		func_save="fconfirm('Voulez-vous vraiment modifier ce rendez-vous ?','"+this.ref+".fsave_rdv()')";
+		a["header"]+="<div class='divTitle'>Modifier rendez-vous</div>";
+	}else a["header"]+="<div class='divTitle'>Nouveau rendez-vous</div>";
 	
-	a["header"]+="<a onClick=\""+func_save+"\"; class='menu_right' style=\"background:url('img/icon_check.png') no-repeat center center;background-size:23px auto;\"> </a>";	
+	a["header"]+="<a onClick=\""+func_save+"\"; class='menu_right menu_right_check'> </a>";
 	a["content"]="<table style='position:absolute;' class='struct'>";
 	var pajax=new Array();
 	pajax.placeholder="Nom du contact";
@@ -571,7 +571,7 @@ cagenda.prototype.fopen_rdv=function(ddeb,n_action_orig,duree){
 		if(+this.tpmotifs[i]["duree"])ar[i]+='('+this.tpmotifs[i]["duree"]+' min.)';
 	}
 	this.slmotif=new cselect(this.ref+".slmotif","slmotif",ar,nmtf,this.ref+".fonchange_motif");
-	a["content"]+="<tr><td colspan='2'>"+this.slmotif.fcreate()+"</td></tr>";	
+	a["content"]+="<tr><td colspan='2'>"+this.slmotif.fcreate("","selectRdv")+"</td></tr>";
 	a["content"]+="<tr><td colspan='2'>"+textarea(this.pref+"txt","","placeholder='Remarque'",txt)+"</td></tr>";
 	a["content"]+="<tr><td colspan='2'>"+checkbox(this.pref+"vad","vis",vis,"Visite à domicile")+"</td></tr>";
 	a["content"]+="<tr><td colspan='2'>"+checkbox(this.pref+"nv_client","nv_client",nv_client,"Nouveau contact")+"</td></tr>";

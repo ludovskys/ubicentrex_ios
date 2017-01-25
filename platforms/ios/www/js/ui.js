@@ -270,7 +270,7 @@ function fback_history(animation){
 	if(indpage<3){
 		if(indpage==1)navigator.app.exitApp();
 		else if(oconsole.nav_open===false)oconsole.fnav();
-		else fconfirm("Voulez-vous vraiment quitter application?","navigator.app.exitApp()");
+		else fconfirm("Voulez-vous vraiment quitter l'application ?","navigator.app.exitApp()");
 		return;
 	}
 	if(oconsole.osv_calls){
@@ -321,7 +321,7 @@ function fconfirm(tx,func_ok,func_cancel,height){
 	var a=new Array();
 	a["tp"]='dialog';
 	a["w"]=wwin-30;
-	if(!height)a["h"]=100;
+	if(!height)a["h"]=110;
 	else a["h"]=height;
 	a["content"]="<div style='position:relative;margin:10px;font-size:18px;'>"+tx+"</div>"+
 		"<div style='position:absolute;right:0px;bottom:0px;width:100%;font-size:20px;text-align:center;border-top:1px solid #ccc;'>" +
@@ -688,8 +688,8 @@ function cselect(_ref,_id,_ar,_v,_fonchange){
 
 }
 
-cselect.prototype.fcreate=function(compl){
-	var tx="<div onClick=\""+this.ref+".fshowbox(this)\" class='select' "+(compl ? compl : '')+">" +
+cselect.prototype.fcreate=function(compl, complClass){
+	var tx="<div onClick=\""+this.ref+".fshowbox(this)\" class='select "+(complClass ? complClass : '')+ "' "+(compl ? compl : '')+">" +
 			"<input type='hidden' id='"+this.id+"' />" +
 			"<div id='"+this.id+"ctn'>"+this.ar[this.v]+"</div></div>";
 	return tx;
@@ -704,7 +704,7 @@ cselect.prototype.fshowbox=function(obj){
 	}
 	tx+="</div>";
 	var w=obj.offsetWidth-5;
-	if(w<0.8*wwin)w=0.8*wwin;
+	if(w<0.8*wwin)w=0.9*wwin;
 	var left=getOffsetPosition(obj,'Left');
 	this.cm=fcontext_menu(obj,tx,w,left);
 }
