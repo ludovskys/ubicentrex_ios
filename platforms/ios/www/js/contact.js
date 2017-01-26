@@ -456,20 +456,34 @@ ccontact.prototype.fshow_detail_contact2=function(acontact){
 	a["pos"]="bottom";
 	a["corner"]=false;
 	var tx="<div class='bdiv'>";
-	tx="<div style='position:relative;width:100%;height:40px;top:0;left:0;background:#eee;'>";
-	tx+="<a class='menu_left' style=\"background:url('img/icon_trash_alt.png') no-repeat center center;background-size:23px auto;\"> </a>";
-	tx+="<a class='menu_left' onClick=\"fback_history();"+this.ref+".fopen_contact('"+acontact.n+"');\" style=\"left:40px;background:url('img/icon_pencil-edit.png') no-repeat center center;background-size:23px auto;\"> </a>";
-	tx+="<a class='menu_right' onClick='fback_history();' style=\"background:url('img/arrow_carrot-down.png') no-repeat center center\"> </a>";
+	tx="<div class='popup_header'>";
+	tx+="<a class='menu_left_popup menu_left_trash_popup'> </a>";
+	tx+="<a class='menu_left_popup menu_left_edit_popup' onClick=\"fback_history();"+this.ref+".fopen_contact('"+acontact.n+"');\"> </a>";
+	tx+="<a class='menu_right_popup menu_right_back_popup' onClick='fback_history();'> </a>";
 	tx+="</div>"
-	tx+="<div style='position:relative;width:100%;top:0;bottom:0;left:0;font-size:17px;overflow-y:scroll;-webkit-overflow-scrolling: touch;'>";
-	tx+="<div style='font-size:20px;font-weight:bold;'>"+acontact.nom_usuel+"</div>";
-	if(acontact.dte_naissance)tx+="<div>Né(e) le : "+mytodfr(acontact.dte_naissance)+"</div>";
-	if(acontact.nss)tx+="<div>No. secu : "+acontact.nss+"</div>";
-	if(acontact.tmobile)tx+="<div>Tél mobile : "+tel_url(acontact.tmobile)+"</div>";
-	if(acontact.tprof)tx+="<div>Tél pro. : "+tel_url(acontact.tprof)+"</div>";
-	if(acontact.tpri)tx+="<div>Tél pri. : "+tel_url(acontact.tpri)+"</div>";
-	if(acontact.mail1)tx+="<div>Email(s) : "+mail_url(acontact.mail1)+"</div>";
-	if(acontact.catdes)tx+="<div>Catégories : "+acontact.catdes+"</div>";
+	
+	tx+="<div class='popup_contact'>";
+	
+	tx+="<div class='popup_main'>";
+	
+	tx+="<div class='popup_contact_nom'>"+acontact.nom_usuel+"</div>";
+	if(acontact.dte_naissance)tx+="<div class='popup_contact_date_naissance'>Né(e) le "+mytodfr(acontact.dte_naissance)+"</div>";
+	if(acontact.nss)tx+="<div class='popup_contact_secu' >No. secu : "+acontact.nss+"</div>";
+	
+	tx+="</div>";
+	
+	tx+="<div class='popup_contact_infos'>";
+	
+	if(acontact.tmobile)tx+="<div class='popup_contact_tel' ><span class='txt_tel'>Téléphone mobile : </span>"+tel_url(acontact.tmobile)+"</div>";
+	if(acontact.tprof)tx+="<div class='popup_contact_tel'><span class='txt_tel'>Téléphone pro : </span>"+tel_url(acontact.tprof)+"</div>";
+	if(acontact.tpri)tx+="<div class='popup_contact_tel'><span class='txt_tel'>Téléphone privé : </span>"+tel_url(acontact.tpri)+"</div>";
+	if(acontact.mail1)tx+="<div class='popup_contact_email'>"+mail_url(acontact.mail1)+"</div>";
+	
+	tx+="</div>";
+	
+	tx+="<div class='popup_contact_sub'>";
+	
+	if(acontact.catdes)tx+="<div class='popup_contact_cat'>Catégories : "+acontact.catdes+"</div>";
 	
 	if(acontact.adresses){
 		for(var i in acontact.adresses){
@@ -478,11 +492,14 @@ ccontact.prototype.fshow_detail_contact2=function(acontact){
 			(adr.adresse_2 ? (adr.adresse_2+", ") : "")+(adr.adresse_compl ? (adr.adresse_compl+", ") : "")+
 			(+adr.cp ? (+adr.cp+", ") : "")+(adr.ville ? (adr.ville+", ") : "")+(adr.pays ? (adr.pays+", ") : "");
 			txadr=trim(txadr.substr(0,txadr.length-2));
-			if(txadr)tx+="<div>"+(adr.des ? adr.des : "Adresse")+" : "+map_url(txadr)+"</div>";
+			if(txadr)tx+="<div class='popup_contact_adresses'>"+(adr.des ? adr.des : "Adresse")+" : "+map_url(txadr)+"</div>";
 		}
 	}
 	
-	if(acontact.remarque)tx+="<div>Note : "+acontact.remarque+"</div>";
+	if(acontact.remarque)tx+="<div class='popup_contact_note'>Note : "+acontact.remarque+"</div>";
+	
+	tx+="</div>";
+	
 	tx+="</div>";
 	tx+="</div>";
 	a["content"]=tx;

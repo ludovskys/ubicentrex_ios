@@ -23,8 +23,8 @@
 .divUser {
 	
 	padding-top: 10px;
-	height: 25%;
-	width: 82%;
+	height: 18%;
+	width: 80%;
 	text-align: center;
 	
 	/*
@@ -43,6 +43,7 @@
 .pNomUsuel {
 	font-size:16px;
 	color: white;
+	margin: 0;
 }
 
 .ulMenu li.title{
@@ -62,7 +63,7 @@
 	margin: 0;
 	padding: 0;
 	position:absolute;
-	height:75%;
+	height:82%;
 	width:100%;
 	left:0px;
 	bottom:0px;
@@ -146,14 +147,14 @@
 }
 
 
-
-
-
-
 .footer a.menu_left {
 	position: absolute;
 	height: 40px;
 	width:40px;
 	left: 0px;
+}
+
+.selectUser {
+	
 }
 

@@ -533,8 +533,8 @@ cmessage.prototype.fnew_msg=function(n){
 	var amsg=null;
 	if(n)amsg=this.amsgs[n];
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";
-	a["header"]+="<a onClick=\""+this.ref+".fsend();\" class='menu_right' style=\"background:url('img/icon_plane.png') no-repeat center center;background-size:25px auto;\"> </a>";
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
+	a["header"]+="<a onClick=\""+this.ref+".fsend();\" class='menu_right menu_right_send'> </a>";
 	a["content"]="<table style='position:absolute;' class='struct'>";
 	var pajax=new Array();
 	pajax.placeholder="À";

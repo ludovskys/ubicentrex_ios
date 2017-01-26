@@ -290,7 +290,7 @@ cconsole.prototype.fcreate_console_pages=function(){
 	
 	if(droit(26) && len>1){
 		this.users_select=new cselect(this.ref+".users_select","users_select",ar,this.ncli_active,this.ref+".fonchange_client");
-		a["content"]+=this.users_select.fcreate();
+		a["content"]+=this.users_select.fcreate("", "selectUser");
 	}else{
 		a["content"]+=" <p class='pNomUsuel'>"+this.agrp[this.ncli_active].nom_usuel+"</p>";
 	}

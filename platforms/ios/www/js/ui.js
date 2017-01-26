@@ -168,7 +168,6 @@ cdialog.prototype.faddcontent=function(ht){
 	this.content=document.createElement('div');
 	this.content.style.position='absolute';
 	this.content.style.left=(document.body.clientWidth-this.w)/2+'px';
-	this.content.style.height=this.h+'px';
 	this.content.style.width=this.w+'px';
 	this.content.style.backgroundColor='#fff';
 	switch(this.pos){
@@ -176,10 +175,12 @@ cdialog.prototype.faddcontent=function(ht){
 			this.content.style.top=(document.body.clientHeight-this.h)/2+'px';
 			if(this.corner===true)this.content.style.borderRadius='3px';
 			this.content.className='pop small';
+			this.content.style.height=this.h+'px';
 			setTimeout(this.ref+".content.className ='pop transition big'",50);
 		break;
 		case "top":
 			this.content.style.top='0px';
+			this.content.style.height=this.h+'px';
 			if(this.corner===true)this.content.style.borderRadius='0px 0px 3px 3px';
 		break;
 		case "bottom":

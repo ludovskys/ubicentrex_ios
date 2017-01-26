@@ -1,0 +1,154 @@
+/* Popup rdv */
+
+.popup_header {
+	position:relative;
+	width:100%;
+	height:40px;
+	top:0;
+	left:0;
+	background:#d5d5d5;
+}
+
+.popup_container {
+	position:relative;
+	width:100%;
+	top:0;
+	bottom:0;
+	left:0;
+	font-size:17px;
+	height: 100%;
+}
+
+.popup_contact {
+	position:relative;
+	top:0;
+	bottom:0;
+	left:0;
+	font-size:17px;
+	overflow-y:scroll;
+	-webkit-overflow-scrolling: touch;
+	padding: 12px;
+}
+
+.popup_rdv_container .rdv_sub {
+	padding: 12px;
+}
+
+.popup_rdv_container .rdv_object {
+	font-size:20px;
+	font-weight:bold;
+	color: #3f91b6;
+}
+
+.popup_rdv_container .rdv_new_contact {
+	color:#A00000;
+	font-size: 14px;
+}
+
+.popup_rdv_container .rdv_vad {
+	color:#FF6633;
+	font-size: 14px;
+}
+
+.popup_rdv_container .rdv_internet {
+	color:#336600;
+	font-size: 14px;
+}
+
+.popup_rdv_container .rdv_date {
+	padding-bottom: 8px;
+}
+
+.popup_rdv_container .rdv_contact_tel a {
+	font-size: 15px;
+	color: #3f91b6;
+	text-decoration: none;
+}
+
+.popup_rdv_container .rdv_contact_tel:hover a {
+	color: #3f91b6;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.popup_rdv_container .rdv_motif {
+	font-size:16px;
+	position:relative;
+	width:95%;
+	top:0;
+	left:0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+
+.popup_rdv_container .rdv_remarque {
+	font-style:italic;
+	color:#888;
+	position:relative;
+	width:100%;
+	top:0;
+	left:0;
+	overflow-y:scroll;
+	-webkit-overflow-scrolling: touch;
+	padding-bottom: 50px;
+	padding-top: 5px;
+}
+
+.popup_rdv_container .rdv_infos_creation {
+	color: #888;
+	font-size: 11px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.popup_contact_nom {
+	font-size:20px;
+	font-weight:bold;
+}
+
+.popup_main {
+	background: #f1f1f0;
+	padding: 12px;
+}
+
+.popup_contact_infos, .popup_contact_sub {
+	margin: 12px;
+	color: gray;
+}
+
+.menu_left_popup {
+	position: absolute;
+	left: 0px;
+	height: 40px;
+	width:40px;
+}
+
+.menu_right_popup {
+	position: absolute;
+	height: 40px;
+	width:40px;
+	right: 0px;
+}
+
+.menu_left_trash_popup {
+	background:url('../img/popup_rdv/icon-Trash.png') no-repeat center center;
+	background-size:23px auto;
+}
+
+.menu_left_edit_popup {
+	left:40px;
+	background:url('../img/popup_rdv/icon-Pencil.png') no-repeat center center;
+	background-size:23px auto;
+}
+
+.menu_left_fav_popup_rdv {
+	left:80px;
+	background:url('../img/popup_rdv/icon-Star.png') no-repeat center center;
+	background-size:23px auto;
+}
+
+.menu_right_back_popup {
+	background:url('../img/popup_rdv/icon-Close.png') no-repeat center center;
+	background-size:23px auto;
+}

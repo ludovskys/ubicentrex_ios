@@ -425,23 +425,34 @@ cagenda.prototype.fshow_detail_rdv=function(ddeb,n_action_orig){
 	a["pos"]="bottom";
 	a["corner"]=false;
 	var tx="<div class='bdiv'>";
-	tx="<div style='position:relative;width:100%;height:40px;top:0;left:0;background:#eee;'>";
-	tx+="<a class='menu_left' onClick=\""+this.ref+".fsupp_rdv("+ardv.n+");\" style=\"background:url('img/icon_trash_alt.png') no-repeat center center;background-size:23px auto;\"> </a>";
-	tx+="<a class='menu_left' onClick=\"fback_history();"+this.ref+".fopen_rdv('"+ddeb+"',"+n_action_orig+");\" style=\"left:40px;background:url('img/icon_pencil-edit.png') no-repeat center center;background-size:23px auto;\"> </a>";
-	tx+="<a class='menu_left' onClick=\""+this.ref+".fmarquer_rdv('"+ddeb+"',"+n_action_orig+");\" style=\"left:80px;background:url('img/icon_star_alt.png') no-repeat center center;background-size:23px auto;\"> </a>";
-	tx+="<a class='menu_right' onClick=\"fback_history();\" style=\"background:url('img/arrow_carrot-down.png') no-repeat center center\"> </a>";
+	tx="<div class='popup_header'>";
+	tx+="<a class='menu_left_popup menu_left_trash_popup' onClick=\""+this.ref+".fsupp_rdv("+ardv.n+");\"> </a>";
+	tx+="<a class='menu_left_popup menu_left_edit_popup' onClick=\"fback_history();"+this.ref+".fopen_rdv('"+ddeb+"',"+n_action_orig+");\"> </a>";
+	tx+="<a class='menu_left_popup menu_left_fav_popup_rdv' onClick=\""+this.ref+".fmarquer_rdv('"+ddeb+"',"+n_action_orig+");\"> </a>";
+	tx+="<a class='menu_right_popup menu_right_back_popup' onClick=\"fback_history();\"> </a>";
 	tx+="</div>"
-	tx+="<div style='position:relative;width:100%;top:0;bottom:0;left:0;font-size:17px;'>";
-	tx+="<div style='font-size:20px;font-weight:bold;'>"+ardv["objet"]+"</div>";
-	tx+=ardv["nv_client"]==1 ? "<div style='color:#A00000;'>Nouveau contact</div>" : "";
-	tx+=ardv["vis"]==1 ? "<div style='color:#FF6633;'>Visite à domicile</div>" : "";
-	tx+=ardv["webag"]==1 ? "<div style='color:#336600;'>Rendez-vous pris par internet</div>" : "";
+	
+	tx+="<div class='popup_container popup_rdv_container'>";
+	
+	tx+="<div class='popup_main'>";
+	
+	tx+="<div class='rdv_object'>"+ardv["objet"]+"</div>";
+	
+	tx+=ardv["nv_client"]==1 ? "<div class='rdv_new_contact'>Nouveau contact</div>" : "";
+	tx+=ardv["vis"]==1 ? "<div class='rdv_vad'>Visite à domicile</div>" : "";
+	tx+=ardv["webag"]==1 ? "<div class='rdv_internet'>Rendez-vous pris par internet</div>" : "";
+	
+	if(ardv.emplacement)tx+="<div class='rdv_contact_tel'>"+tel_url(ardv.emplacement)+"</div>";
+	
+	tx+="</div>";
+	
+	tx+="<div class='rdv_sub'>";
+	
 	var dtd=my2jd(ardv.ddeb);
 	var dtf=my2jd(ardv.dfin);
-	var txp=h2my(dtd)+"-"+h2my(dtf)+" "+jd2fr2(dtd);
+	var txp=h2my(dtd)+" - "+h2my(dtf)+" "+jd2fr2(dtd);
 	if(dtd.getDate()!=dtf.getDate())txp=h2my(dtd)+" "+jd2fr2(dtd)+"-"+h2my(dtf)+" "+jd2fr2(dtf);
-	tx+="<div>"+txp+"</div>";
-	if(ardv.emplacement)tx+="<div>"+tel_url(ardv.emplacement)+"</div>";
+	tx+="<div class='rdv_date'>"+txp+"</div>";
 	
 	// TODO : ajouter adresse si visite à domicile -> ajouter la table des adresses
 	// if (ardv["vis"]==1)
@@ -455,16 +466,18 @@ cagenda.prototype.fshow_detail_rdv=function(ddeb,n_action_orig){
 		bgclr=this.tpmotifs[ardv.nmotif]["couleur"];
 		motif=this.tpmotifs[ardv.nmotif]["des"];
 	}
-	tx+="<div style='background:"+bgclr+";font-size:16px;position:relative;width:100%;top:0;left:0;'>"+motif+"</div>";
-	if(ardv.txt)tx+="<div style='font-style:italic;color:#888;position:relative;width:100%;max-height:"+hwin/4+"px;top:0;left:0;overflow-y:scroll;-webkit-overflow-scrolling: touch;'>"+ardv.txt+"</div>";
+	tx+="<div class='rdv_motif' style='background:"+bgclr+";'>"+motif+"</div>";
+	if(ardv.txt)tx+="<div class='rdv_remarque' style='max-height:"+hwin/4+"px;'>"+ardv.txt+"</div>";
 	
 	var txc="";
 	if(ardv.n_tp_action==20)txc+="Créé";
 	else if(ardv.n_tp_action==21)txc+="Modifié";
 	txc+=" le "+dt2fr(ardv.date_creation)+" par "+ardv.nom_usuel_ut;
-	tx+="<div style='font-style:italic;color:#006666;'>"+txc+"</div>";
+	tx+="<div class='rdv_infos_creation'>"+txc+"</div>";
 	tx+="</div>";
 	tx+="</div>";
+	tx+="</div>";
+	
 	a["content"]=tx;
 	fnew_page(a);
 }
@@ -724,7 +737,7 @@ cagenda.prototype.fsave_rdv=function(){
 }
 
 cagenda.prototype.fsupp_rdv=function(n){
-	fconfirm("Supprimer ce rendez-vous ?"+text(this.pref+"raison_sup","","placeholder='Raison de suppression'",""),this.ref+".fsupp_rdv2("+n+")","",120);
+	fconfirm("Supprimer ce rendez-vous ?"+text(this.pref+"raison_sup","","placeholder='Saisir la raison'",""),this.ref+".fsupp_rdv2("+n+")","",120);
 }
 
 cagenda.prototype.fsupp_rdv2=function(n){

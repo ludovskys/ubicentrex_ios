@@ -74,6 +74,12 @@ a.menu_right_check {
 	right: 5px;
 }
 
+a.menu_right_send {
+	background:url('../img/header/icon-Send.png') no-repeat center center;
+	background-size:25px auto;
+	right: 5px;
+}
+
 a.menu_left_back {
 	background:url('../img/header/icon-Back.png') no-repeat center center;
 	background-size: 25px auto;
