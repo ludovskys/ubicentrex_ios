@@ -26,13 +26,13 @@ a.menu_right_calendar {
 	line-height: 46px;
 	right:40px;
 	background:url('../img/header/icon-Calendar.png') no-repeat center center;
-	background-size:25px auto;
+	background-size:22px auto;
 	color: white;
 }
 
 a.menu_right_plus {
 	background:url('../img/header/icon-Plus.png') no-repeat center center;
-	background-size: 23px auto;
+	background-size: 22px auto;
 	right: 5px;
 }
 
@@ -49,7 +49,7 @@ a.menu_left {
 	position: absolute;
 	left: 0px;
 	background:url('../img/menu/icon-Menu.png') no-repeat center center;
-	background-size: 23px auto;
+	background-size: 22px auto;
 	height: 40px;
 	width:40px;
 }
@@ -64,25 +64,45 @@ a.menu_right_bookmark {
 
 a.menu_right_newmessage {
 	background:url('../img/header/icon-NewMessage.png') no-repeat center center;
-	background-size:25px auto;
+	background-size:22px auto;
 	right: 5px;
 }
 
 a.menu_right_check {
 	background:url('../img/header/icon-Check.png') no-repeat center center;
-	background-size:25px auto;
+	background-size:22px auto;
 	right: 5px;
 }
 
 a.menu_right_send {
 	background:url('../img/header/icon-Send.png') no-repeat center center;
-	background-size:25px auto;
+	background-size:22px auto;
 	right: 5px;
 }
 
 a.menu_left_back {
 	background:url('../img/header/icon-Back.png') no-repeat center center;
-	background-size: 25px auto;
+	background-size: 22px auto;
+}
+
+a.menu_right_trash {
+	right:80px;
+	background:url('../img/header/icon-TrashWhite.png') no-repeat center center;
+	background-size:22px auto;
+}
+
+a.menu_right_lu {
+	text-indent:-5px;
+	font-size:12px;
+	line-height:48px;
+	right:40px;
+	background:url('../img/header/icon-Read.png') no-repeat center center;
+	background-size:22px auto;
+}
+
+a.menu_right_forward {
+	background:url('../img/header/icon-Forward.png') no-repeat center center;
+	background-size:22px auto;
 }
 
 

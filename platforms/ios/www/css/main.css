@@ -924,14 +924,7 @@ bottom:0;
 	margin-right:2px;
 }
 
-.selectRdv div {
-	height:36px;
-	line-height:36px;
-	width:95%;
-	line-height:40px;
-	margin-left:10px;
-	overflow:hidden;
-	display:inline-block;
+.selectRdv div, .selectCanevas div {
 	color: gray;
 }
 

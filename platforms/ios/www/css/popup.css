@@ -133,22 +133,22 @@
 
 .menu_left_trash_popup {
 	background:url('../img/popup_rdv/icon-Trash.png') no-repeat center center;
-	background-size:23px auto;
+	background-size:22px auto;
 }
 
 .menu_left_edit_popup {
 	left:40px;
 	background:url('../img/popup_rdv/icon-Pencil.png') no-repeat center center;
-	background-size:23px auto;
+	background-size:22px auto;
 }
 
 .menu_left_fav_popup_rdv {
-	left:80px;
+	left:
 	background:url('../img/popup_rdv/icon-Star.png') no-repeat center center;
-	background-size:23px auto;
+	background-size:22px auto;
 }
 
 .menu_right_back_popup {
 	background:url('../img/popup_rdv/icon-Close.png') no-repeat center center;
-	background-size:23px auto;
+	background-size:22px auto;
 }

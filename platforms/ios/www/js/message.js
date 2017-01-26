@@ -268,10 +268,14 @@ cmessage.prototype.fshow_detail_msg=function(n){
 	if(!this.amsgs[n])return false;
 	var amsg=this.amsgs[n];
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";
-	if(amsg.old!=1)a["header"]+="<a onClick=\""+this.ref+".fsupp_msg();\" class='menu_right' style=\"right:80px;background:url('img/icon_trash_alt.png') no-repeat center center;background-size:24px auto;\"> </a>";
-	a["header"]+="<a onClick=\""+this.ref+".fpass_lu();\" id='"+this.pref+"lu_icon' class='menu_right' style=\"text-indent:-5px;font-size:12px;line-height:48px;right:40px;background:url('img/icon_book_alt.png') no-repeat center center;background-size:24px auto;\">"+(amsg.lu==0?'N':'L')+"</a>";
-	a["header"]+="<a onClick=\""+this.ref+".fnew_msg("+n+");\" class='menu_right' style=\"background:url('img/arrow_back.png') no-repeat center center;background-size:24px auto;\"> </a>";
+	
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
+	
+	if(amsg.old!=1)a["header"]+="<a onClick=\""+this.ref+".fsupp_msg();\" class='menu_right menu_right_trash'> </a>";
+	
+	//"+(amsg.lu==0?'N':'L')+"
+	a["header"]+="<a onClick=\""+this.ref+".fpass_lu();\" id='"+this.pref+"lu_icon' class='menu_right menu_right_lu'></a>";
+	a["header"]+="<a onClick=\""+this.ref+".fnew_msg("+n+");\" class='menu_right menu_right_forward'> </a>";
 	
 	this.actif_msg=amsg;
 	var reg = new RegExp("[: -]", "g");
@@ -423,11 +427,9 @@ cmessage.prototype.fpass_lu_clb=function(r,rt,myobj,p){
 		var dic=document.getElementById(myobj.pref+"lu_icon");
 		if(amsg.lu==0){
 			ftoast("Vous avez passé le message à non lu.",4000);
-			dic.innerHTML='N';
 			anbrmsg["n"+myobj.ncli]++;
 		}else{
 			ftoast("Vous avez passé le message à lu.",4000);
-			dic.innerHTML='L';
 			if(anbrmsg["n"+myobj.ncli]!=0)anbrmsg["n"+myobj.ncli]--;
 		}
 		myobj.fsync_message();

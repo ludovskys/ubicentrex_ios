@@ -220,8 +220,8 @@ ccontact.prototype.fopen_contact=function(n){
 	var acon=null;
 	if(n && this.acontacts[n])acon=this.acontacts[n];
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";
-	a["header"]+="<a onClick=\""+this.ref+".fsave("+n+");\" class='menu_right' style=\"background:url('img/icon_check.png') no-repeat center center;background-size:23px auto;\"> </a>";
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
+	a["header"]+="<a onClick=\""+this.ref+".fsave("+n+");\" class='menu_right menu_right_check'> </a>";
 	
 	this.editpage=fnew_page(a,'right');
 
@@ -385,7 +385,7 @@ ccontact.prototype.fsave_clb=function(r,rt,myobj){
 	if(!r)return;
 	fback_history('');
 	fshow_loading();
-	ftoast("Le contact est enregistré.")
+	ftoast("Enregistrement effectué")
 	myobj.fsync_contacts();
 }
 

@@ -758,15 +758,15 @@ cagenda.prototype.fsupp_rdv2=function(n){
 cagenda.prototype.fopen_canvas=function(ddeb,type){
 	if(!ddeb)return;
 	var a=new Array();
-	a["header"]="<a onClick=\"fback_history();\" class='menu_left' style=\"background:url('img/arrow_carrot-left.png') no-repeat left center\"> </a>";	
+	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
 	var dt=my2jd(ddeb);
 	var dte_deb=d2my(dt);
 	var hre_deb=h2my(dt);
 	var hre_fin=h2my(new Date(dt.getTime()+this.ag_duree_rdv_std*60*1000));
 	
-	if(type=='new')a["header"]+="<a class='menu_left' style='left:40px;width:auto;'>Nouveau canvas</a>";
-	else a["header"]+="<a class='menu_left' style='left:40px;width:auto;'>Supprimer canvas</a>";
-	a["header"]+="<a onClick=\""+this.ref+".fsave_canvas('"+type+"')\"; class='menu_right' style=\"background:url('img/icon_check.png') no-repeat center center;background-size:23px auto;\"> </a>";	
+	if(type=='new')a["header"]+="<div class='divTitle'>Nouveau cavenas</div>";
+	else a["header"]+="<div class='divTitle'>Supprimer canevas</div>";
+	a["header"]+="<a onClick=\""+this.ref+".fsave_canvas('"+type+"')\"; class='menu_right menu_right_check'> </a>";
 	a["content"]="<table style='position:absolute;' class='struct'>";
 	if(type=='new')a["content"]+="<tr><td colspan='2'>"+text(this.pref+"txt","","placeholder='Libellé canevas'")+"</td></tr>";
 	
@@ -784,7 +784,7 @@ cagenda.prototype.fopen_canvas=function(ddeb,type){
 			if(+this.tpcreneaux[i]["duree"])ar[i]+='('+this.tpcreneaux[i]["duree"]+' min.)';
 		}
 		this.slcreneau=new cselect(this.ref+".slcreneau","slcreneau",ar,'',this.ref+".fonchange_creneau");
-		a["content"]+="<tr><td colspan='2'>"+this.slcreneau.fcreate()+"</td></tr>";	
+		a["content"]+="<tr><td colspan='2'>"+this.slcreneau.fcreate("","selectCanevas")+"</td></tr>";	
 	}
 	
 	a["content"]+="</table>";
