@@ -373,13 +373,13 @@ cagenda.prototype.fopen_consigne=function(ddeb,n_action_orig){
 	a["pos"]="bottom";
 	a["corner"]=false;
 	var tx="<div class='bdiv'>";
-	tx="<div style='position:relative;width:100%;height:40px;line-height:40px;text-align:center;top:0;left:0;background:#eee;'>";
-	tx+="Consigne du "+jd2fr(my2jd(ddeb,3));
-	tx+="<a class='menu_left' onClick=\""+this.ref+".fsave_consigne('"+ddeb+"');\" style=\"background:url('img/icon_check.png') no-repeat center center;background-size:23px auto;\"> </a>";
-	tx+="<a class='menu_right' onClick=\"fback_history();\" style=\"background:url('img/arrow_carrot-down.png') no-repeat center center\"> </a>";
+	tx="<div class='popup_header'>";
+	tx+="<div class='divTitleConsigne'>Consigne du "+jd2fr(my2jd(ddeb,3))+"</div>";
+	tx+="<a class='menu_left_popup popup_consigne_save' onClick=\""+this.ref+".fsave_consigne('"+ddeb+"');\"> </a>";
+	tx+="<a class='menu_right_popup popup_consigne_close' onClick=\"fback_history();\"> </a>";
 	tx+="</div>"
-	tx+="<div id='"+this.pref+"ctn_consigne' contenteditable='true' " +
-		"style='display:inline-block;-webkit-user-select:auto;user-select:auto;font-style:italic;background:#FFFFCC;position:relative;width:100%;height:"+(hwin*0.6-40)+"px;top:0;left:0;overflow-y:scroll;-webkit-overflow-scrolling: touch;'>"+nl2br(ardv.txt)+"</div>";
+	tx+="<div id='"+this.pref+"ctn_consigne' class='divConsigne' contenteditable='true' " +
+		"style='height:"+(hwin*0.6-40)+"px;'>"+nl2br(ardv.txt)+"</div>";
 	tx+="</div>";
 	a["content"]=tx;
 	fnew_page(a);
@@ -425,7 +425,7 @@ cagenda.prototype.fshow_detail_rdv=function(ddeb,n_action_orig){
 	a["pos"]="bottom";
 	a["corner"]=false;
 	var tx="<div class='bdiv'>";
-	tx="<div class='popup_header'>";
+	tx="<div class='popup_header popup_rdv'>";
 	tx+="<a class='menu_left_popup menu_left_trash_popup' onClick=\""+this.ref+".fsupp_rdv("+ardv.n+");\"> </a>";
 	tx+="<a class='menu_left_popup menu_left_edit_popup' onClick=\"fback_history();"+this.ref+".fopen_rdv('"+ddeb+"',"+n_action_orig+");\"> </a>";
 	tx+="<a class='menu_left_popup menu_left_fav_popup_rdv' onClick=\""+this.ref+".fmarquer_rdv('"+ddeb+"',"+n_action_orig+");\"> </a>";

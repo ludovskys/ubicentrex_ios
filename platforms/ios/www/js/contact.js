@@ -455,9 +455,8 @@ ccontact.prototype.fshow_detail_contact2=function(acontact){
 	a["h"]=hwin*0.6;
 	a["pos"]="bottom";
 	a["corner"]=false;
-	var tx="<div class='bdiv'>";
+	var tx="<div class='bdiv popup_contact'>";
 	tx="<div class='popup_header'>";
-	tx+="<a class='menu_left_popup menu_left_trash_popup'> </a>";
 	tx+="<a class='menu_left_popup menu_left_edit_popup' onClick=\"fback_history();"+this.ref+".fopen_contact('"+acontact.n+"');\"> </a>";
 	tx+="<a class='menu_right_popup menu_right_back_popup' onClick='fback_history();'> </a>";
 	tx+="</div>"

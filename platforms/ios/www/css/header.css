@@ -153,3 +153,24 @@ a.menu_right_forward {
 	text-overflow:ellipsis;
 }
 
+.divTitleConsigne {
+    position: absolute;
+    right: 40px;
+    left: 40px;
+    text-align: center;
+    padding: 8px;
+}
+
+.divConsigne {
+    -webkit-user-select:auto;
+    user-select:auto;
+    font-style:italic;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
+    margin: 15px;
+    padding: 10px;
+    background: var(--color-consigne);
+    box-shadow: 0 10px 10px 2px rgba(0,0,0,0.3);
+
+}
+

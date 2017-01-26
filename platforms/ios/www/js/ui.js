@@ -168,7 +168,7 @@ cdialog.prototype.faddcontent=function(ht){
 	this.content=document.createElement('div');
 	this.content.style.position='absolute';
 	this.content.style.left=(document.body.clientWidth-this.w)/2+'px';
-	this.content.style.width=this.w+'px';
+	this.content.style.width='100%';
 	this.content.style.backgroundColor='#fff';
 	switch(this.pos){
 		case "center":

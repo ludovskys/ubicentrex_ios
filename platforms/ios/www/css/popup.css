@@ -132,23 +132,33 @@
 }
 
 .menu_left_trash_popup {
-	background:url('../img/popup_rdv/icon-Trash.png') no-repeat center center;
+	background:url('../img/popup/icon-Trash.png') no-repeat center center;
 	background-size:22px auto;
 }
 
+.popup_rdv .menu_left_edit_popup {
+    left:40px;
+}
+
 .menu_left_edit_popup {
-	left:40px;
-	background:url('../img/popup_rdv/icon-Pencil.png') no-repeat center center;
+	background:url('../img/popup/icon-Pencil.png') no-repeat center center;
 	background-size:22px auto;
 }
 
 .menu_left_fav_popup_rdv {
 	left:
-	background:url('../img/popup_rdv/icon-Star.png') no-repeat center center;
+	background:url('../img/popup/icon-Star.png') no-repeat center center;
 	background-size:22px auto;
 }
 
-.menu_right_back_popup {
-	background:url('../img/popup_rdv/icon-Close.png') no-repeat center center;
+.menu_right_back_popup, .popup_consigne_close {
+	background:url('../img/popup/icon-Close.png') no-repeat center center;
 	background-size:22px auto;
 }
+
+.popup_consigne_save {
+    background:url('../img/popup/icon-Save.png') no-repeat center center;
+    background-size:22px auto;
+}
+
+
