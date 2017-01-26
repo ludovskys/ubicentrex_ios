@@ -929,7 +929,7 @@ cday.prototype.fcreate_cadre=function(y,m,d){
 	tbd.className='ctn';
 	var tx="<div><table>";
 	
-	tx+="<tr><td colspan=2 id='consigne_"+y+"_"+m+"_"+d+"' style='border:0;background:#FFFFCC;text-align:center;display:none;height:35px;'></td></tr>";
+	tx+="<tr><td colspan=2 id='consigne_"+y+"_"+m+"_"+d+"' style='border:0;background:#eae672;text-align:center;display:none;height:35px;'></td></tr>";
 	for(var h=0;h<24*60/this.ag_duree_rdv_std;h++){
 		if(h<this.ag_debut_agenda*60/this.ag_duree_rdv_std || h>this.ag_fin_agenda*60/this.ag_duree_rdv_std-1)continue;
 		var hre=Math.floor(h*this.ag_duree_rdv_std/60);
