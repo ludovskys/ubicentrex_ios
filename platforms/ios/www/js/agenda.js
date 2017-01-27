@@ -379,7 +379,7 @@ cagenda.prototype.fopen_consigne=function(ddeb,n_action_orig){
 	tx+="<a class='menu_right_popup popup_consigne_close' onClick=\"fback_history();\"> </a>";
 	tx+="</div>"
 	tx+="<div id='"+this.pref+"ctn_consigne' class='divConsigne' contenteditable='true' " +
-		"style='height:"+(hwin*0.6-40)+"px;'>"+nl2br(ardv.txt)+"</div>";
+		"style='height:"+(hwin*0.6-40)+"px;'><div>"+ardv.txt+"</div></div>";
 	tx+="</div>";
 	a["content"]=tx;
 	fnew_page(a);
@@ -401,7 +401,7 @@ cagenda.prototype.fsave_consigne=function(ddeb){
 			n_client: this.ncli,
 			n_utilisateur: user.n,
 			nsociete:user.nsoc,
-			txt:trim(br2nl(hcons.innerHTML))
+			txt:jQuery(hcons.innerHTML).text()
 		};
 	soap.call(req,this.fmaj_affichage,this);
 	setTimeout("fback_history('')",400);
