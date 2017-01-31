@@ -379,7 +379,7 @@ cagenda.prototype.fopen_consigne=function(ddeb,n_action_orig){
 	tx+="<a class='menu_right_popup popup_consigne_close' onClick=\"fback_history();\"> </a>";
 	tx+="</div>"
 	tx+="<div id='"+this.pref+"ctn_consigne' class='divConsigne' contenteditable='true' " +
-		"style='height:"+(hwin*0.6-40)+"px;'>"+nl2br(ardv.txt)+"</div>";
+		"style='height:"+(hwin*0.6-40)+"px;'><div>"+ardv.txt+"</div></div>";
 	tx+="</div>";
 	a["content"]=tx;
 	fnew_page(a);
@@ -401,7 +401,7 @@ cagenda.prototype.fsave_consigne=function(ddeb){
 			n_client: this.ncli,
 			n_utilisateur: user.n,
 			nsociete:user.nsoc,
-			txt:trim(br2nl(hcons.innerHTML))
+			txt:jQuery(hcons.innerHTML).text()
 		};
 	soap.call(req,this.fmaj_affichage,this);
 	setTimeout("fback_history('')",400);
@@ -552,9 +552,8 @@ cagenda.prototype.fopen_rdv=function(ddeb,n_action_orig,duree){
 				"CASE WHEN tel_mobile!='' THEN tel_mobile ELSE (CASE WHEN tel_pri!='' THEN tel_pri ELSE tel_pro END) END as v3 from ncb_sys_contacts " +
 				"where n_sys_contact_pere="+this.ncli+" and (nom like ? or prenom like ? or nom_usuel like ?) limit 0,15";
 	pajax.flist_item=function(aval){
-		var tx="<img style='height:26px;width:auto;margin:6px;position:relative;top:0;left:0;float:left;' src='img/icon_user.png' />";
-		tx+="<div style='height:25px;line-height:25px;font-size:16px;position:relative;top:0;left:0;'>"+aval.v1+"</div>";
-		tx+="<div style='height:15px;line-height:15px;font-size:13px;position:relative;top:0;left:0;'>"+tel_url(aval.v3)+"</div>";
+		var tx="<div class='divContactResult'><div style='height:25px;line-height:25px;font-size:16px;position:relative;top:0;left:0;'>"+aval.v1+"</div>";
+		tx+="<div style='height:15px;line-height:15px;font-size:13px;position:relative;top:0;left:0;'>"+tel_url(aval.v3)+"</div></div>";
 		return tx;
 	}
 	
@@ -1131,8 +1130,9 @@ cday.prototype.fafficher_un_rdv=function(ardv,tbd){
 		drdv.style.top=top+"px";
 		
 		var nbrdv=+d.getAttribute("nbrdv");
-		drdv.style.left=(this.lheight-5+nbrdv*wwin/(nbrdv+2))+"px";
-		drdv.style.width=(wwin-24-this.lheight-nbrdv*wwin/(nbrdv+2))+"px";
+		drdv.style.marginLeft=(this.lheight-5+nbrdv*wwin/(nbrdv+2))+"px";
+		//drdv.style.width=(wwin-24-this.lheight-nbrdv*wwin/(nbrdv+2))+"px";
+		drdv.style.width = "89%";
 		if(ardv["catcouleur"])drdv.style.backgroundColor=ardv["catcouleur"];
 		else if(ardv["sous_tp"]==1)drdv.style.backgroundColor='orange';
 		else if(this.oparent.tpmotifs && this.oparent.tpmotifs[ardv.nmotif])drdv.style.backgroundColor=this.oparent.tpmotifs[ardv.nmotif]["couleur"];
@@ -1581,16 +1581,14 @@ cweek.prototype.fafficher_un_rdv=function(ardv,tbw){
 					   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
 					   ((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ardv["objet"]);
 		wrdv.id="wrdv_"+ardv["n_action_orig"];
-		wrdv.style.height=(nbrl*this.lheight+nbrl-1)+"px";
+		wrdv.style.height=(nbrl*this.lheight+nbrl-2)+"px";
 		wrdv.style.top=top+"px";
 		
 		var nbrdv=+w.getAttribute("nbrdv");
 		var rl=(wwin-21)/this.ag_nbjours;
 		if(top==0 && this.ag_duree_rdv_std==this.oparent.ag_duree_rdv_std){
-			wrdv.style.left=4+nbrdv*rl/(nbrdv+2)+"px";
 			wrdv.style.width=((wwin-21)/this.ag_nbjours-7-nbrdv*rl/(nbrdv+2))+"px";
 		}else{
-			wrdv.style.left="4px";
 			wrdv.style.width=((wwin-21)/this.ag_nbjours-7)+"px";
 		}
 		

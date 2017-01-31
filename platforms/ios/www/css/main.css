@@ -703,9 +703,8 @@ position:absolute;
 Z-index:2;
 top:0;
 overflow:hidden;
--webkit-border-radius: 2px;
-border-left:1px solid #ccc;
-border-radius: 2px;
+border: 1px solid black;
+padding-left: 1px;
 }
 
 .week div .ctn table tr td .creneau_week{
@@ -794,7 +793,7 @@ font-size:15px;
 .day .ctn div table tr .tdRdv{
 	border:1px solid #c6c6c6;
 	background:#f1f1f0;
-	
+	width: 90%;
 }
 
 .day .ctn div table tr td{
@@ -808,9 +807,8 @@ position:absolute;
 Z-index:2;
 top:0;
 overflow:hidden;
--webkit-border-radius: 4px;
-border-left:1px solid #ccc;
-border-radius: 4px;
+border: 1px solid black;
+padding-left: 3px;
 }
 
 .day .ctn div table tr td .creneau_day{
@@ -897,7 +895,6 @@ bottom:0;
 .select_item{
 	position:relative;
 	width:100%;
-	height:39px;
 	line-height:39px;
 	border-top:1px solid #fff;
 	border-bottom:1px solid #ccc;
@@ -964,7 +961,7 @@ bottom:0;
 }
 
 .day .tdHoursMinutes {
-	width:34px;
+	width:10%;
 	border:0;
 	font-size:9px;
 }
@@ -997,3 +994,7 @@ bottom:0;
     height:35px;
 }
 
+.divContactResult {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}

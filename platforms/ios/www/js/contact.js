@@ -197,11 +197,11 @@ ccontact.prototype.fafficher_un_contact=function(acontact){
 	var id=this.pref+acontact.n;
 	var dc=document.createElement("table");
 	dc.id=id;
+	dc.setAttribute('onClick',this.ref+".fshow_detail_contact("+acontact.n+")");
 	dc.style.cssText="position:relative;top:0;left:0;width:100%;border-bottom:1px solid #e5e5e5;";
 	var imbcg="img/user.png";
 	if(acontact.civilite=='Mlle' || acontact.civilite=='Mme')imbcg="img/user_woman.png";
-	var tx="<tr><td rowspan='2' onClick=\""+this.ref+".fshow_detail_contact("+acontact.n+");\" style=\"width:45px;min-width:45px;height:45px;background:url('"+imbcg+"') no-repeat center center;background-size:100% 100%;background-color:#e5e5e5;\"></td>";
-	tx+="<td style='font-weight:bold;overflow:hidden;max-width:"+(wwin-100)+"px;'>"+acontact.nom_usuel+"</td></tr>";
+	var tx="<tr><td style='font-weight:bold;overflow:hidden;max-width:"+(wwin-100)+"px;'>"+acontact.nom_usuel+"</td></tr>";
 	var tel=acontact.tmobile;
 	if(!tel)tel=acontact.tprof;
 	if(!tel)tel=acontact.tpri;
@@ -530,9 +530,8 @@ ccontact.prototype.fdisplay=function(_target_ctn){
 				"CASE WHEN tel_mobile!='' THEN tel_mobile ELSE (CASE WHEN tel_pri!='' THEN tel_pri ELSE tel_pro END) END as v3 from ncb_sys_contacts " +
 				"where n_sys_contact_pere="+this.ncli+" and (nom like ? or prenom like ? or nom_usuel like ?) limit 0,15";
 		pajax.flist_item=function(aval){
-			var tx="<img style='height:26px;width:auto;margin:6px;position:relative;top:0;left:0;float:left;' src='img/icon_user.png' />";
-			tx+="<div style='height:25px;line-height:25px;font-size:16px;position:relative;top:0;left:0;'>"+aval.v1+"</div>";
-			tx+="<div style='height:15px;line-height:15px;font-size:13px;position:relative;top:0;left:0;'>"+tel_url(aval.v3)+"</div>";
+			var tx="<div class='divContactResult'><div style='height:25px;line-height:25px;font-size:16px;position:relative;top:0;left:0;'>"+aval.v1+"</div>";
+			tx+="<div style='height:15px;line-height:15px;font-size:13px;position:relative;top:0;left:0;'>"+tel_url(aval.v3)+"</div></div>";
 			return tx;
 		}
 		pajax.fclick_item=this.ref+".fshow_search_contact";

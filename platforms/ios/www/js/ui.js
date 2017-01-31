@@ -166,28 +166,33 @@ function cdialog(_ref,_pref,_w,_h,_pos,_corner){
 
 cdialog.prototype.faddcontent=function(ht){
 	this.content=document.createElement('div');
-	this.content.style.position='absolute';
+	/*
+	this.content.style.position='relative';
 	this.content.style.left=(document.body.clientWidth-this.w)/2+'px';
 	this.content.style.width='100%';
+	this.content.style.textAlign='center';
+	this.content.style.marginLeft='30px';
+	this.content.style.marginRight='30px';
 	this.content.style.backgroundColor='#fff';
+	 */
 	switch(this.pos){
 		case "center":
-			this.content.style.top=(document.body.clientHeight-this.h)/2+'px';
-			if(this.corner===true)this.content.style.borderRadius='3px';
-			this.content.className='pop small';
-			this.content.style.height=this.h+'px';
-			setTimeout(this.ref+".content.className ='pop transition big'",50);
+			//this.content.style.top=(document.body.clientHeight-this.h)/2+'px';
+			//if(this.corner===true)this.content.style.borderRadius='3px';
+			this.content.className='pop transition big popup_center';
+			//this.content.style.height=this.h+'px';
+			//setTimeout(this.ref+".content.className ='pop transition big'",50);
 		break;
 		case "top":
-			this.content.style.top='0px';
-			this.content.style.height=this.h+'px';
-			if(this.corner===true)this.content.style.borderRadius='0px 0px 3px 3px';
+			//this.content.style.top='0px';
+			//this.content.style.height=this.h+'px';
+			//if(this.corner===true)this.content.style.borderRadius='0px 0px 3px 3px';
 		break;
 		case "bottom":
-			this.content.style.bottom='0px';
-			if(this.corner===true)this.content.style.borderRadius='3px 3px 0px 0px';
-			this.content.className='pop under_btm';
-			setTimeout(this.ref+".content.className ='pop transition btm'",50);
+			//this.content.style.bottom='0px';
+			//if(this.corner===true)this.content.style.borderRadius='3px 3px 0px 0px';
+			this.content.className='pop transition btm popup_bottom';
+			//setTimeout(this.ref+".content.className ='pop transition btm'",50);
 		break;
 	}
 	this.container.appendChild(this.content);
@@ -204,15 +209,16 @@ cdialog.prototype.fdelete=function(){
 	this.content.innerHTML='';
 	switch(this.pos){
 		case "center":
-			this.content.className='pop transition small';
+			//this.content.className='pop transition small';
 		break;
 		case "top":
 		break;
 		case "bottom":
-			this.content.className='pop transition under_btm';
+			//this.content.className='pop transition under_btm';
 		break;
 	}
-	setTimeout(this.ref+".htarget.removeChild("+this.ref+".container);odialog=null",200);		
+	
+	setTimeout(this.ref+".htarget.removeChild("+this.ref+".container);odialog=null",5);
 }
 
 /**@fnew_page function create page, popup or dialog==================================================
