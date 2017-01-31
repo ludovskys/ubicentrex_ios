@@ -1105,6 +1105,9 @@ cday.prototype.fafficher_un_rdv=function(ardv,tbd){
         
 		var nbrl=(my2jd(ardv["dfin"]).getTime()-my2jd(ardv["ddeb"]).getTime())/(1000*60*this.ag_duree_rdv_std);
 		var drdv=document.createElement('div');
+        
+        var dureeMin = (my2jd(ardv["dfin"]).getTime()-my2jd(ardv["ddeb"]).getTime())/(1000*60);
+        
 		drdv.className='rdv_day';
 		drdv.setAttribute('dte',ardv["ddeb"]);
 		drdv.setAttribute('onClick',this.oparent.ref+".fshow_detail_rdv('"+ardv.ddeb+"',"+ardv.n_action_orig+")");
@@ -1125,6 +1128,12 @@ cday.prototype.fafficher_un_rdv=function(ardv,tbd){
 					   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
 					   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
 					   ((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ardv["objet"]);
+        
+        // Si le rdv fait plus de 60 min, on affiche la description du rdv
+        if (dureeMin >= 60) {
+            drdv.innerHTML += "<br><span class='spanRemarqueRdv'>"+ardv["txt"]+"</span>";
+        }
+        
 		drdv.id="drdv_"+ardv["n_action_orig"];
 		drdv.style.height=(nbrl*this.lheight+nbrl-1)+"px";
 		drdv.style.top=top+"px";
