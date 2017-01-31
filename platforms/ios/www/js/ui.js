@@ -1275,11 +1275,12 @@ function map_show(url){
 
 //checkbox==================================
 function checkbox(id,name,checked,txt){
-	var tx="<div style='position:relative;height:35px;line-height:35px;width:100%;'><label>";
+	var tx="<div class='checkboxDiv'>";
 	if(txt)tx+=txt;
+    tx+="<label class='switch'>";
 	if(checked==true)tx+="<input type='checkbox' id='"+id+"' name='"+name+"' checked/>";
 	else tx+="<input type='checkbox' id='"+id+"' name='"+name+"' />";
-	tx+="</label></div>";
+	tx+="<div class='slider round'></div></label></div>";
 	return tx;
 }
 
