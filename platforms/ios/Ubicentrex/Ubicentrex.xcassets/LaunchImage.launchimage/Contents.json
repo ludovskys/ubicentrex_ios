@@ -4,7 +4,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "iPhone 6 Plus Retina.png",
+      "filename" : "SplashScreen-1242x2208-with-logo.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -13,7 +13,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "667h",
-      "filename" : "iPhone 6.png",
+      "filename" : "SplashScreen-750x1334-with-logo.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -21,7 +21,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "iPhone 4-1.png",
+      "filename" : "SplashScreen-640x960-with-logo.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -30,7 +30,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "iPhone 5-1.png",
+      "filename" : "SplashScreen-640x1136-with-logo.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -38,21 +38,21 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "iPhone 4 - copie.png",
+      "filename" : "SplashScreen-320x480-with-logo.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "iPhone 4.png",
+      "filename" : "SplashScreen-640x960-with-logo-1.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "iPhone 5.png",
+      "filename" : "SplashScreen-640x1136-with-logo-1.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
@@ -60,14 +60,14 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "iPad non retina.png",
+      "filename" : "SplashScreen-768x1024-with-logo.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "iPad retina.png",
+      "filename" : "SplashScreen-1536x2048-with-logo.png",
       "extent" : "full-screen",
       "scale" : "2x"
     }
