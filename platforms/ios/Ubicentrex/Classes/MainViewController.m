@@ -110,6 +110,12 @@
 {
     // Black base color for background matches the native apps
     theWebView.backgroundColor = [UIColor blackColor];
+    
+    [_loadingImageView setAlpha:1];
+    [UILabel beginAnimations:NULL context:nil];
+    [UILabel setAnimationDuration:2.0];
+    [_loadingImageView setAlpha:0];
+    [UILabel commitAnimations];
 
     return [super webViewDidFinishLoad:theWebView];
 }

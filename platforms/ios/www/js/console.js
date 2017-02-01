@@ -488,7 +488,7 @@ cconsole.prototype.flogin_page=function(){
     
 	a["content"]="<div class='divContentLogin'><table class='tableLogin'>";
     
-    a["content"]+="<img id='imgLogoUbi'>";
+    //a["content"]+="<img id='imgLogoUbi'>";
     
 	a["content"]+="<tr class='trTableLogin'><td><div class='divInputLogin'>"+inputElement(this.pref+"username","","class='inputLogin' placeholder='Identifiant'","","text")+"</div></td></tr>";
 	a["content"]+="<tr class='trTableLogin'><td><div class='divInputLogin'>"+inputElement(this.pref+"pwd","","class='inputLogin' placeholder='Mot de passe'","","password")+"</div></td></tr>";
@@ -498,7 +498,7 @@ cconsole.prototype.flogin_page=function(){
     
 	this.login_page=fnew_page(a,'');
     
-    moveImgLogoUbi();
+    //moveImgLogoUbi();
 }
 
 function moveImgLogoUbi() {

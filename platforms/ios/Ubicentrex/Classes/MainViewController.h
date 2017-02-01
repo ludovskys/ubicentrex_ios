@@ -31,6 +31,7 @@
 
 @interface MainViewController : CDVViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *loadingImageView;
 @end
 
 @interface MainCommandDelegate : CDVCommandDelegateImpl
