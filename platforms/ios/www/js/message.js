@@ -672,7 +672,7 @@ cmessage.prototype.fdisplay_header=function(_target_hdr){
 		//cadre agenda
 		this.hhdr=document.createElement('div');
 		this.hhdr.id="msg_hdr_"+this.ncli;
-		this.hhdr.className='bdiv';
+		this.hhdr.className='bdiv bdivHeader';
 		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left'> </a>";
 		
 		tx+="<a id='"+this.pref+"ag_select' class='m_select m_select_messages' onClick=\""+this.ref+".fmsg_filtre(this);\">Non lus</a>";

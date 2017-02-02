@@ -296,6 +296,10 @@ position:absolute;
 overflow:hidden;	
 }
 
+.bdivHeader {
+	padding-top: 15px;
+}
+
 .bdiv.scr{
 overflow-y:scroll;
 -webkit-overflow-scrolling: touch;

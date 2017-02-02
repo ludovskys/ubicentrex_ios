@@ -44,7 +44,7 @@ cpage.prototype.faddcontent=function(ht){
 	this.container.appendChild(this.content);
 	if(typeof(ht)!='undefined')this.content.innerHTML=ht;
 	var top='0px',bottom='0px';
-	if(this.header)top='40px';
+	if(this.header)top='55px';
 	if(this.footer)bottom='40px';
 	this.content.style.top=top;
 	this.content.style.bottom=bottom;
@@ -61,7 +61,7 @@ cpage.prototype.faddheader=function(ht){
 	this.header.className='header';
 	this.container.appendChild(this.header);
 	if(typeof(ht)!='undefined')this.header.innerHTML=ht;
-	if(this.content)this.content.style.top='40px';
+	if(this.content)this.content.style.top='55px';
 }
 
 cpage.prototype.fsetheader=function(ht){
@@ -238,6 +238,11 @@ var opopup;
 var odialog;
 function fnew_page(ar,animation){
 	if(typeof(ar["tp"])=='undefined')ar["tp"]="page";
+	
+	if(typeof(ar["header"])!='undefined') {
+		ar["header"] = "<div class='headerSub'>"+ar["header"]+"</div>";
+	}
+	
 	switch(ar["tp"]){
 		case "page":
 			if(typeof(ar["header"])=='undefined' && typeof(ar["content"])=='undefined' && typeof(ar["footer"])=='undefined')return false;

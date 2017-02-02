@@ -7,10 +7,14 @@
 	font-size:16px;
 	text-align: center;
 	line-height: 40px;
-	height: 40px;
+	height: 55px;
 	width:100%;
 	position:absolute;
 	Z-index:1;
+}
+
+.headerSub {
+	padding-top: 15px;
 }
 
 a.menu_right
@@ -38,7 +42,7 @@ a.menu_right_plus {
 
 a.menu_right_search {
 	background-size: 30px auto;
-	top: 5px;
+	top: 20px;
 	right: 8px;
 	background-image: url('../img/menu/icon-Search.png');
 	height: 30px;

@@ -35,8 +35,6 @@
 	</dict>
 	<key>NSMainNibFile~ipad</key>
 	<string></string>
-	<key>UILaunchStoryboardName</key>
-	<string>MainViewController</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>

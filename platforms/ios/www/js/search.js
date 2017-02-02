@@ -281,7 +281,7 @@ csearch.prototype.fdisplay_header=function(_target_hdr){
 		//cadre agenda
 		this.hhdr=document.createElement('div');
 		this.hhdr.id="nl_hdr_"+this.ncli;
-		this.hhdr.className='bdiv';
+		this.hhdr.className='bdiv bdivHeader';
 		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left'> </a>";
 		tx+="<a id='"+this.pref+"ag_select' class='m_select m_select_search' onClick=\""+this.ref+".fsrch_menu(this);\">Rendez-vous</a>";
 		tx+="<a onClick='"+this.ref+".fsearch();' class='menu_right menu_right_search'> </a>";

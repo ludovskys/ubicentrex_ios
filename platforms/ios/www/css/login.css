@@ -83,7 +83,7 @@ and (max-device-width : 1024px)  {
 	padding:8px;
 	width:100%;
 	position:absolute;
-	top:30%;
+	top:40%;
 	border-collapse:separate;
 	border-spacing:1em;
 }

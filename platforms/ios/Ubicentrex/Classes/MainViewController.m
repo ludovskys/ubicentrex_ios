@@ -26,6 +26,7 @@
 //
 
 #import "MainViewController.h"
+#import <Cordova/UIDevice+Resolutions.h>
 
 @implementation MainViewController
 
@@ -69,8 +70,9 @@
     // you can do so here.
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         CGRect viewBounds = [self.webView bounds];
-        viewBounds.origin.y = 20;
-        viewBounds.size.height = viewBounds.size.height - 20;
+		
+        //viewBounds.origin.y = 20;
+        //viewBounds.size.height = viewBounds.size.height - 20;
         self.webView.frame = viewBounds;
     }
     [super viewWillAppear:animated];
@@ -80,6 +82,28 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
+	// Change background
+	if ([[UIDevice currentDevice] resolution] == UIDeviceResolution_iPhone5)
+	{
+		[_loadingImageView setImage:[UIImage imageNamed:@"loading_image_iphone5.png"]];
+	}
+	else if ([[UIDevice currentDevice] resolution] == UIDeviceResolution_iPhone6)
+	{
+		[_loadingImageView setImage:[UIImage imageNamed:@"loading_image_iphone6.png"]];
+	}
+	else if ([[UIDevice currentDevice] resolution] == UIDeviceResolution_iPhone6Plus)
+	{
+		[_loadingImageView setImage:[UIImage imageNamed:@"loading_image_iphone6plus.png"]];
+	}
+	else if ([[UIDevice currentDevice] resolution] == UIDeviceResolution_iPadStandard)
+	{
+		[_loadingImageView setImage:[UIImage imageNamed:@"loading_image_ipad.png"]];
+	}
+	else if ([[UIDevice currentDevice] resolution] == UIDeviceResolution_iPadRetina)
+	{
+		[_loadingImageView setImage:[UIImage imageNamed:@"loading_image_ipadretina.png"]];
+	}
 }
 
 - (void)viewDidUnload
@@ -87,6 +111,11 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+	return UIStatusBarStyleLightContent;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

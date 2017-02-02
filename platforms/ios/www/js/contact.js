@@ -613,7 +613,7 @@ ccontact.prototype.fdisplay_header=function(_target_hdr){
 		//cadre agenda
 		this.hhdr=document.createElement('div');
 		this.hhdr.id="msg_hdr_"+this.ncli;
-		this.hhdr.className='bdiv';
+		this.hhdr.className='bdiv bdivHeader';
 		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left'> </a>";
 		tx+="<div class='divTitle'>Contacts</div>";
 		tx+="<a onClick=\""+this.ref+".fopen_contact();\" class='menu_right menu_right_plus'> </a>";
