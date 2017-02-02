@@ -186,4 +186,23 @@
 	bottom: 0px;
 }
 
+.popup_button_cancel {
+	height:40px;
+	line-height:40px;
+	width:49%;
+	color:red;
+	position:relative;
+	float:left;
+	border-right:1px solid #ccc;
+}
+
+.popup_button_ok {
+	height:40px;
+	line-height:40px;
+	width:49%;
+	color:blue;
+	position:relative;
+	float:right;
+}
+
 
