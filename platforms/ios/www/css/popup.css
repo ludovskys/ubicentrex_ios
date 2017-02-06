@@ -137,7 +137,11 @@
 }
 
 .popup_rdv .menu_left_edit_popup {
-    left:40px;
+    left:70px;
+}
+
+.popup_rdv .menu_left_fav_popup_rdv {
+	left:35px;
 }
 
 .menu_left_edit_popup {
@@ -146,7 +150,6 @@
 }
 
 .menu_left_fav_popup_rdv {
-	left:
 	background:url('../img/popup/icon-Star.png') no-repeat center center;
 	background-size:22px auto;
 }
