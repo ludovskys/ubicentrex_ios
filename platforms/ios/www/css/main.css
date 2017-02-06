@@ -396,9 +396,17 @@ overflow-y:hidden;
 -webkit-tap-highlight-color: transparent;
 background: transparent;
 border-radius:inherit;
-margin:15px 0px 0px 15px;
+
 float:left;
 top:0px;
+}
+
+.picDays {
+	margin:5px;
+}
+
+.picHours {
+	margin: 3px;
 }
 
 .dwwu {
