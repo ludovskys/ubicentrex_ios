@@ -566,7 +566,7 @@ cagenda.prototype.fopen_rdv=function(ddeb,n_action_orig,duree){
 	this.ocon_selecta=new cselectajax(this.ref+".ocon_selecta",this.pref+"ocon_selecta",pajax);
 	
 	a["content"]+="<tr><td colspan='2'>"+this.ocon_selecta.fcreate()+hidden(this.pref+"lco","lco",lco)+"</td></tr>";
-	a["content"]+="<tr><td colspan='2'>"+text(this.pref+"emplacement","","placeholder='Téléphone'",empl,"text")+"</td></tr>";
+	a["content"]+="<tr><td colspan='2'>"+text(this.pref+"emplacement","","placeholder='Téléphone'",empl,"number")+"</td></tr>";
 	
 	this.odpicker=new ctime_picker(this.ref+'.odpicker',this.pref+'dpicker','day',dte_deb);
 	a["content"]+="<tr><td rowspan='2'>"+this.odpicker.fcreate()+"</td>";

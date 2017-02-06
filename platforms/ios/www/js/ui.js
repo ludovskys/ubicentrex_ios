@@ -1213,6 +1213,12 @@ function text(id,name,compl,value,tp){
 	}
 	
 	if(compl)_tx+=compl;
+	
+	// Permet l'apparition d'un clavier numérique
+	if (tp=='number') {
+		_tx+=" pattern='[0-9]*' inputmode='numeric'";
+	}
+	
 	_tx+=" />";
 	_tx+="<div class='text_base'></div></div>";
 	return _tx;

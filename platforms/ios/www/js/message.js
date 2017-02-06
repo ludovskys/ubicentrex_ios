@@ -595,7 +595,7 @@ cmessage.prototype.fnew_msg=function(n){
 	}	
 	this.ocon_selecta=new cselectajax(this.ref+".ocon_selecta",this.pref+"ocon_selecta",pajax2);	
 	a["content"]+="<tr><td colspan='2'>"+this.ocon_selecta.fcreate()+hidden(this.pref+"lco","lco",(amsg && amsg.lco) ? amsg.lco : 0)+"</td></tr>";
-	a["content"]+="<tr><td colspan='2'>"+text(this.pref+"emplacement","","placeholder='Téléphone'",amsg ? ftel_lisible(amsg.emplacement) : "")+"</td></tr>";
+	a["content"]+="<tr><td colspan='2'>"+text(this.pref+"emplacement","","placeholder='Téléphone'",amsg ? ftel_lisible(amsg.emplacement) : "", "number")+"</td></tr>";
 	
 	var msg_ctn="";
 	if(amsg){

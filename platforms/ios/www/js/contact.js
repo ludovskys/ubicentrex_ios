@@ -240,20 +240,20 @@ ccontact.prototype.fopen_contact=function(n){
 	this.oscivi=new cselect(this.ref+".oscivi",this.pref+"scivi",ar,(acon && acon.civilite) ? acon.civilite : " ");
 	tx1+="<tr><td style='width:50px;'>"+this.oscivi.fcreate("style='margin-top:-9px;'")+"</td><td>"+
 		text(this.pref+"nom",'',"placeholder='Nom'",(acon && acon.nom) ? acon.nom : "")+"</td><td>"+
-		text(this.pref+"prenom",'',"placeholder='Prenom'",(acon && acon.prenom) ? acon.prenom : "")+"</td></tr>";
+		text(this.pref+"prenom",'',"placeholder='Prénom'",(acon && acon.prenom) ? acon.prenom : "")+"</td></tr>";
 	
 	var yc=new Date().getFullYear();
 	var duree={min:(yc-120),max:(yc)};
 	this.odnspicker=new ctime_picker(this.ref+'.odnspicker',this.pref+'dnspicker','day',(acon && acon.dte_naissance) ? acon.dte_naissance : "",duree);
 	tx1+="<tr><td colspan='2'>"+text(this.pref+"med",'',"placeholder='Méd. traitant'",(acon && acon.med_traitant) ? acon.med_traitant : "")+
 		"</td><td>"+this.odnspicker.fcreate("placeholder='Date naissance'")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+text(this.pref+"societe",'',"placeholder='Societe'",(acon && acon.societe) ? acon.societe : "")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+text(this.pref+"nss",'',"placeholder='No. secu'",(acon && acon.nss) ? acon.nss : "")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+text(this.pref+"societe",'',"placeholder='Société'",(acon && acon.societe) ? acon.societe : "")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+text(this.pref+"nss",'',"placeholder='No. secu'",(acon && acon.nss) ? acon.nss : "","number")+"</td></tr>";
 	tx1+="<tr><td colspan='3'>"+text(this.pref+"mail1",'',"placeholder='Emails'",(acon && acon.mail1) ? acon.mail1 : "")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_mobile",'',"placeholder='Tél. mobile'",(acon && acon.tmobile) ? ftel_lisible(acon.tmobile) : "")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_pro",'',"placeholder='Tél. pro'",(acon && acon.tprof) ? ftel_lisible(acon.tprof) : "")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_pri",'',"placeholder='Tél. pri'",(acon && acon.tpri) ? ftel_lisible(acon.tpri) : "")+"</td></tr>";
-	tx1+="<tr><td colspan='3'>"+textarea(this.pref+"note",'',"placeholder='note'",(acon && acon.remarque) ? acon.remarque : "")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_mobile",'',"placeholder='Tél. mobile'",(acon && acon.tmobile) ? ftel_lisible(acon.tmobile) : "","number")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_pro",'',"placeholder='Tél. pro'",(acon && acon.tprof) ? ftel_lisible(acon.tprof) : "","number")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+text(this.pref+"tel_pri",'',"placeholder='Tél. pri'",(acon && acon.tpri) ? ftel_lisible(acon.tpri) : "","number")+"</td></tr>";
+	tx1+="<tr><td colspan='3'>"+textarea(this.pref+"note",'',"placeholder='Notes'",(acon && acon.remarque) ? acon.remarque : "")+"</td></tr>";
 	tx1+="</table>"
 	
 	var tx2="<table class='struct'>";
@@ -261,7 +261,7 @@ ccontact.prototype.fopen_contact=function(n){
 	tx2+="<tr><td colspan='3'>"+text(this.pref+"proadr1",'',"placeholder='Adresse 1'",(acon && acon.adresses && acon.adresses[0]) ? acon.adresses[0].adresse_1 : "")+"</td></tr>";
 	tx2+="<tr><td colspan='3'>"+text(this.pref+"proadr2",'',"placeholder='Adresse 2'",(acon && acon.adresses && acon.adresses[0]) ? acon.adresses[0].adresse_2 : "")+"</td></tr>";
 	tx2+="<tr><td colspan='3'>"+text(this.pref+"proadr3",'',"placeholder='Adresse compl.'",(acon && acon.adresses && acon.adresses[0]) ? acon.adresses[0].adresse_compl : "")+"</td></tr>";
-	tx2+="<tr><td>"+text(this.pref+"procp",'',"placeholder='Code postal'",(acon && acon.adresses && acon.adresses[0]) ? acon.adresses[0].cp : "")+"</td><td>"+
+	tx2+="<tr><td>"+text(this.pref+"procp",'',"placeholder='Code postal'",(acon && acon.adresses && acon.adresses[0]) ? acon.adresses[0].cp : "","number")+"</td><td>"+
 			text(this.pref+"proville",'',"placeholder='Ville'",(acon && acon.adresses && acon.adresses[0]) ? acon.adresses[0].ville : "")+"</td></tr>";
 	tx2+="<tr><td colspan='3'>"+text(this.pref+"propays",'',"placeholder='Pays'",(acon && acon.adresses && acon.adresses[0]) ? acon.adresses[0].pays : "")+"</td></tr>";
 	tx2+="</table>";
