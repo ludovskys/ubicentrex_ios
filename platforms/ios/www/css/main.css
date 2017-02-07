@@ -1006,7 +1006,7 @@ bottom:0;
     height:35px;
 }
 
-.divContactResult {
+.divResultSelect {
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
@@ -1015,3 +1015,18 @@ bottom:0;
     font-style: italic;
     color:#888;
 }
+
+/* Non lus */
+
+.structure {
+	border-bottom:2px solid white;
+	border-collapse:collapse;
+	width:100%;
+}
+
+.trObjet {
+	background:#ccc;
+	padding: 5px;
+}
+
+

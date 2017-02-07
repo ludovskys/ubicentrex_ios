@@ -552,7 +552,7 @@ cagenda.prototype.fopen_rdv=function(ddeb,n_action_orig,duree){
 				"CASE WHEN tel_mobile!='' THEN tel_mobile ELSE (CASE WHEN tel_pri!='' THEN tel_pri ELSE tel_pro END) END as v3 from ncb_sys_contacts " +
 				"where n_sys_contact_pere="+this.ncli+" and (nom like ? or prenom like ? or nom_usuel like ?) limit 0,15";
 	pajax.flist_item=function(aval){
-		var tx="<div class='divContactResult'><div style='height:25px;line-height:25px;font-size:16px;position:relative;top:0;left:0;'>"+aval.v1+"</div>";
+		var tx="<div class='divResultSelect'><div style='height:25px;line-height:25px;font-size:16px;position:relative;top:0;left:0;'>"+aval.v1+"</div>";
 		tx+="<div style='height:15px;line-height:15px;font-size:13px;position:relative;top:0;left:0;'>"+tel_url(aval.v3)+"</div></div>";
 		return tx;
 	}
