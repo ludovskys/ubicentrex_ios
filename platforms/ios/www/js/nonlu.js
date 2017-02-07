@@ -34,13 +34,13 @@ cnonlu.prototype.fremplir_nonlu_clb=function(r,rt,myobj){
 	var xmlrdvu=r.selectNodes('./rdv/u/*');
 	var xmlrdvd=r.selectNodes('./rdv/d/*');
 	if(xmlmsgs.length+xmlrdvc.length+xmlrdvm.length+xmlrdvu.length+xmlrdvd.length==0){
-		myobj.hctn.innerHTML="<div style='text-align:center; font-size:12px;'>Pas de non lus répondant à ces critères.</div>";
+		myobj.hctn.innerHTML="<div class='titleNonLuNothing'>Aucune donnée répondant à ces critères.</div>";
 		return;
 	}
 	
 	var tx="";
 	if(myobj.vfltype==0 || myobj.vfltype==3){
-		if(xmlmsgs.length>0)tx+="<h3 style='background:#33CC66;margin:0;text-align:center;height:25px;line-height:25px;font-size:15px;'>Messages</h3>";
+		if(xmlmsgs.length>0)tx+="<h3 class='titleNonlu'>Messages</h3>";
 		for(var i=0;i<xmlmsgs.length;i++){
 			var amsg=xmltag2array(xmlmsgs[i]);
 			tx+=myobj.fafficher_un_nonlu('msg',amsg);
@@ -48,26 +48,26 @@ cnonlu.prototype.fremplir_nonlu_clb=function(r,rt,myobj){
 	}
 	
 	if(myobj.vfltype==0 || myobj.vfltype==1 || myobj.vfltype==2){
-		if(xmlrdvc.length>0)tx+="<h3 style='background:#33CC66;margin:0;text-align:center;height:25px;line-height:25px;font-size:15px;'>Créations de rendez-vous</h3>"
+		if(xmlrdvc.length>0)tx+="<h3 class='titleNonlu'>Créations de rendez-vous</h3>"
 		for(var i=0;i<xmlrdvc.length;i++){
 			var ardvc=xmltag2array(xmlrdvc[i].selectSingleNode('./new'));
 			tx+=myobj.fafficher_un_nonlu('c',ardvc);
 		}
 
-		if(xmlrdvm.length>0)tx+="<h3 style='background:#33CC66;margin:0;text-align:center;height:25px;line-height:25px;font-size:15px;'>Déplacements de rendez-vous</h3>"
+		if(xmlrdvm.length>0)tx+="<h3 class='titleNonlu'>Déplacements de rendez-vous</h3>"
 		for(var i=0;i<xmlrdvm.length;i++){
 			var ardvm=xmltag2array(xmlrdvm[i].selectSingleNode('./new'));
 			var ardvold=xmltag2array(xmlrdvm[i].selectSingleNode('./old'));
 			tx+=myobj.fafficher_un_nonlu('m',ardvm,ardvold);
 		}
 
-		if(xmlrdvu.length>0)tx+="<h3 style='background:#33CC66;margin:0;text-align:center;height:25px;line-height:25px;font-size:15px;'>Modifications de rendez-vous</h3>"
+		if(xmlrdvu.length>0)tx+="<h3 class='titleNonlu'>Modifications de rendez-vous</h3>"
 		for(var i=0;i<xmlrdvu.length;i++){
 			var ardvu=xmltag2array(xmlrdvu[i].selectSingleNode('./new'));
 			tx+=myobj.fafficher_un_nonlu('u',ardvu)
 		}
 
-		if(xmlrdvd.length>0)tx+="<h3 style='background:#33CC66;margin:0;text-align:center;height:25px;line-height:25px;font-size:15px;'>Annulations de rendez-vous</h3>"
+		if(xmlrdvd.length>0)tx+="<h3 class='titleNonlu'>Annulations de rendez-vous</h3>"
 		for(var i=0;i<xmlrdvd.length;i++){
 			var ardvd=xmltag2array(xmlrdvd[i].selectSingleNode('./new'));
 			tx+=myobj.fafficher_un_nonlu('u',ardvd)
@@ -80,14 +80,14 @@ cnonlu.prototype.fremplir_nonlu_clb=function(r,rt,myobj){
 cnonlu.prototype.fafficher_un_nonlu=function(cat,ar,arold){//cat:msg-msg,c-creation rdv,m-deplace rdv,u-update rdv,d-suppr rdv
 	this.an.push(ar.n);
 	var tx='';
-	tx+="<table id='"+this.pref+ar.n+"' class='structure' style='border-bottom:2px solid white;border-collapse:collapse;width:100%;'>";
+	tx+="<table id='"+this.pref+ar.n+"' class='structure'>";
 
 	var ext='';
 	if(ar.nv_client==1)ext+="<span style='color:red;'>(N)</span>";
 	if(ar.vis==1)ext+="<span style='color:orange;'>(V)</span>";
 	if(ar.objet=='')ar.objet="(Pas de sujet)";
-	tx+="<tr><td style='background:#ccc;' colspan='2'><b>"+ext+ar.objet+"</b></td></tr>";
-	tx+="<tr><td style='font-size:13px;'>";
+	tx+="<tr><td colspan='2' class='trNonluObjet'><b>"+ext+ar.objet+"</b></td></tr>";
+	tx+="<tr><td class='trNonluInfos'>";
 
 	if(cat!='msg'){
 		var dtd=my2jd(ar.ddeb);
@@ -121,7 +121,9 @@ cnonlu.prototype.fafficher_un_nonlu=function(cat,ar,arold){//cat:msg-msg,c-creat
 	}
 
 	tx+=dt+" le "+mytodfr(ar.date_creation)+"</td>";
-	tx+="<td style='text-align:right;'><input type='checkbox' onClick='"+this.ref+".passer_lu("+ar.n+")' /></td></tr>";
+	// checkbox(this.pref+"vad","vis",vis,"Visite à domicile")
+	tx+="<td class='trNonluCheckbox'>"+checkbox(this.pref+"vad","vis",false,"", "onClick='"+this.ref+".passer_lu("+ar.n+")'")+"</td></tr>";
+	//tx+="<td style='text-align:right;'><input type='checkbox' onClick='"+this.ref+".passer_lu("+ar.n+")' /></td></tr>";
 	tx+="<tr><td style='color:#888;font-size:14px;font-style:italic;' colspan='2'>"+ctn+"</td></tr>";
 	
 	tx+="<table>";
@@ -129,6 +131,7 @@ cnonlu.prototype.fafficher_un_nonlu=function(cat,ar,arold){//cat:msg-msg,c-creat
 }
 
 cnonlu.prototype.passer_lu=function(n){
+	
 	var req={
 			soapmethod:'workflow',
 			act:'lu',
@@ -146,7 +149,7 @@ cnonlu.prototype.passer_lu_clb=function(r,rt,myobj){
 	var hnl=document.getElementById(myobj.pref+n_act);
 	if(!hnl)return;
 	hnl.style.color='grey';
-	hnl.getElementsByTagName('input')[0].style.display='none';
+	hnl.getElementsByClassName('trNonluCheckbox')[0].style.visibility='hidden';
 	ftoast("Vous avez passé cet élément à lu");
 }
 

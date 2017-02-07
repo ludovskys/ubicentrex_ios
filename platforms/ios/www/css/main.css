@@ -1022,10 +1022,36 @@ bottom:0;
 	border-bottom:2px solid white;
 	border-collapse:collapse;
 	width:100%;
+	background: lightgray;
 }
 
-.trObjet {
-	background:#ccc;
+.trNonluObjet {
+	padding: 5px;
+}
+
+.trNonluInfos {
+	font-size:13px;
+	padding: 5px;
+}
+
+.trNonluCheckbox {
+	text-align:right;
+	padding: 5px;
+}
+
+.titleNonlu {
+	background:#33CC66;
+	margin:0;
+	text-align:center;
+	height:25px;
+	line-height:25px;
+	font-size:15px;
+	padding: 5px;
+}
+
+.titleNonLuNothing {
+	text-align:center;
+	font-size:13px;
 	padding: 5px;
 }
 

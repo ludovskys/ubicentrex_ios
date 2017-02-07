@@ -676,10 +676,8 @@ cmessage.prototype.fdisplay_header=function(_target_hdr){
 		var tx="<a onClick='"+this.ref+".oparent.oparent.fnav();' class='menu_left'> </a>";
 		
 		tx+="<a id='"+this.pref+"ag_select' class='m_select m_select_messages' onClick=\""+this.ref+".fmsg_filtre(this);\">Non lus</a>";
-
-		//tx+="<a onClick=\""+this.ref+".fmsg_filtre(this);\" class='menu_right menu_right_bookmark'> </a>";
-		
 		tx+="<a onClick=\""+this.ref+".fnew_msg();\" class='menu_right menu_right_newmessage'> </a>";
+		
 		this.hhdr.innerHTML=tx;
 		this.target_hdr.appendChild(this.hhdr);
 		this.hag_select=document.getElementById(this.pref+"ag_select");

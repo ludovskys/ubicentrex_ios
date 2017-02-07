@@ -1295,12 +1295,15 @@ function map_show(url){
 }
 
 //checkbox==================================
-function checkbox(id,name,checked,txt){
+function checkbox(id,name,checked,txt,compl){
+	
+	if (!compl) compl = "";
+	
 	var tx="<div class='checkboxDiv'>";
 	if(txt)tx+=txt;
     tx+="<label class='switch'>";
 	if(checked==true)tx+="<input type='checkbox' id='"+id+"' name='"+name+"' checked/>";
-	else tx+="<input type='checkbox' id='"+id+"' name='"+name+"' />";
+	else tx+="<input type='checkbox' id='"+id+"' name='"+name+"' "+compl+" />";
 	tx+="<div class='slider round'></div></label></div>";
 	return tx;
 }
