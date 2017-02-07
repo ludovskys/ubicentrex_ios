@@ -184,7 +184,7 @@ cdialog.prototype.faddcontent=function(ht){
 			this.content.style.marginRight='30px';
 			this.content.style.backgroundColor='#fff';
 			this.content.className='pop transition big popup_center';
-			this.content.style.height=this.h+'px';
+			//this.content.style.height=this.h+'px';
 			//setTimeout(this.ref+".content.className ='pop transition big'",50);
 		break;
 		case "top":
@@ -340,7 +340,7 @@ function fconfirm(tx,func_ok,func_cancel,height){
 	if(!height)a["h"]=110;
 	else a["h"]=height;
 	a["content"]="<div style='position:relative;margin:10px;font-size:18px;padding-top:8px;'>"+tx+"</div>"+
-		"<div style='position:absolute;right:0px;bottom:0px;width:100%;font-size:20px;text-align:center;border-top:1px solid #ccc;'>" +
+		"<div style='position:relative;right:0px;bottom:0px;height:40px;width:100%;font-size:20px;text-align:center;border-top:1px solid #ccc;'>" +
 		"<div class='popup_button_cancel' onclick=\""+func_cancel+"fback_history();\">Annuler</div>"+
 		"<div class='popup_button_ok' onclick=\""+func_ok+";fback_history();\">Ok</div>" +
 		"</div>";
