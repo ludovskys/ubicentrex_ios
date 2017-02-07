@@ -515,3 +515,25 @@ function addDays(date, days) {
 function formatDate(d) {
     return [ d.getFullYear(), ("0" + (d.getMonth()+1)).slice(-2), ("0" + d.getDate()).slice(-2)].join('-')+' '+ [("0" + d.getHours()).slice(-2), ("0" + d.getMinutes()).slice(-2), ("0" + d.getSeconds()).slice(-2)].join(':');
 }
+
+function getClassMessage(amsg) {
+					
+	var res = "";
+					
+	if (typeof (amsg.ldroitsut) != "undefined") var adroitus = amsg.ldroitsut.split(',');
+	else adroitus = new Array();
+					
+	if (in_array(21, adroitus) && amsg.n_utilisateurs == amsg.n_crm_clients && amsg.n_utilisateurs != amsg.ndossier) { //msg interne centre d'appel
+		res = "messageTeleconsToTelecons"; // jaune
+	} else if (!in_array(4, adroitus) && in_array(26, adroitus) && amsg.n_crm_clients != amsg.ndossier && amsg.n_utilisateurs != amsg.ndossier) { //envoyé par une secretaire
+		res = "messageFromSec"; // vert
+	} else if (amsg.n_utilisateurs == amsg.n_crm_clients && amsg.n_utilisateurs == amsg.ndossier) { //du cli au centre d'appel (envoyé)
+		res = "messageMe"; // Blanc
+	} else if (amsg.n_utilisateurs == amsg.ndossier) { // du cli à un autre user (envoyé)
+		res = "messageMe"; // Blanc
+	} else {
+		res = "messageFromClient"; // Bleu
+	}
+					
+	return res;
+}

@@ -172,46 +172,41 @@ cmessage.prototype.fafficher_un_msg=function(amsg,where){
 		if(this.recu==0 && (amsg.n_crm_clients!=amsg.ndossier || amsg.n_crm_clients == amsg.n_utilisateurs))return false;
 		if(this.recu==1 && (amsg.n_crm_clients==amsg.ndossier && amsg.n_crm_clients != amsg.n_utilisateurs))return false;
 	}
+	
 	var dm=document.createElement("div");
 	dm.id=this.pref+amsg.n;
-	dm.style.cssText="width:100%;border-bottom:2px solid white;";
+	dm.style.cssText="width:100%;border-bottom:1px solid lightgray;";
 	var reg = new RegExp("[: -]", "g");
     var reg1 = new RegExp("\n", "g");
     var reg2 = new RegExp("[|]", "g");
-    // couleur du fond en fonction du type d'emetteur
-    if (typeof (amsg.ldroitsut) != "undefined") var adroitus = amsg.ldroitsut.split(',');
-    else adroitus = new Array();
-    var txt = "<table onClick='"+this.ref+".fshow_detail_msg("+amsg.n+")' style='width:100%;";
-    if (!in_array(4, adroitus) && in_array(26, adroitus) && amsg.n_crm_clients != user.n) {
-        //secretaire : vert
-        txt += "background-color:#a0ee7d;";
-    }else if (in_array(21, adroitus) && amsg.n_utilisateurs == amsg.n_crm_clients) {
-        //teleconseiller au téléconseiller : jaune
-        txt += "background-color:#ffe659;";
-    }else if (amsg.n_utilisateurs == amsg.n_crm_clients ) {
-        //client : bleu
-    	txt += "background-color:#f2f2f2;";
-    } else {
-        //mes messages : blanc
-        txt += "background-color:#b5c6e8;";
-    }
+
+	var tableClassNames = "tableMessage ";
+	
+    var txt = "<table onClick='"+this.ref+".fshow_detail_msg("+amsg.n+")'";
+	
+	if (typeof (amsg.ldroitsut) != "undefined") var adroitus = amsg.ldroitsut.split(',');
+	else adroitus = new Array();
+	
+	var tdMessageObjetClassNames = getClassMessage(amsg);
+		
     // changer les statuts: suprimé,lu et traité
-    if (amsg.old * 1 == 1) txt += "color:#636363;text-decoration:line-through;";
+    if (amsg.old * 1 == 1) tableClassNames += " messageOld";
     // else if (amsg.trait * 1 == 1 && in_array(21, user_droits)) txt +=
 	// "color:#636363;";
-    else if (amsg.lu * 1 == 1) txt += "color:#777;";
-    else txt += "color:black;";
-    txt += "font-size:13px;'>";
+    else if (amsg.lu * 1 == 1) tableClassNames += " messageRead";
+    else tableClassNames += " messageDefault";
+	
+    txt += " class='"+tableClassNames+"'>";
 
     // objet==============
-    txt += "<tr><td colspan='2' style='text-align:left;font-weight:bold;'>";
+    txt += "<tr><td colspan='2' class='tdMessageObjet "+tdMessageObjetClassNames+"'>";
     if (+amsg.important == 1) txt += "<font style='color:red;'>!</font> ";
-    txt += "<img src='img/"+(amsg.lu==0 ? "email.png" : "email_open.png")+"' height=15 width=15 /> "+(amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "")+amsg.objet;
+    txt += (amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "")+amsg.objet;
     txt += "</td></tr>";
 
 
     // info du contact====
-    txt += "<tr><td style='font-size:12px;width:60%;'>";
+    txt += "<tr><td class='tdMessageInfosContact'>";
     if (amsg.lco) {
         if (amsg.co_dte_naissance && amsg.co_dte_naissance!='') txt += "Né(e) le " + mytodfr(amsg.co_dte_naissance) + "<br>";
         if (amsg.co_mail1) txt += "Email : " + amsg.co_mail1 + "<br>";
@@ -241,17 +236,17 @@ cmessage.prototype.fafficher_un_msg=function(amsg,where){
            recepteur += afficher_txt(amsg.cli_nom_usuel);
         }
     }
-    txt += "<td style='text-align:right;font-size:11px;'>";
+    txt += "<td class='tdMessageEmetteurRecepteur'>";
     var ardc = amsg.date_creation.split(reg);
     txt += "Le " + ardc[2] + "/" + ardc[1] + "/" + ardc[0] + " à " + ardc[3] + "H" + ardc[4]+"<br />";
-    if(amsg.n_utilisateurs==this.ncli)txt += "À " + recepteur;
-    else txt += "De " + emetteur;
+    if(amsg.n_utilisateurs==this.ncli)txt += "À " + "<b>" + recepteur + "</b>";
+    else txt += "De " + "<b>" + emetteur+ "</b>";
     txt += "</td>";
     txt + "</tr>";
 
     //contenue message===============
     var ar_ctn = amsg.txt.split(reg2);
-    txt += "<tr><td colspan='2' style='font-style:italic;'>"+br2nl(ar_ctn[0]).substr(0,55)+"...</td></tr>";
+    txt += "<tr><td colspan='2' class='tdMessageContent'>"+br2nl(ar_ctn[0]).substr(0,55)+"...</td></tr>";
 
     txt += "</table>";
     
@@ -297,18 +292,20 @@ cmessage.prototype.fshow_detail_msg=function(n){
         //mes messages : blanc
     	var bkg="#b5c6e8;";
     }
+	
+	var tdMessageObjetClassNames = getClassMessage(amsg);
 
-	a["content"] = "<table style='font-size:13px;width:100%; height:100%; background-color:"+bkg+";'>";
+	a["content"] = "<table class='tableMessage'>";
     // objet==============
-	a["content"] += "<tr style='height:18px;'><td colspan='2' style='font-weight:bold;'>";
+	a["content"] += "<tr style='height:18px;'><td colspan='2' class='tdMessageObjet "+tdMessageObjetClassNames+"'>";
     if (+amsg.important == 1) a["content"] += "<font style='color:red;'>!</font> ";
-    a["content"] += "<img src='img/email_open.png' height=15 width=15/> "+(amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "") + amsg.objet;
+    a["content"] += (amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "") + amsg.objet;
     a["content"] += "</td></tr>";
 
     a["content"] += "<tr style='height:30px;'>";
     // info du contact======
     if (amsg.lco) {
-    	a["content"] += "<td style='width:60%;'>";
+    	a["content"] += "<td class='tdMessageInfosContact'>";
         var tt = "";
         if (amsg.co_dte_naissance && amsg.co_dte_naissance!='') tt += "Né(e) le " + mytodfr(amsg.co_dte_naissance) + "<br/>";
         if (amsg.co_mail1) tt += "Email : <a href=mailto:"+amsg.co_mail1+">" + amsg.co_mail1 + "</a> <br/>";
@@ -335,17 +332,17 @@ cmessage.prototype.fshow_detail_msg=function(n){
            recepteur += afficher_txt(amsg.cli_nom_usuel);
         }
 
-        a["content"] += "<td style='text-align:right;font-size:12px;width:45%;'>";
+        a["content"] += "<td class='tdMessageEmetteurRecepteur'>";
         var ardc = amsg.date_creation.split(reg);
         a["content"] += "Le " + ardc[2] + "/" + ardc[1] + "/" + ardc[0] + " à " + ardc[3] + "H" + ardc[4]+"<br />";
-        if(amsg.n_utilisateurs==this.ncli)a["content"] += "A " + recepteur;
-        else a["content"] += "De " + emetteur;
+        if(amsg.n_utilisateurs==this.ncli)a["content"] += "A " + "<b>"+ recepteur + "</b>";
+        else a["content"] += "De " +  "<b>" + emetteur + "</b>";
         a["content"] += "</td>";
     }
     a["content"] + "</tr>";
 
     // txt
-    a["content"] += "<tr><td colspan='2'><div style='font-size:15px;background:#fff;width:100%;height:100%;font-size:15px;overflow:scroll;-webkit-overflow-scrolling:touch;'>";
+    a["content"] += "<tr><td colspan='2'><div class='divMessageContentFull'>";
     var ar_ctn = amsg.txt.split(reg2);
     if(amsg.lpj){
     	var uri = soapurl+"pages/docdisplay.php?nsoc0=" + (this.nsoc0==0 ? this.nsoc : this.nsoc0) + "&nsoc=" + this.nsoc + "&ndoc=" + amsg.lpj;
@@ -360,7 +357,7 @@ cmessage.prototype.fshow_detail_msg=function(n){
 }
 
 cmessage.prototype.fsupp_msg=function(){
-	fconfirm("Etes vous sûr de vouloir supprimer définitivement ce message?",this.ref+".fsupp_msg2()");
+	fconfirm("Êtes-vous sûr de vouloir supprimer définitivement ce message ?",this.ref+".fsupp_msg2()");
 }
 
 cmessage.prototype.fsupp_msg2=function(n){
@@ -449,7 +446,7 @@ cmessage.prototype.fscroll=function(e){
 }
 
 cmessage.prototype.ftouchstart=function(e){
-	this.hctn.className='bdiv scr';
+	this.hctn.className='bdiv scr divMessage';
 	this.hctn.style.WebkitTransform="translate3d(0,0,0)";
 	this.himg.style.WebkitTransform="rotate(0deg)";
 	if(this.hctn.scrollTop<=0)this.allow_refresh=true;
@@ -466,7 +463,7 @@ cmessage.prototype.ftouchmove=function(e){
 	this.movetop=(e.touches[0].pageY-this.offsetY)/4;
 	if(this.movetop<=0 || Math.abs(e.touches[0].pageY-this.offsetY)<=2*Math.abs(e.touches[0].pageX-this.offsetX)){
 		this.allow_refresh=false;
-		this.hctn.className='bdiv scr transition';
+		this.hctn.className='bdiv scr transition divMessage';
 		this.hctn.style.WebkitTransform="translate3d(0,0,0)";
 		this.himg.style.WebkitTransform="rotate(0deg)";
 		return false;
@@ -484,7 +481,7 @@ cmessage.prototype.ftouchmove=function(e){
 cmessage.prototype.ftouchend=function(e){
 	this.himg.style.display='none';
 	if(!this.allow_refresh)return false;
-	this.hctn.className='bdiv scr transition';
+	this.hctn.className='bdiv scr transition divMessage';
 	this.hctn.style.WebkitTransform="translate3d(0,0,0)";
 	this.himg.style.WebkitTransform="rotate(0deg)";
 	this.allow_refresh=false;
@@ -661,7 +658,7 @@ cmessage.prototype.fdisplay=function(_target_ctn){
 		this.hctn.setAttribute("ontouchstart",this.ref+".ftouchstart(event)");
 		this.hctn.setAttribute("ontouchmove",this.ref+".ftouchmove(event)");
 		this.hctn.setAttribute("ontouchend",this.ref+".ftouchend(event)");
-		this.hctn.className='bdiv scr';
+		this.hctn.className='bdiv scr divMessage';
 		this.target_ctn.appendChild(this.hctn);
 	}
 }

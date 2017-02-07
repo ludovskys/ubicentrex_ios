@@ -292,7 +292,7 @@ left:0;
 height:100%;
 width:100%;
 position:absolute;
-overflow:hidden;	
+overflow:hidden;
 }
 
 .bdivHeader {
@@ -1054,4 +1054,76 @@ bottom:0;
 	padding: 5px;
 }
 
+/* Messages */
+
+.divMessage {
+	background: #f1f1f0;
+}
+
+.tableMessage {
+	width:100%;
+	font-size:15px;
+}
+
+.messageFromSec {
+	background-color:#A8D27A;
+}
+
+.messageTeleconsToTelecons {
+	background-color:#FEE558;
+}
+
+.messageFromClient {
+	background-color:#C3E7EA;
+}
+
+.messageMe {
+	background-color:#FFFFFF;
+}
+
+.messageOld {
+	color:#636363;
+	text-decoration:line-through;
+}
+
+.messageRead {
+	color:#777;
+}
+
+.messageDefault {
+	color:black;
+}
+
+.tdMessageObjet {
+	text-align:left;
+	font-weight:bold;
+	padding: 5px;
+}
+
+.tdMessageInfosContact {
+	font-size:14px;
+	width:60%;
+	padding: 5px;
+}
+
+.tdMessageEmetteurRecepteur {
+	text-align:right;
+	font-size:12px;
+	padding: 5px;
+}
+
+.tdMessageContent {
+	font-style:italic;
+	padding: 5px;
+}
+
+.divMessageContentFull {
+	background:#fff;
+	width:100%;
+	height:100%;
+	font-size:15px;
+	overflow:scroll;
+	-webkit-overflow-scrolling:touch;
+	padding: 5px;
+}
 
