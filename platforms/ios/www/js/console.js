@@ -479,7 +479,7 @@ cconsole.prototype.fabout_app=function(){
 	var a=new Array();
 	a["header"]="<a onClick=\"fback_history();\" class='menu_left menu_left_back'> </a>";
 	a["header"]+="<div class='divTitle'>À propos</div>";
-	a["content"]="<div class='bdiv scr' style='text-align:center;'>Version de l'application : "+version_app_str+"</div>";
+	a["content"]="<div class='bdiv scr' style='text-align:center;'><div class='divVersion'>Version de l'application : "+version_app_str+"</div></div>";
 	this.config_page=fnew_page(a,"right");
 }
 
