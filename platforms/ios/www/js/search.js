@@ -104,7 +104,7 @@ csearch.prototype.fsearch_agenda_clb=function(r,rt,myobj){
 		var ardv=xmltag2array(xrdvs[i]);
 		tx+=myobj.fafficher_un_rdv(ardv);
 	}
-	if(!tx)tx="Pas de résultat trouvé.";
+	if(!tx)tx="Aucun résultat";
 	myobj.hres_rdv.innerHTML=tx;
 }
 
@@ -123,7 +123,7 @@ csearch.prototype.fsuccess_get_local_rdv_clb=function(myobj,p){
 		var ardv=p[i];
 		tx+=myobj.fafficher_un_rdv(ardv);
 	}
-	if(!tx)tx="Pas de résultat trouvé.";
+	if(!tx)tx="Aucun résultat trouvé.";
 	myobj.hres_rdv.innerHTML=tx;
 }
 
@@ -164,91 +164,15 @@ csearch.prototype.fsuccess_get_local_message_clb=function(myobj,p){
 		var ardv=p[i];
 		tx+=myobj.fafficher_un_msg(ardv);
 	}
-	if(!tx)tx="Pas de résultat trouvé.";
+	if(!tx)tx="Aucun résultat trouvé.";
 	myobj.hres_msg.innerHTML=tx;
 }
 
 
 csearch.prototype.fafficher_un_msg=function(amsg){
-	var reg = new RegExp("[: -]", "g");
-    var reg1 = new RegExp("\n", "g");
-    var reg2 = new RegExp("[|]", "g");
-    // couleur du fond en fonction du type d'emetteur
-    if (typeof (amsg.ldroitsut) != "undefined") var adroitus = amsg.ldroitsut.split(',');
-    else adroitus = new Array();
-    var txt = "<table style='width:100%;margin-top:1px;";
-    if (!in_array(4, adroitus) && in_array(26, adroitus) && amsg.n_crm_clients != this.ncli) {
-        // secretaire : vert
-        txt += "background-color:#a0ee7d;";
-    }else if (in_array(21, adroitus) && amsg.n_utilisateurs == amsg.n_crm_clients) {
-        // teleconseiller au téléconseiller : jaune
-        txt += "background-color:#ffe659;";
-    }else if (amsg.n_utilisateurs == amsg.n_crm_clients) {
-        // client : blanc
-    	txt += "background-color:#eee;";
-    } else {
-        // mes messages : bleu
-        txt += "background-color:#b5c6e8;";
-    }
-    // changer les statuts: suprimé,lu et traité
-    if (amsg.old * 1 == 1) txt += "color:#636363;text-decoration:line-through;";
-    // else if (amsg.trait * 1 == 1 && in_array(21, user_droits)) txt +=
-	// "color:#636363;";
-    else if (amsg.lu * 1 == 1) txt += "color:#777;";
-    else txt += "color:black;";
-    txt += "font-size:13px;'>";
+	
+	var txt = getHTMLFromMessage(amsg, "<table style='width:100%;margin-top:1px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(211, 211, 211);'");
 
-    // objet==============
-    txt += "<tr><td colspan='2' style='text-align:left;font-weight:bold;'>";
-    if (+amsg.important == 1) txt += "<font style='color:red;'>!</font> ";
-    txt += "<img src='img/"+(amsg.lu==0 ? "email.png" : "email_open.png")+"' height=15 width=15 /> "+(amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "")+amsg.objet;
-    txt += "</td></tr>";
-
-
-    // info du contact====
-    txt += "<tr><td style='font-size:12px;width:60%;'>";
-    if (amsg.lco) {
-        if (amsg.co_dte_naissance && amsg.co_dte_naissance!='') txt += "Né(e) le " + mytodfr(amsg.co_dte_naissance) + "<br>";
-        if (amsg.co_mail1) txt += "Email : " + amsg.co_mail1 + "<br>";
-        if (amsg.co_tel_mobile) txt += "Tél M. : " + ftel_lisible(amsg.co_tel_mobile) + "<br>";
-        if (amsg.co_tel_pri) txt += "Tél Pri : " + ftel_lisible(amsg.co_tel_pri) + "<br>";
-        if (amsg.co_tel_pro) txt += "Tél Prof : " + ftel_lisible(amsg.co_tel_pro) + "<br>";
-        if (amsg.co_tel_adsl) txt += "Tél Adsl : " + ftel_lisible(amsg.co_tel_adsl) + "<br>";
-        if (amsg.co_tel_autre){
-        	if(amsg.co_tel_autre_des) txt += amsg.co_tel_autre_des+" : ";
-        	txt += ftel_lisible(amsg.co_tel_autre) + "<br>";
-        }
-        if (amsg.emplacement) txt += "No. d'appelant : " + ftel_lisible(amsg.emplacement) + "<br>";
-
-    }
-    txt += "</td>";
-
-    // Emetteur/Récepteur messages clients
-    var emetteur = "";
-    var recepteur = "";
-    if (this.msg_gen != 1) {
-        emetteur += afficher_txt(amsg.ut_nom_usuel);
-        if(amsg.sous_tp<0 && amsg.lco){
-            recepteur += afficher_txt(amsg.co_nom_usuel);
-        }else if(amsg.n_crm_clients == amsg.n_utilisateurs) {
-            recepteur = "La permanence téléphonique";
-        } else {
-           recepteur += afficher_txt(amsg.cli_nom_usuel);
-        }
-    }
-    txt += "<td style='text-align:right;font-size:11px;'>";
-    var ardc = amsg.date_creation.split(reg);
-    txt += "Le " + ardc[2] + "/" + ardc[1] + "/" + ardc[0] + " à " + ardc[3] + "H" + ardc[4]+"<br />";
-    if(amsg.n_utilisateurs==this.ncli)txt += "À " + recepteur;
-    else txt += "De " + emetteur;
-    txt += "</td>";
-    txt + "</tr>";
-
-    //contenue message===============
-    var ar_ctn = amsg.txt.split(reg2);
-    txt += "<tr><td colspan='2' style='font-style:italic;'>"+ar_ctn[0]+"</td></tr>";
-
-    txt += "</table>";
     return txt;
 }
 
