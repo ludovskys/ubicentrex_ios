@@ -99,33 +99,6 @@ csv_channel.prototype.fdisplay=function(htable,ar,passe,agent){
 
 //fsetduration========================================
 csv_channel.prototype.fsetduration=function(){
-	if(!this.passe) this.timer = setTimeout(this.ref+'.fsetduration()',2000);
-	//duree de l'appel
-	if(!this.ar) return;
-	if(this.passe && this.ar.duration) this.duree=this.ar.duration;
-	else{
-		if(this.ar.duree*1!=this.dureinit || !this.dbeg){
-	  		this.dureinit=this.ar.duree*1;
-	  		this.dbeg=new Date();
-	  	}
-		var dnow=new Date();
-		this.duree=this.dureinit+Math.round((dnow.getTime()-this.dbeg.getTime())/1000);
-	}
-	this.hduree.innerHTML=sec2duration(this.duree);
-	//couleur en fonction de la duree
-	if(this.duree>180){
-		this.hduree.style.backgroundColor="red";
-	}else if(this.duree>120){
-		this.hduree.style.backgroundColor="orange";
-	}else if(this.duree>60){
-		this.hduree.style.backgroundColor="yellow";
-	}else{
-		this.hduree.style.backgroundColor="white";
-	}
-}
-
-//fsetduration========================================
-csv_channel.prototype.fsetduration=function(){
 	if(!this.passe) this.timer = setTimeout(this.ref+'.fsetduration()',5000);
 	//duree de l'appel
 	if(!this.ar) return;
@@ -402,8 +375,10 @@ csv_calls.prototype.fremplir=function(){
 	this.ogrp_select=new cselect(this.ref+".ogrp_select",this.pref+"grp_select",ar,"0",this.ref+".fonchage_grp");
 	
 	a["header"]+="<div class='divSv' style='width:"+(wwin-43)+"px;'>"+this.ogrp_select.fcreate("style='border:0;text-align:left;'")+"</div>";
+	
+	a["content"]="<p class='pWarning'><b>Attention, la supervision se met à jour toutes les 60 secondes</b></p>";
 
-	a["content"]="<table id='nb_appel' class='tableNbAppel'>";
+	a["content"]+="<table id='nb_appel' class='tableNbAppel'>";
 	a["content"]+="<tr><td>Appels traités aujourd'hui :</td><td style='text-align:right;' id='"+this.pref+"sv_titleleft'></td></tr>";
 	a["content"]+="<tr><td>Appels perdus :</td><td style='text-align:right;' id='"+this.pref+"sv_titleperdu'></td></tr>"
 	a["content"]+="<tr><td>Appels dissuadés :</td><td style='text-align:right;' id='"+this.pref+"sv_titledissuade'></td></tr>"
