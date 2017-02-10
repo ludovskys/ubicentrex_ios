@@ -1142,3 +1142,19 @@ bottom:0;
 	margin: 4px;
 }
 
+.supervisionTdGreen {
+	background-color : var(--color-supervision-green);
+}
+
+.supervisionTdYellow {
+	background-color : var(--color-supervision-yellow);
+}
+
+.supervisionTdRed {
+	background-color : var(--color-supervision-red);
+}
+
+.supervisionTdBlack {
+	background-color : var(--color-supervision-black);
+}
+

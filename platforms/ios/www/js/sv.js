@@ -270,22 +270,22 @@ csv_agent.prototype.fsetstat=function(nbap30min,nbtotapp,durapp30min,durstat){
 	if(txt) this.stattitre.innerHTML=txt;
 	//couleur
 	if(this.nbap30min<=30*this.durstat/60){
-		this.titre.style.backgroundColor='green';
+		this.titre.className='supervisionTdGreen';
 		this.titre.style.color='white';
 		this.stattitre.style.color='white';
 	}
 	else if(this.nbap30min<=60*this.durstat/60){
-		this.titre.style.backgroundColor='yellow';
+		this.titre.className='supervisionTdYellow';
 		this.titre.style.color='black';
 		this.stattitre.style.color='black';
 	}
 	else if(this.nbap30min<=70*this.durstat/60){
-		this.titre.style.backgroundColor='red';
+		this.titre.className='supervisionTdRed';
 		this.titre.style.color='black';
 		this.stattitre.style.color='black';
 	}
 	else {
-		this.titre.style.backgroundColor='black';
+		this.titre.className='supervisionTdBlack';
 		this.titre.style.color='white';
 		this.stattitre.style.color='white';
 	}
