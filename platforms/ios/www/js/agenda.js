@@ -31,7 +31,7 @@ function cagenda(_ref,_pref,_oparent){
 	if(!this.ag_duree_rdv_std)this.ag_duree_rdv_std=5;
 	
 	this.ag_nbjours=+this.oparent.ag_nbjours;
-	if(!this.ag_nbjours || this.ag_nbjours<3)this.ag_nbjours=6;
+    if(!this.ag_nbjours || this.ag_nbjours<3)this.ag_nbjours=7; // Par défaut, on affiche les 7 jours de la semaine
 }
 
 cagenda.prototype.finitial=function(){
