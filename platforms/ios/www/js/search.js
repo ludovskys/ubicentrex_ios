@@ -171,7 +171,7 @@ csearch.prototype.fsuccess_get_local_message_clb=function(myobj,p){
 
 csearch.prototype.fafficher_un_msg=function(amsg){
 	
-	var txt = getHTMLFromMessage(amsg, "<table style='width:100%;margin-top:1px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(211, 211, 211);'");
+	var txt = getHTMLFromMessage(amsg, "<table style='width:100%;margin-top:1px; border:1px solid gray;'");
 
     return txt;
 }
