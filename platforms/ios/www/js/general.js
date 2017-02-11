@@ -540,80 +540,92 @@ function getClassMessage(amsg) {
 
 function getHTMLFromMessage(amsg, tableHTML) {
 	
-					var reg = new RegExp("[: -]", "g");
-					var reg1 = new RegExp("\n", "g");
-					var reg2 = new RegExp("[|]", "g");
+    var reg = new RegExp("[: -]", "g");
+    var reg1 = new RegExp("\n", "g");
+    var reg2 = new RegExp("[|]", "g");
 					
-					var tableClassNames = "tableMessage ";
+    var tableClassNames = "tableMessage ";
 					
-					var txt = tableHTML;
+    var txt = tableHTML;
 					
-					if (typeof (amsg.ldroitsut) != "undefined") var adroitus = amsg.ldroitsut.split(',');
-					else adroitus = new Array();
+    if (typeof (amsg.ldroitsut) != "undefined") var adroitus = amsg.ldroitsut.split(',');
+    else adroitus = new Array();
 					
-					var tdMessageObjetClassNames = getClassMessage(amsg);
+    var tdMessageObjetClassNames = getClassMessage(amsg);
 					
-					// changer les statuts: suprimé,lu et traité
-					if (amsg.old * 1 == 1) tableClassNames += " messageOld";
-					// else if (amsg.trait * 1 == 1 && in_array(21, user_droits)) txt +=
-					// "color:#636363;";
-					else if (amsg.lu * 1 == 1) tableClassNames += " messageRead";
-					else tableClassNames += " messageDefault";
+    // changer les statuts: suprimé,lu et traité
+    if (amsg.old * 1 == 1) tableClassNames += " messageOld";
+    // else if (amsg.trait * 1 == 1 && in_array(21, user_droits)) txt +=
+    // "color:#636363;";
+    else if (amsg.lu * 1 == 1) tableClassNames += " messageRead";
+    else tableClassNames += " messageDefault";
 					
-					txt += " class='"+tableClassNames+"'>";
+    txt += " class='"+tableClassNames+"'>";
 					
-					// objet==============
-					txt += "<tr><td colspan='2' class='tdMessageObjet "+tdMessageObjetClassNames+"'>";
-					if (+amsg.important == 1) txt += "<font style='color:red;'>!</font> ";
-					txt += (amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "")+amsg.objet;
-					txt += "</td></tr>";
+    // objet==============
+    txt += "<tr><td colspan='2' class='tdMessageObjet "+tdMessageObjetClassNames+"'>";
+    if (+amsg.important == 1) txt += "<font style='color:red;'>!</font> ";
+    txt += (amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "")+amsg.objet;
+    txt += "</td></tr>";
 					
+    // info du contact====
+    txt += "<tr><td class='tdMessageInfosContact'>";
+                    
+    if (amsg.lco) {
+                    
+        if (amsg.co_dte_naissance && amsg.co_dte_naissance!='') txt += "Né(e) le " + mytodfr(amsg.co_dte_naissance) + "<br>";
+        if (amsg.co_mail1) txt += "Email : " + amsg.co_mail1 + "<br>";
+        if (amsg.co_tel_mobile) txt += "Tél M. : " + ftel_lisible(amsg.co_tel_mobile) + "<br>";
+        if (amsg.co_tel_pri) txt += "Tél Pri : " + ftel_lisible(amsg.co_tel_pri) + "<br>";
+        if (amsg.co_tel_pro) txt += "Tél Prof : " + ftel_lisible(amsg.co_tel_pro) + "<br>";
+        if (amsg.co_tel_adsl) txt += "Tél Adsl : " + ftel_lisible(amsg.co_tel_adsl) + "<br>";
+        if (amsg.co_tel_autre){
+            if(amsg.co_tel_autre_des) txt += amsg.co_tel_autre_des+" : ";
+            txt += ftel_lisible(amsg.co_tel_autre) + "<br>";
+        }
+                    
+        if (amsg.emplacement) txt += "No. d'appelant : " + ftel_lisible(amsg.emplacement) + "<br>";
 					
-					// info du contact====
-					txt += "<tr><td class='tdMessageInfosContact'>";
-					if (amsg.lco) {
-					if (amsg.co_dte_naissance && amsg.co_dte_naissance!='') txt += "Né(e) le " + mytodfr(amsg.co_dte_naissance) + "<br>";
-					if (amsg.co_mail1) txt += "Email : " + amsg.co_mail1 + "<br>";
-					if (amsg.co_tel_mobile) txt += "Tél M. : " + ftel_lisible(amsg.co_tel_mobile) + "<br>";
-					if (amsg.co_tel_pri) txt += "Tél Pri : " + ftel_lisible(amsg.co_tel_pri) + "<br>";
-					if (amsg.co_tel_pro) txt += "Tél Prof : " + ftel_lisible(amsg.co_tel_pro) + "<br>";
-					if (amsg.co_tel_adsl) txt += "Tél Adsl : " + ftel_lisible(amsg.co_tel_adsl) + "<br>";
-					if (amsg.co_tel_autre){
-					if(amsg.co_tel_autre_des) txt += amsg.co_tel_autre_des+" : ";
-					txt += ftel_lisible(amsg.co_tel_autre) + "<br>";
-					}
-					if (amsg.emplacement) txt += "No. d'appelant : " + ftel_lisible(amsg.emplacement) + "<br>";
+    }
+	
+    txt += "</td>";
 					
-					}
-					txt += "</td>";
+    // Emetteur/Récepteur messages clients
+    var emetteur = "";
+    var recepteur = "";
+                    
+    if (this.msg_gen != 1) {
+                    
+        emetteur += afficher_txt(amsg.ut_nom_usuel);
+        
+        if(amsg.sous_tp<0 && amsg.lco){
+            recepteur += afficher_txt(amsg.co_nom_usuel);
+        }else if(amsg.n_crm_clients == amsg.n_utilisateurs) {
+            recepteur = "La permanence téléphonique";
+        } else {
+            recepteur += afficher_txt(amsg.cli_nom_usuel);
+        }
+    }
+                    
+    txt += "<td class='tdMessageEmetteurRecepteur'>";
+    var ardc = amsg.date_creation.split(reg);
+    txt += "Le " + ardc[2] + "/" + ardc[1] + "/" + ardc[0] + " à " + ardc[3] + "H" + ardc[4]+"<br />";
+    if(amsg.n_utilisateurs==this.ncli)txt += "À " + "<b>" + recepteur + "</b>";
+    else txt += "De " + "<b>" + emetteur+ "</b>";
+    txt += "</td>";
+    txt + "</tr>";
+                
+    //contenue message===============
+    var ar_ctn = amsg.txt.split(reg2);
+                    
+    if (ar_ctn[0].length > 100) {
+        txt += "<tr><td colspan='2' class='tdMessageContent'>"+br2nl(ar_ctn[0]).substr(0,100)+"...</td></tr>";
+    } else {
+        txt += "<tr><td colspan='2' class='tdMessageContent'>"+br2nl(ar_ctn[0])+"</td></tr>";
+    }
 					
-					// Emetteur/Récepteur messages clients
-					var emetteur = "";
-					var recepteur = "";
-					if (this.msg_gen != 1) {
-					emetteur += afficher_txt(amsg.ut_nom_usuel);
-					if(amsg.sous_tp<0 && amsg.lco){
-					recepteur += afficher_txt(amsg.co_nom_usuel);
-					}else if(amsg.n_crm_clients == amsg.n_utilisateurs) {
-					recepteur = "La permanence téléphonique";
-					} else {
-					recepteur += afficher_txt(amsg.cli_nom_usuel);
-					}
-					}
-					txt += "<td class='tdMessageEmetteurRecepteur'>";
-					var ardc = amsg.date_creation.split(reg);
-					txt += "Le " + ardc[2] + "/" + ardc[1] + "/" + ardc[0] + " à " + ardc[3] + "H" + ardc[4]+"<br />";
-					if(amsg.n_utilisateurs==this.ncli)txt += "À " + "<b>" + recepteur + "</b>";
-					else txt += "De " + "<b>" + emetteur+ "</b>";
-					txt += "</td>";
-					txt + "</tr>";
+    txt += "</table>";
 					
-					//contenue message===============
-					var ar_ctn = amsg.txt.split(reg2);
-					txt += "<tr><td colspan='2' class='tdMessageContent'>"+br2nl(ar_ctn[0]).substr(0,55)+"...</td></tr>";
-					
-					txt += "</table>";
-					
-					return txt;
+    return txt;
 					
 }
