@@ -8,7 +8,7 @@
 /* #### iPhone 4+ Portrait or Landscape #### */
 @media screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
 	.divContentLogin {
-		background: url("../img/loading_image/loading_image_iphone4.png") no-repeat center center fixed;
+		background: url("../img/loading_image/loading_image_iphone4_retina.png") no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
