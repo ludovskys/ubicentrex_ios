@@ -175,7 +175,7 @@ cmessage.prototype.fafficher_un_msg=function(amsg,where){
 	
 	var dm=document.createElement("div");
 	dm.id=this.pref+amsg.n;
-	dm.style.cssText="border:1px solid gray;";
+	dm.style.cssText="border-bottom:1px solid lightgray;";
 
 	var txt = getHTMLFromMessage(amsg, "<table onClick='"+this.ref+".fshow_detail_msg("+amsg.n+")'");
     
