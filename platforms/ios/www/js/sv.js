@@ -419,7 +419,7 @@ csv_calls.prototype.fsurv=function(){
 		lastcheckidagent:this.lastcheckidagent,
 		lagent:this.lagent
 	}
-	soap.call(req, this.fsurv_clb, this, function(){console.log("souci connecxion")});
+	soap.call(req, this.fsurv_clb, this, function(){console.log("Erreur connexion")});
 	this.timer = setTimeout(this.ref+".fsurv()", this.toperiod);
 }
 
