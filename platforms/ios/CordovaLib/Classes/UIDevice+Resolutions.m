@@ -32,7 +32,14 @@
 	
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 	{
-		if (scale == 2.0f)
+		if (scale == 3.0f)
+		{
+			if (pixelHeight == 2208.0f)
+			{
+				resolution = UIDeviceResolution_iPhone6Plus;
+			}
+		}
+		else if (scale == 2.0f)
 		{
 			if (pixelHeight == 960.0f)
 			{
@@ -45,10 +52,6 @@
 			else if (pixelHeight == 1334.0f)
 			{
 				resolution = UIDeviceResolution_iPhone6;
-			}
-			else if (pixelHeight == 2208.0f)
-			{
-				resolution = UIDeviceResolution_iPhone6Plus;
 			}
 		}
 		else if (scale == 1.0f && pixelHeight == 480.0f)
