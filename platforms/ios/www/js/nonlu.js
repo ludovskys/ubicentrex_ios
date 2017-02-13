@@ -80,7 +80,7 @@ cnonlu.prototype.fremplir_nonlu_clb=function(r,rt,myobj){
 cnonlu.prototype.fafficher_un_nonlu=function(cat,ar,arold){//cat:msg-msg,c-creation rdv,m-deplace rdv,u-update rdv,d-suppr rdv
 	this.an.push(ar.n);
 	var tx='';
-	tx+="<table id='"+this.pref+ar.n+"' class='structure'>";
+	tx+="<table id='"+this.pref+ar.n+"' class='tableNonLu'>";
 
 	var ext='';
 	if(ar.nv_client==1)ext+="<span style='color:red;'>(N)</span>";
@@ -124,7 +124,7 @@ cnonlu.prototype.fafficher_un_nonlu=function(cat,ar,arold){//cat:msg-msg,c-creat
 	// checkbox(this.pref+"vad","vis",vis,"Visite à domicile")
 	tx+="<td class='trNonluCheckbox'>"+checkbox(this.pref+"vad","vis",false,"", "onClick='"+this.ref+".passer_lu("+ar.n+")'")+"</td></tr>";
 	//tx+="<td style='text-align:right;'><input type='checkbox' onClick='"+this.ref+".passer_lu("+ar.n+")' /></td></tr>";
-	tx+="<tr><td style='color:#888;font-size:14px;font-style:italic;' colspan='2'>"+ctn+"</td></tr>";
+	tx+="<tr><td class='tdNonLuContenu' colspan='2'>"+ctn+"</td></tr>";
 	
 	tx+="<table>";
 	return tx;

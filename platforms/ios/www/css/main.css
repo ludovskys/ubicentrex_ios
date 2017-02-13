@@ -1017,29 +1017,28 @@ bottom:0;
 
 /* Non lus */
 
-.structure {
-	border-bottom:2px solid white;
+.tableNonLu {
+	border-bottom:1px solid lightgray;
 	border-collapse:collapse;
 	width:100%;
-	background: lightgray;
 }
 
 .trNonluObjet {
-	padding: 5px;
+	padding: 7px;
 }
 
 .trNonluInfos {
 	font-size:13px;
-	padding: 5px;
+	padding: 6px;
 }
 
 .trNonluCheckbox {
 	text-align:right;
-	padding: 5px;
+	padding: 6px;
 }
 
 .titleNonlu {
-	background:#33CC66;
+	background:#d5d5d5;
 	margin:0;
 	text-align:center;
 	height:25px;
@@ -1051,6 +1050,13 @@ bottom:0;
 .titleNonLuNothing {
 	text-align:center;
 	font-size:13px;
+	padding: 5px;
+}
+
+.tdNonLuContenu {
+	color:#888;
+	font-size:14px;
+	font-style:italic;
 	padding: 5px;
 }
 
