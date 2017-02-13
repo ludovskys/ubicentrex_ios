@@ -602,14 +602,14 @@ background:#FFEBCD;
 .mensuel_jour_title{
 height:17px;
 line-height:17px;
-background:#222;
-color:#fff;
-font-size:16px;
+background:#d5d5d5;
+color:#000;
+font-size:17px;
 width:100%;
 -webkit-border-radius: 2px 2px 0px 0px;
 border-radius: 2px 2px 0px 0px;
-padding-bottom: 4px;
-padding-top: 4px;
+padding-bottom: 5px;
+padding-top: 5px;
 text-align: center;
 }
 
@@ -949,7 +949,7 @@ bottom:0;
 .divRdvMensuel {
 	text-align: center;
 	padding: 5px;
-	border: 1px solid black;
+	border: 1px solid lightgray;
 }
 
 .divAgent {
