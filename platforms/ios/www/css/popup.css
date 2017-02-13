@@ -177,6 +177,10 @@
 	border-bottom-left-radius: 3px;
 }
 
+.popup_picker {
+	height: 200px;
+}
+
 .popup_bottom {
 	position: absolute;
 	left: 0px;

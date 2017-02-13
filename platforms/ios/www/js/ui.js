@@ -507,7 +507,7 @@ ctime_picker.prototype.fshowbox=function(){
 	a["tp"]='dialog';
 	a["w"]=wwin-30;
 	a["h"]=220;
-	a["content"]="<div ontouchstart='"+this.ref+".ftouchstart(event)'>";
+	a["content"]="<div class='popup_picker' ontouchstart='"+this.ref+".ftouchstart(event)'>";
 	//a["content"]="<div onmousedown='"+this.ref+".ftouchstart(event)'>";
 	
 	switch(this.format){
@@ -527,6 +527,7 @@ ctime_picker.prototype.fshowbox=function(){
 	a["content"]+="<div style='position:absolute;right:0px;bottom:0px;width:100%;font-size:20px;text-align:center;border-top:1px solid #ccc;'>" +
 				  "<div onclick='fback_history();' style='height:"+this.lheight+"px;line-height:"+this.lheight+"px;width:50%;color:red;position:relative;float:left;border-right:1px solid #ccc'>Annuler</div>"+
 				  "<div onclick='"+this.ref+".fset_value();fback_history();' style='height:"+this.lheight+"px;line-height:"+this.lheight+"px;width:49%;color:blue;position:relative;float:right;'>Ok</div></div>";
+	
 	this.timepicker_dialog=fnew_page(a);
 	this.timepicker_dialog.content.style.backgroundColor='#fff';
 	this.timepicker_dialog.container.setAttribute('ontouchend',this.ref+".ftouchend(event)");
