@@ -198,7 +198,7 @@ ccontact.prototype.fafficher_un_contact=function(acontact){
 	var dc=document.createElement("table");
 	dc.id=id;
 	dc.setAttribute('onClick',this.ref+".fshow_detail_contact("+acontact.n+")");
-	dc.style.cssText="position:relative;top:0;left:0;width:100%;border-bottom:1px solid #e5e5e5;";
+	dc.style.cssText="position:relative;top:0;left:0;width:100%;border-bottom:1px solid #e5e5e5;min-height: 50px;";
 	var imbcg="img/user.png";
 	if(acontact.civilite=='Mlle' || acontact.civilite=='Mme')imbcg="img/user_woman.png";
 	var tx="<tr><td style='font-weight:bold;overflow:hidden;max-width:"+(wwin-100)+"px;'>"+acontact.nom_usuel+"</td></tr>";
