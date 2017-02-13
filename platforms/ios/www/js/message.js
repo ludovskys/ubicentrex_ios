@@ -228,7 +228,8 @@ cmessage.prototype.fshow_detail_msg=function(n){
     // objet==============
 	a["content"] += "<tr style='height:18px;'><td colspan='2' class='tdMessageObjet "+tdMessageObjetClassNames+"'>";
     if (+amsg.important == 1) a["content"] += "<font style='color:red;'>!</font> ";
-    a["content"] += (amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "") + amsg.objet;
+	a["content"] += (amsg.msg_cat != "" ? "<b>" + amsg.msg_cat.toUpperCase() + "</b>&nbsp;" : "");
+	a["content"] += (amsg.objet != "" ? "<i>Objet : " + amsg.objet + "</i>" : "");
     a["content"] += "</td></tr>";
 
     a["content"] += "<tr style='height:30px;'>";

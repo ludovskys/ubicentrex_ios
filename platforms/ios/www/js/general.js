@@ -565,7 +565,8 @@ function getHTMLFromMessage(amsg, tableHTML) {
     // objet==============
     txt += "<tr><td colspan='2' class='tdMessageObjet "+tdMessageObjetClassNames+"'>";
     if (+amsg.important == 1) txt += "<font style='color:red;'>!</font> ";
-    txt += (amsg.msg_cat != "" ? "<u>" + amsg.msg_cat + "</u>&nbsp;" : "")+amsg.objet;
+	txt += (amsg.msg_cat != "" ? "<b>" + amsg.msg_cat.toUpperCase() + "</b>&nbsp;" : "");
+    txt += (amsg.objet != "" ? "<i>Objet : " + amsg.objet + "</i>" : "");
     txt += "</td></tr>";
 					
     // info du contact====
