@@ -4,7 +4,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "SplashScreen-1242x2208-with-logo.png",
+      "filename" : "loading_image_iphone6plus.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -21,7 +21,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "SplashScreen-640x960-with-logo.png",
+      "filename" : "SplashScreen-640x960-with-logo-2.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -38,7 +38,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "SplashScreen-320x480-with-logo.png",
+      "filename" : "loading_image_iphone4.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
@@ -60,14 +60,14 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "SplashScreen-768x1024-with-logo.png",
+      "filename" : "loading_image_ipad.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "SplashScreen-1536x2048-with-logo.png",
+      "filename" : "loading_image_ipadretina.png",
       "extent" : "full-screen",
       "scale" : "2x"
     }
