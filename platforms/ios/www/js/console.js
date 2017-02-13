@@ -487,9 +487,7 @@ cconsole.prototype.flogin_page=function(){
 	var a=new Array();
     
 	a["content"]="<div class='divContentLogin'><table class='tableLogin'>";
-    
-    //a["content"]+="<img id='imgLogoUbi'>";
-    
+	
 	a["content"]+="<tr class='trTableLogin'><td><div class='divInputLogin'>"+inputElement(this.pref+"username","","class='inputLogin' placeholder='Identifiant'","","text")+"</div></td></tr>";
 	a["content"]+="<tr class='trTableLogin'><td><div class='divInputLogin'>"+inputElement(this.pref+"pwd","","class='inputLogin' placeholder='Mot de passe'","","password")+"</div></td></tr>";
 	a["content"]+="<tr class='trTableLogin'><td><br/><div class='divButtonLogin'>"+inputElement(this.pref+"buttonLogin","","onClick='"+this.ref+".flogin()'","SE CONNECTER", "button")+"</div></td></tr>";
@@ -497,24 +495,6 @@ cconsole.prototype.flogin_page=function(){
     a["content"]+="</table></div>";
     
 	this.login_page=fnew_page(a,'');
-    
-    //moveImgLogoUbi();
-}
-
-function moveImgLogoUbi() {
-    var elem = document.getElementById("imgLogoUbi");
-    var pos = 0;
-    var id = setInterval(frame, 5);
-    
-    function frame() {
-        
-        if (pos == -25) {
-            clearInterval(id);
-        } else {
-            pos = pos - 0.25;
-            elem.style.top = 40 + pos + '%';
-        }
-    }
 }
 
 cconsole.prototype.fnav=function(){
