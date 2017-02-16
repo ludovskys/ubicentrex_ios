@@ -1,6 +1,6 @@
 /* CSS Menu Login */
 .divContentMenu {
-	background-color: var(--color-background-menu);
+	background-color: #205070;
 	width: 100%;
 	height: 100%;
 }
@@ -28,15 +28,15 @@
 	text-align: center;
 	
 	/*
-	position:absolute;
-	top:8px;
-	right:20%;
-	height:40px;
-	line-height:40px;
-	width:67%;
-	Z-index:0;
-	white-space:nowrap;
-	overflow:hidden;
+	 position:absolute;
+	 top:8px;
+	 right:20%;
+	 height:40px;
+	 line-height:40px;
+	 width:67%;
+	 Z-index:0;
+	 white-space:nowrap;
+	 overflow:hidden;
 	 */
 }
 
@@ -54,8 +54,8 @@
 	padding-top: 5px;
 	padding-bottom: 5px;
 	font-size:16px;
-	background-color: var(--color-background-title-menu);
-	color: var(--color-titleorplaceholder-text);
+	background-color: #123346;
+	color: #4ba9c7;
 }
 
 .ulMenu{
@@ -67,12 +67,12 @@
 	width:100%;
 	left:0px;
 	bottom:0px;
-	background-color: var(--color-background-menu);
+	background-color: #205070;
 	overflow-y:scroll;
 }
 
 .ulMenu li{
-	border-bottom: 1px solid var(--color-separator-menu);
+	border-bottom: 1px solid #47697b;
 	-webkit-tap-highlight-color: transparent;
 	background-repeat: no-repeat;
 	background-position: 6px center;
@@ -105,7 +105,7 @@
 }
 
 .liMenu:active {
-	color: var(--color-li-touchstart);
+	color: #da328a;
 }
 
 

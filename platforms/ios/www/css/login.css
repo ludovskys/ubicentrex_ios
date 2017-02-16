@@ -83,7 +83,7 @@ and (max-device-width : 1024px)  {
 }
 
 .inputLogin {
-	color: var(--color-background-splashscreen);
+	color: #4ba9c7;
 	width: 90%;
 	font-size : 13px;
 	border: none;
@@ -91,7 +91,7 @@ and (max-device-width : 1024px)  {
 
 /* do not group these rules */
 *.inputLogin::-webkit-input-placeholder {
-	color: var(--color-titleorplaceholder-text);
+	color: #4ba9c7;
 }
 
 #consolebuttonLogin {
@@ -115,7 +115,7 @@ and (max-device-width : 1024px)  {
 }
 
 .divButtonLogin {
-	background: var(--color-background-menu);
+	background: #205070;
 	border-radius: 3px;
 	padding-top: 8px;
 	padding-bottom: 8px;

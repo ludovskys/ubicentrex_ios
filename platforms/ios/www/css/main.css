@@ -998,7 +998,7 @@ bottom:0;
 
 .header_consigne {
     border:0;
-    background: var(--color-consigne);
+    background: #eae672;
     text-align:center;
     display:none;
     height:35px;
@@ -1147,18 +1147,18 @@ bottom:0;
 }
 
 .supervisionTdGreen {
-	background-color : var(--color-supervision-green);
+	background-color : #2ecc71;
 }
 
 .supervisionTdYellow {
-	background-color : var(--color-supervision-yellow);
+	background-color : #ffff66;
 }
 
 .supervisionTdRed {
-	background-color : var(--color-supervision-red);
+	background-color : red;
 }
 
 .supervisionTdBlack {
-	background-color : var(--color-supervision-black);
+	background-color : black;
 }
 

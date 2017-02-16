@@ -137,7 +137,7 @@
 }
 
 .popup_rdv .menu_left_edit_popup {
-    left:70px;
+	left:70px;
 }
 
 .popup_rdv .menu_left_fav_popup_rdv {
@@ -160,8 +160,8 @@
 }
 
 .popup_consigne_save {
-    background:url('../img/popup/icon-Save.png') no-repeat center center;
-    background-size:22px auto;
+	background:url('../img/popup/icon-Save.png') no-repeat center center;
+	background-size:22px auto;
 }
 
 .popup_center {
