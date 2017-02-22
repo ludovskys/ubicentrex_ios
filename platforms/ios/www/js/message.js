@@ -265,7 +265,7 @@ cmessage.prototype.fshow_detail_msg=function(n){
         a["content"] += "<td class='tdMessageEmetteurRecepteur'>";
         var ardc = amsg.date_creation.split(reg);
         a["content"] += "Le " + ardc[2] + "/" + ardc[1] + "/" + ardc[0] + " à " + ardc[3] + "H" + ardc[4]+"<br />";
-        if(amsg.n_utilisateurs==this.ncli)a["content"] += "A " + "<b>"+ recepteur + "</b>";
+        if(amsg.n_utilisateurs==this.ncli)a["content"] += "À " + "<b>"+ recepteur + "</b>";
         else a["content"] += "De " +  "<b>" + emetteur + "</b>";
         a["content"] += "</td>";
     }
