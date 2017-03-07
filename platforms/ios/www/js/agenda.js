@@ -378,8 +378,9 @@ cagenda.prototype.fopen_consigne=function(ddeb,n_action_orig){
 	tx+="<a class='menu_left_popup popup_consigne_save' onClick=\""+this.ref+".fsave_consigne('"+ddeb+"');\"> </a>";
 	tx+="<a class='menu_right_popup popup_consigne_close' onClick=\"fback_history();\"> </a>";
 	tx+="</div>"
+	
 	tx+="<div id='"+this.pref+"ctn_consigne' class='divConsigne' contenteditable='true' " +
-		"style='height:"+(hwin*0.6-40)+"px;'><div>"+ardv.txt+"</div></div>";
+		"style='height:"+(hwin*0.6-40)+"px;'>"+ardv.txt+"</div>";
 	tx+="</div>";
 	a["content"]=tx;
 	fnew_page(a);
@@ -388,6 +389,14 @@ cagenda.prototype.fopen_consigne=function(ddeb,n_action_orig){
 cagenda.prototype.fsave_consigne=function(ddeb){
 	var hcons=document.getElementById(this.pref+"ctn_consigne");
 	if(!hcons)return;
+	
+	var txtConsigne = hcons.innerHTML;
+	
+	txtConsigne = txtConsigne.replace(/<div>/g, " ");
+	txtConsigne = txtConsigne.replace(/<\/div>/g, " ");
+	txtConsigne = txtConsigne.replace(/<br>/g, " ");
+	txtConsigne = txtConsigne.replace(/<\/br>/g, " ");
+	
 	var hnwk=soap.has_network();
 	if(!hnwk){
 		ftoast("Vous n'êtes pas connecté à Internet.");
@@ -401,7 +410,7 @@ cagenda.prototype.fsave_consigne=function(ddeb){
 			n_client: this.ncli,
 			n_utilisateur: user.n,
 			nsociete:user.nsoc,
-			txt:jQuery(hcons.innerHTML).text()
+			txt:txtConsigne
 		};
 	soap.call(req,this.fmaj_affichage,this);
 	setTimeout("fback_history('')",400);
@@ -997,7 +1006,13 @@ cday.prototype.fafficher_un_rdv=function(ardv,tbd){
 			}else{
 				var txcon=ardv["txt"];
 				if(txcon.length>120)txcon=txcon.substr(0,120)+"...";
-				hcons.innerHTML=txcon;
+				
+				if (txcon.indexOf("<div>") > -1) {
+					hcons.innerHTML="Afficher la consigne";
+				} else {
+					hcons.innerHTML=txcon;
+				}
+				
 				hcons.style.display='';
 				hcons.setAttribute('onClick',this.oparent.ref+".fopen_consigne('"+ardv.ddeb+"',"+ardv.n_action_orig+")");
 			}
