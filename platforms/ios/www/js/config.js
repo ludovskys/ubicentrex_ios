@@ -7,5 +7,5 @@ var soapurl="http://mobile.ubicentrex.net/";
 var debug=false;
 
 //si app version=2.0.3 mettre 203, il faut qu'ici soit la meme dans config global
-var version_app=222;
-var version_app_str="2.2.2";
+var version_app=223;
+var version_app_str="2.2.3";
