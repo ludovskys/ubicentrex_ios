@@ -873,7 +873,13 @@ cselectajax.prototype.fsuccess_get_local_clb=function(myobj,p){
 cselectajax.prototype.fset_values=function(aval){
 	if(this.fclick_item)eval(this.fclick_item+"(aval)");
 	for(var i in this.outputs){
-		document.getElementById(this.outputs[i]).value=aval[i];
+		if (this.outputs[i].indexOf("emplacement") > -1) {
+			// Si le champ est le numéro de téléphone, il faut enlever les espaces pour que la valeur soit acceptée
+			aval[i] = aval[i].replace(/ /g, "");
+			document.getElementById(this.outputs[i]).value = aval[i];
+		} else {
+			document.getElementById(this.outputs[i]).value=aval[i];
+		}
 	}
 }
 
