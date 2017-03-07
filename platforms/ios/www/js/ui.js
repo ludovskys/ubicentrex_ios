@@ -512,9 +512,9 @@ ctime_picker.prototype.fshowbox=function(){
 	
 	switch(this.format){
 	case "time":
-		a["content"]+="<div id='"+this.pref+"hour' onselectstart='return false' class='pic picHours' style='height:"+this.lheight*3+"px;width:47%;'></div>";
+		a["content"]+="<div id='"+this.pref+"hour' onselectstart='return false' class='pic picHours' style='height:"+this.lheight*3+"px;width:46%;'></div>";
 		a["content"]+="<div onselectstart='return false' class='pic' style='pointer-events:none;text-align:center;font-size:20px;height:"+this.lheight*3+"px;line-height:"+this.lheight*3+"px;'>:</div>";
-		a["content"]+="<div id='"+this.pref+"minute' onselectstart='return false' class='pic picHours' style='height:"+this.lheight*3+"px;width:47%;'></div>";
+		a["content"]+="<div id='"+this.pref+"minute' onselectstart='return false' class='pic picHours' style='height:"+this.lheight*3+"px;width:46%;'></div>";
 		break;
 	case "day":
 		a["content"]+="<div id='"+this.pref+"day' onselectstart='return false' class='pic picDays' style='height:"+this.lheight*3+"px;width:"+(wwin/3-30)+"px;'></div> ";
