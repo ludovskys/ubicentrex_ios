@@ -423,7 +423,7 @@ cagenda.prototype.fshow_detail_rdv=function(ddeb,n_action_orig){
 	if(!this.ardvs[idt] || !this.ardvs[idt][n_action_orig])return;
 	var ardv=this.ardvs[idt][n_action_orig];
 	
-	if(ardv["sous_tp"]==1 && user.n!=this.ncli){
+	if((ardv["sous_tp"]==1 && user.n!=this.ncli) || (droit(160) && user.n!=ardv["n_utilisateurs"])){
 		ftoast("Rendez-vous privé d'une autre personne, vous ne pouvez pas le visualiser...",5000);
 		return;
 	}
@@ -1142,7 +1142,7 @@ cday.prototype.fafficher_un_rdv=function(ardv,tbd){
 		drdv.innerHTML=txrdv+(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span> " : "")+
 					   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
 					   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
-					   ((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ardv["objet"]);
+					   (((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) || (droit(160) && user.n!=ardv["n_utilisateurs"])) ? "Privé" : ardv["objet"]);
         
         // Si le rdv fait plus de 60 min, on affiche la description du rdv
         if (dureeMin >= 60) {
@@ -1603,7 +1603,7 @@ cweek.prototype.fafficher_un_rdv=function(ardv,tbw){
 		wrdv.innerHTML=txrdv+(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span> " : "")+
 					   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
 					   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
-					   ((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ardv["objet"]);
+					   (((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) || (droit(160) && user.n!=ardv["n_utilisateurs"])) ? "Privé" : ardv["objet"]);
 		wrdv.id="wrdv_"+ardv["n_action_orig"];
 		wrdv.style.height=(nbrl*this.lheight+nbrl-2)+"px";
 		wrdv.style.top=top+"px";
@@ -1934,7 +1934,7 @@ cmensuel.prototype.fshow_rdvs_jour=function(obj){
 			txtRdv += (ar[i]["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span> " : "")+
 				(ar[i]["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
 				(ar[i]["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
-				((ar[i]["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ar[i]["objet"]);
+				(((ar[i]["sous_tp"]==1 && user.n!=this.oparent.ncli) || (droit(160) && user.n!=ar[i]["n_utilisateurs"])) ? "Privé" : ar[i]["objet"]);
 			
 			divRdvMensuel.innerHTML += "<p>"+txtRdv+"</p>";
 			
@@ -1999,7 +1999,7 @@ cmensuel.prototype.fafficher_un_rdv=function(ardv,tbm){
 	mrdv.innerHTML=(ardv["nv_client"]==1 ? "<span style='color:#A00000;'>(N)</span> " : "")+
 				   (ardv["vis"]==1 ? "<span style='color:#FF6633;'>(V)</span> " : "")+
 				   (ardv["webag"]==1 ? "<span style='color:#336600;'>(W)</span> " : "")+
-				   ((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) ? "Privé" : ardv["objet"]);
+				   (((ardv["sous_tp"]==1 && user.n!=this.oparent.ncli) || (droit(160) && user.n!=ardv["n_utilisateurs"])) ? "Privé" : ardv["objet"]);
 	mrdv.className="rdv_mensuel";
 	var hre_rdv=(+adt[3])*60+(+adt[4]);
 	mrdv.setAttribute("hre_rdv",hre_rdv);
